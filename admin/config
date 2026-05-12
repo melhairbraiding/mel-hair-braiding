@@ -1,0 +1,108 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+site_url: "https://melhairbraiding.com"
+display_url: "https://melhairbraiding.com"
+logo_url: "https://melhairbraiding.com/favicon.ico"
+
+collections:
+  - name: "site"
+    label: "Website Content"
+    files:
+      - name: "homepage"
+        label: "Homepage"
+        file: "content/site.json"
+        format: "json"
+        fields:
+          - { label: "Website Name", name: "siteName", widget: "string" }
+          - { label: "Logo Initials", name: "brandMark", widget: "string" }
+          - { label: "Search Description", name: "description", widget: "text" }
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Small Heading", name: "eyebrow", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Paragraph", name: "copy", widget: "text" }
+              - { label: "Primary Button", name: "primaryButton", widget: "string" }
+              - { label: "Secondary Button", name: "secondaryButton", widget: "string" }
+              - { label: "Background Image", name: "backgroundImage", widget: "image", required: false }
+              - label: "Highlights"
+                name: "highlights"
+                widget: "list"
+                min: 1
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Text", name: "text", widget: "string" }
+          - label: "Intro"
+            name: "intro"
+            widget: "object"
+            fields:
+              - { label: "Small Heading", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Paragraph", name: "copy", widget: "text" }
+          - label: "Services Heading"
+            name: "servicesSection"
+            widget: "object"
+            fields:
+              - { label: "Small Heading", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            summary: "{{fields.name}} - {{fields.price}}"
+            fields:
+              - { label: "Initials", name: "initials", widget: "string" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Duration", name: "duration", widget: "string" }
+              - { label: "Price", name: "price", widget: "string" }
+              - { label: "Featured Color", name: "featured", widget: "boolean", default: false, required: false }
+          - label: "Gallery"
+            name: "gallery"
+            widget: "object"
+            fields:
+              - { label: "Small Heading", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Main Image", name: "primaryImage", widget: "image", required: false }
+              - { label: "Main Image Description", name: "primaryAlt", widget: "string" }
+              - { label: "Caption", name: "caption", widget: "string" }
+              - { label: "Second Image", name: "secondaryImage", widget: "image", required: false }
+              - { label: "Second Image Description", name: "secondaryAlt", widget: "string" }
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Quote Author", name: "quoteAuthor", widget: "string" }
+          - label: "Hair Care"
+            name: "care"
+            widget: "object"
+            fields:
+              - { label: "Small Heading", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Paragraph", name: "copy", widget: "text" }
+              - label: "Tips"
+                name: "tips"
+                widget: "list"
+                field: { label: "Tip", name: "tip", widget: "string" }
+          - label: "Booking"
+            name: "booking"
+            widget: "object"
+            fields:
+              - { label: "Small Heading", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Paragraph", name: "copy", widget: "text" }
+              - { label: "Button Text", name: "button", widget: "string" }
+              - { label: "Success Message", name: "successMessage", widget: "string" }
+              - { label: "Preview Message", name: "localMessage", widget: "string" }
+              - { label: "Phone Display", name: "phoneDisplay", widget: "string" }
+              - { label: "Phone Link", name: "phoneHref", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "Footer Text", name: "copy", widget: "text" }
+              - { label: "Photo Credit", name: "credit", widget: "text" }
