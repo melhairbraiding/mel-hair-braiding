@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Gallery — Mel Hair Braiding</title>
+  <link rel="stylesheet" href="../assets/css/global.css"/>
+  <style>
+    .filter-bar{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:2.5rem}
+    .filter-btn{padding:.5rem 1.4rem;border:1.5px solid var(--border);border-radius:2px;background:#fff;font-family:'Jost',sans-serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s;color:var(--text-muted)}
+    .filter-btn:hover,.filter-btn.active{background:var(--clay);border-color:var(--clay);color:#fff}
+    .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+    .gallery-item{position:relative;overflow:hidden;border-radius:3px;cursor:pointer;background:var(--sand)}
+    .gallery-item img{width:100%;height:280px;object-fit:cover;transition:transform .5s}
+    .gallery-item.tall img{height:400px}
+    .gallery-item:hover img{transform:scale(1.06)}
+    .gallery-item-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(61,43,31,.8) 0%,transparent 55%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:1.2rem}
+    .gallery-item:hover .gallery-item-overlay{opacity:1}
+    .gallery-item-label{color:#fff;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+    .lightbox{display:none;position:fixed;inset:0;background:rgba(29,20,15,.95);z-index:1000;align-items:center;justify-content:center}
+    .lightbox.open{display:flex}
+    .lightbox-img{max-width:90vw;max-height:85vh;border-radius:3px}
+    .lightbox-close{position:absolute;top:1.5rem;right:2rem;font-size:2rem;color:#fff;cursor:pointer;background:none;border:none;line-height:1}
+    .lightbox-caption{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:rgba(245,239,230,.7);font-size:.85rem;letter-spacing:.12em;text-transform:uppercase}
+    @media(max-width:900px){.gallery-grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:600px){.gallery-grid{grid-template-columns:repeat(2,1fr)}.gallery-item img{height:200px}.gallery-item.tall img{height:280px}}
+  </style>
+</head>
+<body>
+<nav class="nav">
+  <a href="../index.html" class="nav-logo">MHB <span>Mel Hair Braiding</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li><li><a href="../about/index.html">About</a></li>
+    <li><a href="../pricing/index.html">Pricing</a></li><li><a href="index.html" class="active">Gallery</a></li>
+    <li><a href="../testimonials/index.html">Testimonials</a></li><li><a href="../contact/index.html">Contact</a></li>
+    <li><a href="../book/index.html" class="nav-cta">Book Now</a></li>
+  </ul>
+  <div class="nav-hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1763048208932-cbe149724374?auto=format&fit=crop&w=1600&q=80');"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content"><span class="eyebrow">Our Work</span><h1>Gallery</h1></div>
+</div>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="eyebrow">Browse by Style</span>
+      <h2 class="section-heading">Every style, documented.</h2>
+      <div class="divider"></div>
+      <p class="section-sub" style="margin-bottom:2rem;">Real clients, real results. Tap any image to enlarge.</p>
+    </div>
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" data-filter="all">All Styles</button>
+      <button class="filter-btn" data-filter="knotless">Knotless Braids</button>
+      <button class="filter-btn" data-filter="box">Box Braids</button>
+      <button class="filter-btn" data-filter="cornrows">Cornrows</button>
+      <button class="filter-btn" data-filter="twists">Boho Twists</button>
+      <button class="filter-btn" data-filter="locs">Locs</button>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item tall" data-category="knotless"><img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=600&q=80" alt="Knotless Braids"/><div class="gallery-item-overlay"><span class="gallery-item-label">Knotless Braids</span></div></div>
+      <div class="gallery-item" data-category="box"><img src="https://images.unsplash.com/photo-1762767527280-6767cadbf6bd?auto=format&fit=crop&w=600&q=80" alt="Box Braids"/><div class="gallery-item-overlay"><span class="gallery-item-label">Box Braids</span></div></div>
+      <div class="gallery-item" data-category="cornrows"><img src="https://images.unsplash.com/photo-1763048208932-cbe149724374?auto=format&fit=crop&w=600&q=80" alt="Cornrows"/><div class="gallery-item-overlay"><span class="gallery-item-label">Feed-In Cornrows</span></div></div>
+      <div class="gallery-item tall" data-category="locs"><img src="https://images.unsplash.com/photo-1638899108736-8a1b29b1a8d8?auto=format&fit=crop&w=600&q=80" alt="Locs"/><div class="gallery-item-overlay"><span class="gallery-item-label">Loc Care</span></div></div>
+      <div class="gallery-item" data-category="twists"><img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=600&q=80" alt="Boho Twists"/><div class="gallery-item-overlay"><span class="gallery-item-label">Boho Twists</span></div></div>
+      <div class="gallery-item" data-category="knotless"><img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=600&q=80" alt="Knotless Small"/><div class="gallery-item-overlay"><span class="gallery-item-label">Knotless — Small</span></div></div>
+      <div class="gallery-item" data-category="box"><img src="https://images.unsplash.com/photo-1762767527280-6767cadbf6bd?auto=format&fit=crop&w=600&q=80" alt="Box Braids Long"/><div class="gallery-item-overlay"><span class="gallery-item-label">Box Braids — Long</span></div></div>
+      <div class="gallery-item" data-category="cornrows"><img src="https://images.unsplash.com/photo-1763048208932-cbe149724374?auto=format&fit=crop&w=600&q=80" alt="Stitch Cornrows"/><div class="gallery-item-overlay"><span class="gallery-item-label">Stitch Cornrows</span></div></div>
+      <div class="gallery-item tall" data-category="twists"><img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=600&q=80" alt="Boho Full"/><div class="gallery-item-overlay"><span class="gallery-item-label">Boho — Full Length</span></div></div>
+      <div class="gallery-item" data-category="locs"><img src="https://images.unsplash.com/photo-1638899108736-8a1b29b1a8d8?auto=format&fit=crop&w=600&q=80" alt="Loc Retwist"/><div class="gallery-item-overlay"><span class="gallery-item-label">Loc Retwist</span></div></div>
+      <div class="gallery-item" data-category="knotless"><img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=600&q=80" alt="Knotless Medium"/><div class="gallery-item-overlay"><span class="gallery-item-label">Knotless — Medium</span></div></div>
+      <div class="gallery-item" data-category="box"><img src="https://images.unsplash.com/photo-1762767527280-6767cadbf6bd?auto=format&fit=crop&w=600&q=80" alt="Box Braids Jumbo"/><div class="gallery-item-overlay"><span class="gallery-item-label">Jumbo Box Braids</span></div></div>
+    </div>
+    <div style="text-align:center;margin-top:3rem;">
+      <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:1.2rem;">Want to see your style in our gallery? Tag us on Instagram @melhairbraiding</p>
+      <a href="../book/index.html" class="btn btn-primary">Book Your Style</a>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">✕</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt=""/>
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div><div class="footer-logo">MHB <span>Mel Hair Braiding</span></div><p style="font-size:.9rem;color:rgba(245,239,230,.55);max-width:240px;line-height:1.7;">Protective styling by appointment in Charlotte, NC.</p></div>
+    <div><h4>Pages</h4><ul class="footer-links"><li><a href="../about/index.html">About Us</a></li><li><a href="../pricing/index.html">Pricing</a></li><li><a href="index.html">Gallery</a></li><li><a href="../testimonials/index.html">Testimonials</a></li><li><a href="../contact/index.html">Contact</a></li><li><a href="../book/index.html">Book Now</a></li></ul></div>
+    <div><h4>Contact</h4><ul class="footer-links"><li><a href="tel:+15550181331">(555) 018-1331</a></li><li><a href="mailto:hello@melhairbraiding.net">hello@melhairbraiding.net</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Mel Hair Braiding.</span><span>Photos via Unsplash</span></div>
+</footer>
+<script src="../assets/js/global.js"></script>
+<script>
+setTimeout(()=>document.querySelector('.page-hero')?.classList.add('loaded'),100);
+// Filter
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.filter;
+    document.querySelectorAll('.gallery-item').forEach(item=>{
+      item.style.display=(f==='all'||item.dataset.category===f)?'':'none';
+    });
+  });
+});
+// Lightbox
+const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lightboxImg'),lbCap=document.getElementById('lightboxCaption');
+document.querySelectorAll('.gallery-item').forEach(item=>{
+  item.addEventListener('click',()=>{
+    lbImg.src=item.querySelector('img').src;
+    lbCap.textContent=item.querySelector('.gallery-item-label')?.textContent||'';
+    lb.classList.add('open');
+  });
+});
+document.getElementById('lightboxClose').addEventListener('click',()=>lb.classList.remove('open'));
+lb.addEventListener('click',e=>{if(e.target===lb)lb.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('open');});
+</script>
+</body></html>
