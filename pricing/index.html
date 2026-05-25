@@ -7,7 +7,7 @@
   <style>
     .pricing-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
     .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:3rem}
-    .price-card{background:#fff;border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+    .price-card{background:var(--bg-card);border:1px solid var(--border-dim);border-radius:4px;overflow:hidden;transition:transform .3s,box-shadow .3s}
     .price-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
     .price-card.featured{border-color:var(--clay);box-shadow:0 0 0 2px var(--clay)}
     .price-card-header{padding:2rem 2rem 1.5rem;border-bottom:1px solid var(--border)}
@@ -22,14 +22,14 @@
     .price-features{list-style:none}
     .price-features li{display:flex;gap:.8rem;align-items:flex-start;padding:.5rem 0;border-bottom:1px solid rgba(0,0,0,.05);font-size:.9rem;color:var(--text-muted)}
     .price-features li::before{content:'✓';color:var(--clay);font-weight:600;flex-shrink:0;margin-top:.05rem}
-    .price-duration{display:inline-block;margin-top:1.2rem;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);background:var(--cream);padding:.3rem .8rem;border-radius:2px}
+    .price-duration{display:inline-block;margin-top:1.2rem;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);background:var(--bg-2);padding:.3rem .8rem;border-radius:2px}
     .add-ons{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin-top:2rem}
-    .add-on{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:1.5rem;display:flex;justify-content:space-between;align-items:center}
+    .add-on{background:var(--bg-2);border:1px solid var(--border-dim);border-radius:4px;padding:1.5rem;display:flex;justify-content:space-between;align-items:center}
     .add-on-name{font-size:.95rem;font-weight:500}
     .add-on-price{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--clay)}
     .faq-list{margin-top:2rem}
     .faq-item{border-bottom:1px solid var(--border);overflow:hidden}
-    .faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.3rem 0;cursor:pointer;font-size:1rem;font-weight:500;color:var(--bark)}
+    .faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.3rem 0;cursor:pointer;font-size:1rem;font-weight:500;color:var(--text)}
     .faq-q svg{width:18px;height:18px;flex-shrink:0;transition:transform .3s;fill:var(--clay)}
     .faq-item.open .faq-q svg{transform:rotate(45deg)}
     .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;font-size:.92rem;color:var(--text-muted);line-height:1.8}
@@ -55,7 +55,7 @@
 </div>
 
 <!-- INTRO -->
-<section class="section" style="background:var(--cream);">
+<section class="section" style="background:var(--bg-2);">
   <div class="section-inner">
     <div class="pricing-intro">
       <div class="reveal"><span class="eyebrow">How Pricing Works</span><h2 class="section-heading">Fair, clear, no surprises.</h2><div class="divider"></div><p style="color:var(--text-muted);line-height:1.9;">All prices listed are starting rates. Final pricing depends on hair length, density, braid size, and any added extensions or prep work. You'll receive a confirmed quote before your appointment begins — we don't like surprises, and neither do you.</p></div>
@@ -102,7 +102,7 @@
 </section>
 
 <!-- ADD-ONS -->
-<section class="section" style="background:var(--cream);">
+<section class="section" style="background:var(--bg-2);">
   <div class="section-inner">
     <div class="reveal"><span class="eyebrow">Extras</span><h2 class="section-heading">Add-On Services</h2><div class="divider"></div></div>
     <div class="add-ons">
