@@ -5,29 +5,23 @@
   <title>Testimonials — Mel Hair Braiding</title>
   <link rel="stylesheet" href="../assets/css/global.css"/>
   <style>
-    .stars{color:var(--clay);font-size:1.1rem;letter-spacing:.1rem;margin-bottom:.8rem}
     .testimonials-masonry{columns:3;column-gap:1.8rem;margin-top:3rem}
-    .testimonial-card{break-inside:avoid;background:var(--bg-card);border:1px solid var(--border-dim);border-radius:4px;padding:2rem;margin-bottom:1.8rem;transition:transform .3s,box-shadow .3s}
+    .testimonial-card{break-inside:avoid;border:1px solid var(--border-dim);border-radius:4px;padding:2rem;margin-bottom:1.8rem;transition:transform .3s,box-shadow .3s;background:var(--bg-card)}
     .testimonial-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-    .testimonial-card.featured{background:var(--bark);border-color:var(--text)}
-    .testimonial-card.featured blockquote{color:var(--sand)}
-    .testimonial-card.featured .t-author{color:rgba(245,239,230,.7)}
-    .testimonial-card.featured .t-service{color:var(--clay-light)}
-    .testimonial-card.featured .stars{color:var(--clay-light)}
+    .testimonial-card.featured{background:var(--surface);border-color:var(--border)}
+    .stars{color:var(--clay);font-size:1.1rem;letter-spacing:.1rem;margin-bottom:.8rem}
     blockquote{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:var(--text);line-height:1.7;margin-bottom:1.2rem}
     .t-author{font-size:.85rem;font-weight:600;color:var(--text)}
     .t-service{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--clay);margin-top:.2rem}
-    .rating-summary{display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:center;background:var(--bg-2);border-radius:4px;padding:3rem;margin-bottom:4rem}
-    .rating-big{text-align:center}
+    .rating-summary{display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:center;background:var(--bg-card);border:1px solid var(--border-dim);border-radius:4px;padding:3rem;margin-bottom:4rem}
     .rating-num{font-family:'Cormorant Garamond',serif;font-size:5rem;color:var(--clay);line-height:1}
     .rating-label{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)}
-    .rating-bars{flex:1}
     .rating-row{display:flex;align-items:center;gap:1rem;margin-bottom:.6rem}
     .rating-row span{font-size:.82rem;color:var(--text-muted);min-width:2rem}
-    .rating-bar-bg{flex:1;height:8px;background:var(--sand);border-radius:4px;overflow:hidden}
+    .rating-bar-bg{flex:1;height:8px;background:var(--bg-3);border-radius:4px;overflow:hidden}
     .rating-bar-fill{height:100%;background:var(--clay);border-radius:4px}
-    .cta-review{background:var(--bg-2);border:2px dashed var(--clay);border-radius:4px;padding:2.5rem;text-align:center;margin-top:3rem}
-    @media(max-width:900px){.testimonials-masonry{columns:2}.rating-summary{grid-template-columns:1fr;text-align:center}}
+    .empty-state{text-align:center;padding:4rem;color:var(--text-dim)}
+    @media(max-width:900px){.testimonials-masonry{columns:2}.rating-summary{grid-template-columns:1fr}}
     @media(max-width:600px){.testimonials-masonry{columns:1}}
   </style>
 </head>
@@ -47,102 +41,68 @@
   <div class="page-hero-overlay"></div>
   <div class="page-hero-content"><span class="eyebrow">What Clients Say</span><h1>Testimonials</h1></div>
 </div>
-
-<!-- RATING SUMMARY -->
-<section class="section" style="background:var(--bg-2);">
+<section class="section" style="background:var(--bg-2)">
   <div class="section-inner">
     <div class="reveal">
-      <div class="rating-summary">
-        <div class="rating-big">
-          <div class="rating-num">4.9</div>
-          <div class="stars">★★★★★</div>
-          <div class="rating-label">Based on 120+ reviews</div>
-        </div>
-        <div class="rating-bars">
-          <div class="rating-row"><span>5★</span><div class="rating-bar-bg"><div class="rating-bar-fill" style="width:92%"></div></div><span style="min-width:2.5rem">92%</span></div>
-          <div class="rating-row"><span>4★</span><div class="rating-bar-bg"><div class="rating-bar-fill" style="width:6%"></div></div><span style="min-width:2.5rem">6%</span></div>
-          <div class="rating-row"><span>3★</span><div class="rating-bar-bg"><div class="rating-bar-fill" style="width:2%"></div></div><span style="min-width:2.5rem">2%</span></div>
-          <div class="rating-row"><span>2★</span><div class="rating-bar-bg"><div class="rating-bar-fill" style="width:0%"></div></div><span style="min-width:2.5rem">0%</span></div>
-          <div class="rating-row"><span>1★</span><div class="rating-bar-bg"><div class="rating-bar-fill" style="width:0%"></div></div><span style="min-width:2.5rem">0%</span></div>
-        </div>
+      <div class="rating-summary" id="ratingSummary">
+        <div style="text-align:center"><div class="rating-num" id="avgRating">5.0</div><div class="stars">★★★★★</div><div class="rating-label" id="reviewCount">Loading reviews...</div></div>
+        <div id="ratingBars"></div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="section">
-  <div class="section-inner">
-    <div class="reveal" style="text-align:center;"><span class="eyebrow">Real Words from Real Clients</span><h2 class="section-heading">What Our Clients Say</h2><div class="divider center"></div></div>
-    <div class="testimonials-masonry">
-      <div class="testimonial-card featured reveal">
-        <div class="stars">★★★★★</div>
-        <blockquote>"Mel is the only person I trust with my hair. She takes her time, checks in during the install, and the result is always exactly what I asked for. My knotless braids lasted 7 weeks and still looked neat."</blockquote>
-        <div class="t-author">Aisha T.</div><div class="t-service">Knotless Braids</div>
-      </div>
-      <div class="testimonial-card reveal reveal-delay-1">
-        <div class="stars">★★★★★</div>
-        <blockquote>"I came in for a consultation not knowing what I wanted, and Mel helped me figure out the perfect style for my hair texture and lifestyle. Ended up with feed-in cornrows and I've gotten so many compliments."</blockquote>
-        <div class="t-author">Brianna M.</div><div class="t-service">Feed-In Cornrows</div>
-      </div>
-      <div class="testimonial-card reveal reveal-delay-2">
-        <div class="stars">★★★★★</div>
-        <blockquote>"Jordan did my box braids and was so fast and gentle. My edges are completely intact. I'll be back every 6 weeks!"</blockquote>
-        <div class="t-author">Kezia R.</div><div class="t-service">Box Braids</div>
-      </div>
-      <div class="testimonial-card reveal">
-        <div class="stars">★★★★★</div>
-        <blockquote>"I have sensitive edges and have had bad experiences before. Nia was so careful and patient — I fell asleep in the chair because I was so relaxed. My retwist looked perfect."</blockquote>
-        <div class="t-author">Dominique W.</div><div class="t-service">Loc Retwist</div>
-      </div>
-      <div class="testimonial-card reveal reveal-delay-1">
-        <div class="stars">★★★★★</div>
-        <blockquote>"The boho twists I got here are STUNNING. The photos don't do justice. I get stopped on the street every week. Worth every penny and every hour in the chair."</blockquote>
-        <div class="t-author">Tanya J.</div><div class="t-service">Boho Twists</div>
-      </div>
-      <div class="testimonial-card featured reveal reveal-delay-2">
-        <div class="stars">★★★★★</div>
-        <blockquote>"I've been coming to Mel since 2019 and won't go anywhere else. She remembers my hair history, suggests what's best for its health, and is just a genuinely kind person to spend the day with."</blockquote>
-        <div class="t-author">Camille O.</div><div class="t-service">Long-time Client</div>
-      </div>
-      <div class="testimonial-card reveal">
-        <div class="stars">★★★★★</div>
-        <blockquote>"The booking process was so smooth and the studio is clean and welcoming. Mel confirmed all details upfront — no surprises. My daughter and I both got our hair done and left feeling like queens."</blockquote>
-        <div class="t-author">Renee & Jade F.</div><div class="t-service">Knotless Braids + Box Braids</div>
-      </div>
-      <div class="testimonial-card reveal reveal-delay-1">
-        <div class="stars">★★★★★</div>
-        <blockquote>"Finally found someone who does starter locs properly! Nia explained every step and gave me an amazing aftercare kit and guide. My locs are thriving."</blockquote>
-        <div class="t-author">Marcus L.</div><div class="t-service">Starter Locs</div>
-      </div>
-      <div class="testimonial-card reveal reveal-delay-2">
-        <div class="stars">★★★★★</div>
-        <blockquote>"Quick, clean, and affordable. My feed-in cornrows are always exactly what I need for work — professional and polished. Jordan finishes in record time without sacrificing quality."</blockquote>
-        <div class="t-author">Simone P.</div><div class="t-service">Feed-In Cornrows</div>
-      </div>
-    </div>
-    <div class="cta-review reveal">
-      <h3 style="font-size:1.6rem;margin-bottom:.5rem;">Had a great experience?</h3>
-      <p style="color:var(--text-muted);margin-bottom:1.5rem;">We'd love to hear from you. Leave us a review on Google — it helps other clients find us.</p>
+    <div class="reveal" style="text-align:center"><span class="eyebrow">Real Words from Real Clients</span><h2 class="section-heading">What Our Clients Say</h2><div class="divider center"></div></div>
+    <div class="testimonials-masonry" id="testimonialsGrid"><div class="empty-state">Loading testimonials...</div></div>
+    <div style="background:var(--bg-card);border:2px dashed var(--border);border-radius:4px;padding:2.5rem;text-align:center;margin-top:3rem">
+      <h3 style="font-size:1.6rem;margin-bottom:.5rem">Had a great experience?</h3>
+      <p style="color:var(--text-muted);margin-bottom:1.5rem">Leave us a Google review — it helps other clients find us.</p>
       <a href="#" class="btn btn-primary">Leave a Review</a>
     </div>
   </div>
 </section>
-
-<div style="background:var(--clay);text-align:center;padding:4rem 2rem;">
-  <span class="eyebrow" style="color:var(--sand);">Join our happy clients</span>
-  <h2 style="color:#fff;margin:.5rem 0 1.5rem;">Ready to book your appointment?</h2>
+<div style="background:var(--clay);text-align:center;padding:4rem 2rem">
+  <span class="eyebrow" style="color:rgba(255,255,255,.7)">Join our happy clients</span>
+  <h2 style="color:#fff;margin:.5rem 0 1.5rem">Ready to book your appointment?</h2>
   <a href="../book/index.html" class="btn btn-light">Book Now</a>
 </div>
-
 <footer class="footer">
   <div class="footer-inner">
-    <div><div class="footer-logo">MHB <span>Mel Hair Braiding</span></div><p style="font-size:.9rem;color:rgba(245,239,230,.55);max-width:240px;line-height:1.7;">Protective styling by appointment in Charlotte, NC.</p></div>
+    <div><div class="footer-logo">MHB <span>Mel Hair Braiding</span></div><p class="footer-tagline" style="font-size:.9rem;color:var(--text-dim);max-width:240px;line-height:1.7;margin-top:.5rem"></p></div>
     <div><h4>Pages</h4><ul class="footer-links"><li><a href="../about/index.html">About Us</a></li><li><a href="../pricing/index.html">Pricing</a></li><li><a href="../gallery/index.html">Gallery</a></li><li><a href="index.html">Testimonials</a></li><li><a href="../contact/index.html">Contact</a></li><li><a href="../book/index.html">Book Now</a></li></ul></div>
-    <div><h4>Contact</h4><ul class="footer-links"><li><a href="tel:+15550181331">(555) 018-1331</a></li><li><a href="mailto:hello@melhairbraiding.net">hello@melhairbraiding.net</a></li></ul></div>
+    <div><h4>Contact</h4><ul class="footer-links" id="footerContact"></ul></div>
   </div>
-  <div class="footer-bottom"><span>© 2026 Mel Hair Braiding.</span><span>Photos via Unsplash</span></div>
+  <div class="footer-bottom"><span id="footerCopy"></span></div>
 </footer>
 <script src="../assets/js/global.js"></script>
-<script>setTimeout(()=>document.querySelector('.page-hero')?.classList.add('loaded'),100);</script>
+<script>
+(async () => {
+  const [data, brand] = await Promise.all([
+    fetch('../content/testimonials.json').then(r=>r.json()).catch(()=>({items:[]})),
+    fetch('../content/branding.json').then(r=>r.json()).catch(()=>({}))
+  ]);
+  document.getElementById('footerCopy').textContent = `© ${new Date().getFullYear()} ${brand.siteName||'Mel Hair Braiding'}.`;
+  document.querySelector('.footer-tagline').textContent = brand.footerTagline||'';
+  document.getElementById('footerContact').innerHTML = `<li><a href="${brand.phoneHref||''}">${brand.phone||''}</a></li><li><a href="mailto:${brand.email||''}">${brand.email||''}</a></li>`;
+
+  const items = data.items||[];
+  if (!items.length) { document.getElementById('testimonialsGrid').innerHTML = '<div class="empty-state">No testimonials yet — add them in the admin panel.</div>'; return; }
+
+  // Rating summary
+  const avg = (items.reduce((s,i)=>s+(i.rating||5),0)/items.length).toFixed(1);
+  document.getElementById('avgRating').textContent = avg;
+  document.getElementById('reviewCount').textContent = `Based on ${items.length} reviews`;
+  const counts = [5,4,3,2,1].map(r => ({ r, c: items.filter(i=>(i.rating||5)===r).length }));
+  document.getElementById('ratingBars').innerHTML = counts.map(({r,c}) =>
+    `<div class="rating-row"><span>${r}★</span><div class="rating-bar-bg"><div class="rating-bar-fill" style="width:${Math.round(c/items.length*100)}%"></div></div><span style="min-width:2.5rem">${Math.round(c/items.length*100)}%</span></div>`
+  ).join('');
+
+  // Cards
+  const grid = document.getElementById('testimonialsGrid');
+  grid.innerHTML = items.map(t => `
+    <div class="testimonial-card${t.featured?' featured':''}">
+      <div class="stars">${'★'.repeat(t.rating||5)}${'☆'.repeat(5-(t.rating||5))}</div>
+      <blockquote>"${t.quote}"</blockquote>
+      <div class="t-author">${t.author}</div>
+      <div class="t-service">${t.service}</div>
+    </div>`).join('');
+})();
+</script>
 </body></html>
