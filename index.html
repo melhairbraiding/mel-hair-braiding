@@ -1,108 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <meta name="description" content="Mel Hair Braiding — Knotless braids, box braids, feed-ins, twists, and loc care in Charlotte, NC."/>
   <title>Mel Hair Braiding</title>
   <link rel="stylesheet" href="assets/css/global.css"/>
   <style>
-    .hero { position:relative;height:100vh;min-height:600px;overflow:hidden;margin-top:var(--nav-h); }
-    .hero-slides { position:absolute;inset:0; }
-    .hero-slide { position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease; }
-    .hero-slide.active { opacity:1; }
-    .hero-slide::after { content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(61,43,31,.72) 0%,rgba(181,101,29,.25) 60%,transparent 100%); }
-    .hero-slide-1 { background-image:url('https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=1600&q=80'); }
-    .hero-slide-2 { background-image:url('https://images.unsplash.com/photo-1638899108736-8a1b29b1a8d8?auto=format&fit=crop&w=1600&q=80'); }
-    .hero-slide-3 { background-image:url('https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1600&q=80'); }
-    .hero-content { position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 clamp(2rem,8vw,8rem);max-width:760px; }
-    .hero-eyebrow { display:block;font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;color:var(--sand);margin-bottom:1.2rem;opacity:0;animation:fadeUp .8s .3s forwards; }
-    .hero-content h1 { color:#fff;font-style:italic;text-shadow:0 2px 30px rgba(0,0,0,.25);opacity:0;animation:fadeUp .9s .5s forwards;margin-bottom:1.2rem; }
-    .hero-sub { color:rgba(245,239,230,.82);font-size:1.05rem;max-width:460px;line-height:1.8;opacity:0;animation:fadeUp .9s .7s forwards;margin-bottom:2rem; }
-    .hero-btns { display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp .9s .9s forwards; }
-    .hero-badges { position:absolute;bottom:3rem;right:clamp(2rem,6vw,6rem);display:flex;gap:1.2rem;z-index:2; }
-    .hero-badge { background:rgba(250,246,240,.12);backdrop-filter:blur(10px);border:1px solid rgba(245,239,230,.25);border-radius:4px;padding:.9rem 1.4rem;text-align:center;color:#fff; }
-    .hero-badge strong { display:block;font-size:1.1rem;font-family:'Cormorant Garamond',serif; }
-    .hero-badge span { font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;opacity:.75; }
-    .hero-dots { position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;gap:.6rem;z-index:2; }
-    .hero-dot { width:28px;height:3px;border-radius:2px;background:rgba(255,255,255,.35);cursor:pointer;transition:background .3s,width .3s; }
-    .hero-dot.active { background:var(--clay-light);width:44px; }
-    @keyframes fadeUp { from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none} }
+    .hero{position:relative;height:100vh;min-height:600px;overflow:hidden;margin-top:var(--nav-h)}
+    .hero-slides{position:absolute;inset:0}
+    .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease}
+    .hero-slide.active{opacity:1}
+    .hero-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.75) 0%,rgba(201,122,58,.2) 60%,transparent 100%)}
+    .hero-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 clamp(2rem,8vw,8rem);max-width:780px}
+    .hero-eyebrow{display:block;font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold-light);margin-bottom:1.2rem;opacity:0;animation:fadeUp .8s .3s forwards}
+    .hero-content h1{color:#fff;font-style:italic;opacity:0;animation:fadeUp .9s .5s forwards;margin-bottom:1.2rem}
+    .hero-sub{color:rgba(240,232,223,.82);font-size:1.05rem;max-width:460px;line-height:1.8;opacity:0;animation:fadeUp .9s .7s forwards;margin-bottom:2rem}
+    .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp .9s .9s forwards}
+    .hero-badges{position:absolute;bottom:3rem;right:clamp(2rem,6vw,6rem);display:flex;gap:1.2rem;z-index:2}
+    .hero-badge{background:rgba(14,11,9,.4);backdrop-filter:blur(10px);border:1px solid rgba(240,232,223,.2);border-radius:4px;padding:.9rem 1.4rem;text-align:center;color:#fff}
+    .hero-badge strong{display:block;font-size:1.1rem;font-family:'Cormorant Garamond',serif}
+    .hero-badge span{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;opacity:.7}
+    .hero-dots{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;gap:.6rem;z-index:2}
+    .hero-dot{width:28px;height:3px;border-radius:2px;background:rgba(255,255,255,.3);cursor:pointer;transition:background .3s,width .3s}
+    .hero-dot.active{background:var(--clay);width:44px}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 
-    .intro { background:var(--bg-2); }
-    .intro-grid { display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center; }
-    .intro-img-wrap { position:relative; }
-    .intro-img-wrap img { width:100%;height:520px;object-fit:cover;border-radius:3px; }
-    .intro-img-badge { position:absolute;bottom:-1.5rem;right:-1.5rem;background:var(--clay);color:#fff;padding:1.5rem 2rem;border-radius:3px;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;max-width:180px;line-height:1.4;box-shadow:var(--shadow); }
+    .intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+    .intro-img-wrap{position:relative}
+    .intro-img-wrap img{width:100%;height:520px;object-fit:cover;border-radius:3px}
+    .intro-img-badge{position:absolute;bottom:-1.5rem;right:-1.5rem;background:var(--clay);color:#fff;padding:1.5rem 2rem;border-radius:3px;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;max-width:180px;line-height:1.4;box-shadow:var(--shadow)}
 
-    .services-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:3rem; }
-    .service-card { background:var(--bg-card);border:1px solid var(--border-dim);border-radius:4px;padding:2rem;transition:transform .3s,box-shadow .3s,border-color .3s; }
-    .service-card:hover { transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--clay-light); }
-    .service-init { width:50px;height:50px;border-radius:50%;background:var(--bg-2);border:1.5px solid var(--clay);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--clay);margin-bottom:1.2rem; }
-    .service-card h3 { margin-bottom:.4rem;font-size:1.4rem; }
-    .service-card p { color:var(--text-muted);font-size:.9rem;margin-bottom:1rem; }
-    .service-meta { display:flex;justify-content:space-between;align-items:center; }
-    .service-duration { font-size:.78rem;letter-spacing:.08em;color:var(--text-muted); }
-    .service-price { font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--clay); }
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:3rem}
+    .service-card{background:var(--bg-card);border:1px solid var(--border-dim);border-radius:4px;padding:2rem;transition:transform .3s,box-shadow .3s,border-color .3s}
+    .service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--border)}
+    .service-init{width:50px;height:50px;border-radius:50%;background:var(--bg-3);border:1.5px solid var(--clay);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--clay);margin-bottom:1.2rem}
+    .service-card h3{margin-bottom:.4rem;font-size:1.4rem;color:var(--text)}
+    .service-card p{color:var(--text-muted);font-size:.9rem;margin-bottom:1rem}
+    .service-meta{display:flex;justify-content:space-between;align-items:center}
+    .service-duration{font-size:.78rem;letter-spacing:.08em;color:var(--text-dim)}
+    .service-price{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--clay)}
 
-    .video-section { background:var(--bark); }
-    .video-section .section-heading { color:var(--sand); }
-    .video-section .section-sub { color:rgba(245,239,230,.65); }
-    .video-section .eyebrow { color:var(--clay-light); }
-    .video-grid { display:grid;grid-template-columns:2fr 1fr 1fr;gap:1.2rem;margin-top:3rem; }
-    .video-card { position:relative;border-radius:4px;overflow:hidden;background:var(--bark-mid);cursor:pointer; }
-    .video-card:first-child { grid-row:span 2; }
-    .video-thumb { width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .5s; }
-    .video-card:first-child .video-thumb { height:100%;aspect-ratio:unset; }
-    .video-card:hover .video-thumb { transform:scale(1.04); }
-    .video-overlay { position:absolute;inset:0;background:linear-gradient(0deg,rgba(61,43,31,.75) 0%,transparent 60%);display:flex;align-items:center;justify-content:center; }
-    .video-play { width:60px;height:60px;border-radius:50%;background:rgba(181,101,29,.85);border:2px solid rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;transition:background .3s,transform .3s; }
-    .video-card:hover .video-play { background:var(--clay);transform:scale(1.1); }
-    .video-play svg { width:24px;height:24px;fill:#fff;margin-left:3px; }
-    .video-label { position:absolute;bottom:1rem;left:1rem;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.8); }
-    .video-upload-cta { margin-top:2rem;text-align:center;color:rgba(245,239,230,.5);font-size:.85rem;font-style:italic; }
+    .video-section{background:var(--bg-2)}
+    .video-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1.2rem;margin-top:3rem}
+    .video-card{position:relative;border-radius:4px;overflow:hidden;background:var(--bg-3);cursor:pointer}
+    .video-card:first-child{grid-row:span 2}
+    .video-thumb{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .5s}
+    .video-card:first-child .video-thumb{height:100%;aspect-ratio:unset}
+    .video-card:hover .video-thumb{transform:scale(1.04)}
+    .video-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.7) 0%,transparent 60%);display:flex;align-items:center;justify-content:center}
+    .video-play{width:60px;height:60px;border-radius:50%;background:rgba(201,122,58,.8);border:2px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;transition:background .3s,transform .3s}
+    .video-card:hover .video-play{background:var(--clay);transform:scale(1.1)}
+    .video-play svg{width:24px;height:24px;fill:#fff;margin-left:3px}
+    .video-label{position:absolute;bottom:1rem;left:1rem;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(240,232,223,.8)}
+    .video-upload-cta{margin-top:2rem;text-align:center;color:var(--text-dim);font-size:.85rem;font-style:italic}
 
-    .gallery-strip { display:flex;gap:0;overflow:hidden;margin-top:3rem;border-radius:4px; }
-    .gallery-strip-item { flex:1;min-width:0;position:relative;overflow:hidden;transition:flex .5s ease;cursor:pointer; }
-    .gallery-strip-item:hover { flex:2.5; }
-    .gallery-strip-item img { width:100%;height:420px;object-fit:cover;transition:transform .5s; }
-    .gallery-strip-item:hover img { transform:scale(1.04); }
+    .gallery-strip{display:flex;gap:0;overflow:hidden;margin-top:3rem;border-radius:4px}
+    .gallery-strip-item{flex:1;min-width:0;position:relative;overflow:hidden;transition:flex .5s ease;cursor:pointer}
+    .gallery-strip-item:hover{flex:2.5}
+    .gallery-strip-item img{width:100%;height:420px;object-fit:cover;transition:transform .5s}
+    .gallery-strip-item:hover img{transform:scale(1.04)}
 
-    .quote-section { background:var(--clay);text-align:center;padding:5rem clamp(2rem,8vw,10rem); }
-    .quote-section blockquote { font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,3vw,2.4rem);font-style:italic;color:#fff;line-height:1.5;max-width:800px;margin:0 auto 1.5rem; }
-    .quote-section cite { font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--sand); }
+    .quote-section{background:var(--clay);text-align:center;padding:5rem clamp(2rem,8vw,10rem)}
+    .quote-section blockquote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,3vw,2.4rem);font-style:italic;color:#fff;line-height:1.5;max-width:800px;margin:0 auto 1.5rem}
+    .quote-section cite{font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.7)}
 
-    .care-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem; }
-    .care-item { display:flex;gap:1.2rem;align-items:flex-start; }
-    .care-num { font-family:'Cormorant Garamond',serif;font-size:2.5rem;line-height:1;color:var(--sand-dark);flex-shrink:0;min-width:2.5rem; }
-    .care-item h4 { font-size:1rem;color:var(--text);margin-bottom:.3rem; }
-    .care-item p { font-size:.9rem;color:var(--text-muted); }
+    .care-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem}
+    .care-item{display:flex;gap:1.2rem;align-items:flex-start}
+    .care-num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;line-height:1;color:var(--clay);flex-shrink:0;min-width:2.5rem}
+    .care-item h4{font-size:1rem;color:var(--text);margin-bottom:.3rem}
+    .care-item p{font-size:.9rem;color:var(--text-muted)}
 
-    .booking-cta { display:grid;grid-template-columns:1fr 1fr;gap:0; }
-    .booking-cta-img { background-image:url('https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=800&q=80');background-size:cover;background-position:center;min-height:400px; }
-    .booking-cta-content { padding:clamp(3rem,6vw,6rem);display:flex;flex-direction:column;justify-content:center;background:var(--bg-2); }
+    .booking-cta{display:grid;grid-template-columns:1fr 1fr}
+    .booking-cta-img{background-size:cover;background-position:center;min-height:420px}
+    .booking-cta-content{padding:clamp(3rem,6vw,6rem);display:flex;flex-direction:column;justify-content:center;background:var(--bg-2)}
 
-    @media(max-width:900px){
-      .intro-grid{grid-template-columns:1fr}
-      .intro-img-badge{right:0}
-      .video-grid{grid-template-columns:1fr 1fr}
-      .video-card:first-child{grid-row:unset;grid-column:span 2}
-      .care-grid{grid-template-columns:1fr}
-      .booking-cta{grid-template-columns:1fr}
-      .booking-cta-img{min-height:260px}
-      .hero-badges{display:none}
-    }
-    @media(max-width:600px){
-      .gallery-strip{flex-direction:column}
-      .gallery-strip-item img{height:220px}
-      .gallery-strip-item:hover{flex:1}
-      .video-grid{grid-template-columns:1fr}
-      .video-card:first-child{grid-column:unset}
-    }
+    @media(max-width:900px){.intro-grid{grid-template-columns:1fr}.intro-img-badge{right:0}.video-grid{grid-template-columns:1fr 1fr}.video-card:first-child{grid-row:unset;grid-column:span 2}.care-grid{grid-template-columns:1fr}.booking-cta{grid-template-columns:1fr}.hero-badges{display:none}}
+    @media(max-width:600px){.gallery-strip{flex-direction:column}.gallery-strip-item img{height:220px}.gallery-strip-item:hover{flex:1}.video-grid{grid-template-columns:1fr}.video-card:first-child{grid-column:unset}}
   </style>
 </head>
 <body>
-<nav class="nav" id="nav">
+<nav class="nav">
   <a href="index.html" class="nav-logo">MHB <span>Mel Hair Braiding</span></a>
   <ul class="nav-links">
     <li><a href="index.html" class="active">Home</a></li>
@@ -116,172 +93,255 @@
   <div class="nav-hamburger"><span></span><span></span><span></span></div>
 </nav>
 
+<!-- HERO -->
 <section class="hero" id="top">
-  <div class="hero-slides">
-    <div class="hero-slide hero-slide-1 active"></div>
-    <div class="hero-slide hero-slide-2"></div>
-    <div class="hero-slide hero-slide-3"></div>
-  </div>
+  <div class="hero-slides" id="heroSlides"></div>
   <div class="hero-content">
-    <span class="hero-eyebrow">Charlotte-area braid studio</span>
-    <h1>Protective styling<br>with patient hands</h1>
-    <p class="hero-sub">Clean parts, comfortable tension, and braid work designed to hold its shape while caring for your natural hair.</p>
+    <span class="hero-eyebrow" id="heroEyebrow"></span>
+    <h1 id="heroHeadline"></h1>
+    <p class="hero-sub" id="heroCopy"></p>
     <div class="hero-btns">
-      <a href="book/index.html" class="btn btn-primary">Book Your Seat</a>
-      <a href="pricing/index.html" class="btn btn-light">View Pricing</a>
+      <a href="book/index.html" class="btn btn-primary" id="heroPrimary"></a>
+      <a href="pricing/index.html" class="btn btn-light" id="heroSecondary"></a>
     </div>
   </div>
-  <div class="hero-badges">
-    <div class="hero-badge"><strong>Same-week</strong><span>Appointments</span></div>
-    <div class="hero-badge"><strong>Low-tension</strong><span>Install Options</span></div>
-    <div class="hero-badge"><strong>Aftercare</strong><span>Included</span></div>
-  </div>
-  <div class="hero-dots">
-    <div class="hero-dot active" data-slide="0"></div>
-    <div class="hero-dot" data-slide="1"></div>
-    <div class="hero-dot" data-slide="2"></div>
-  </div>
+  <div class="hero-badges" id="heroBadges"></div>
+  <div class="hero-dots" id="heroDots"></div>
 </section>
 
-<section class="section intro" id="about-intro">
+<!-- INTRO -->
+<section class="section" id="about-intro" style="background:var(--bg-2)">
   <div class="section-inner">
     <div class="intro-grid">
       <div class="intro-img-wrap reveal">
-        <img src="https://images.unsplash.com/photo-1638899108736-8a1b29b1a8d8?auto=format&fit=crop&w=800&q=80" alt="Stylist braiding hair"/>
-        <div class="intro-img-badge">"Every style starts with listening."</div>
+        <img id="introImg" src="" alt="Stylist braiding"/>
+        <div class="intro-img-badge" id="introQuote"></div>
       </div>
       <div class="reveal reveal-delay-2">
-        <span class="eyebrow">Our Philosophy</span>
-        <h2 class="section-heading">Styles that look polished on day one and still feel good in week four.</h2>
+        <span class="eyebrow" id="introEyebrow"></span>
+        <h2 class="section-heading" id="introHeading"></h2>
         <div class="divider"></div>
-        <p class="section-sub">Whether you want a soft knotless set, defined feed-ins, boho length, or a careful refresh for locs — every appointment starts with a scalp and hair check so the style fits you.</p>
-        <a href="about/index.html" class="btn btn-outline" style="margin-top:1.8rem;display:inline-block;">Our Story</a>
+        <p class="section-sub" id="introCopy"></p>
+        <a href="about/index.html" class="btn btn-outline" style="margin-top:1.8rem;display:inline-block">Our Story</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="services">
+<!-- SERVICES -->
+<section class="section" id="services" style="background:var(--bg)">
   <div class="section-inner">
     <div class="reveal">
-      <span class="eyebrow">What We Offer</span>
-      <h2 class="section-heading">Choose your next crown</h2>
+      <span class="eyebrow" id="servicesEyebrow"></span>
+      <h2 class="section-heading" id="servicesHeading"></h2>
       <div class="divider"></div>
     </div>
-    <div class="services-grid">
-      <div class="service-card reveal reveal-delay-1"><div class="service-init">KB</div><h3>Knotless Braids</h3><p>Lightweight feed-in braids with a natural root and reduced scalp tension.</p><div class="service-meta"><span class="service-duration">4–7 hrs</span><span class="service-price">From $220</span></div></div>
-      <div class="service-card reveal reveal-delay-2"><div class="service-init">BB</div><h3>Box Braids</h3><p>Classic protective styling with neat sections, secure ends, and optional beads.</p><div class="service-meta"><span class="service-duration">4–8 hrs</span><span class="service-price">From $200</span></div></div>
-      <div class="service-card reveal reveal-delay-3"><div class="service-init">FI</div><h3>Feed-In Cornrows</h3><p>Sleek straight-backs, stitch parts, ponytails, and custom pattern work.</p><div class="service-meta"><span class="service-duration">2–5 hrs</span><span class="service-price">From $95</span></div></div>
-      <div class="service-card reveal reveal-delay-1"><div class="service-init">BT</div><h3>Boho Twists</h3><p>Soft, movement-rich twists with curly accents for a fuller romantic finish.</p><div class="service-meta"><span class="service-duration">5–8 hrs</span><span class="service-price">From $240</span></div></div>
-      <div class="service-card reveal reveal-delay-2"><div class="service-init">LC</div><h3>Loc Care</h3><p>Retwists, starter loc consults, detox care, and simple two-strand styling.</p><div class="service-meta"><span class="service-duration">1.5–4 hrs</span><span class="service-price">From $85</span></div></div>
-      <div class="service-card reveal reveal-delay-3"><div class="service-init">CT</div><h3>Consultation</h3><p>Not sure what fits your hair, schedule, or budget? Start here.</p><div class="service-meta"><span class="service-duration">20 min</span><span class="service-price">$20</span></div></div>
-    </div>
-    <div style="text-align:center;margin-top:2.5rem;"><a href="pricing/index.html" class="btn btn-outline">Full Pricing Details</a></div>
+    <div class="services-grid" id="servicesGrid"></div>
+    <div style="text-align:center;margin-top:2.5rem"><a href="pricing/index.html" class="btn btn-outline">Full Pricing Details</a></div>
   </div>
 </section>
 
+<!-- VIDEOS -->
 <section class="section video-section" id="videos">
   <div class="section-inner">
     <div class="reveal">
-      <span class="eyebrow">Watch the Work</span>
-      <h2 class="section-heading">See the process in motion</h2>
+      <span class="eyebrow" id="videoEyebrow"></span>
+      <h2 class="section-heading" id="videoHeading"></h2>
       <div class="divider"></div>
-      <p class="section-sub">From first section to final look — real installs, real results.</p>
+      <p class="section-sub" id="videoCopy"></p>
     </div>
-    <div class="video-grid">
-      <div class="video-card reveal"><img class="video-thumb" src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=800&q=80" alt="Knotless braid install"/><div class="video-overlay"><div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div><span class="video-label">Knotless Install</span></div>
-      <div class="video-card reveal reveal-delay-1"><img class="video-thumb" src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=600&q=80" alt="Box braids"/><div class="video-overlay"><div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div><span class="video-label">Box Braids</span></div>
-      <div class="video-card reveal reveal-delay-2"><img class="video-thumb" src="https://images.unsplash.com/photo-1638899108736-8a1b29b1a8d8?auto=format&fit=crop&w=600&q=80" alt="Feed-in cornrows"/><div class="video-overlay"><div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div><span class="video-label">Cornrows</span></div>
-      <div class="video-card reveal reveal-delay-1"><img class="video-thumb" src="https://images.unsplash.com/photo-1762767527280-6767cadbf6bd?auto=format&fit=crop&w=600&q=80" alt="Boho twists"/><div class="video-overlay"><div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div><span class="video-label">Boho Twists</span></div>
-      <div class="video-card reveal reveal-delay-2"><img class="video-thumb" src="https://images.unsplash.com/photo-1763048208932-cbe149724374?auto=format&fit=crop&w=600&q=80" alt="Loc care"/><div class="video-overlay"><div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div><span class="video-label">Loc Care</span></div>
-    </div>
-    <p class="video-upload-cta">📹 Upload your own videos via Admin panel → Website Content</p>
+    <div class="video-grid" id="videoGrid"></div>
+    <p class="video-upload-cta">📹 Upload your own videos via Admin panel → Homepage → Videos</p>
   </div>
 </section>
 
-<section class="section" id="gallery-preview" style="padding-bottom:0;">
+<!-- GALLERY STRIP -->
+<section class="section" id="gallery-preview" style="padding-bottom:0;background:var(--bg)">
   <div class="section-inner">
     <div class="reveal">
-      <span class="eyebrow">The Look</span>
-      <h2 class="section-heading">Detailed parts, smooth finish, confident wear.</h2>
+      <span class="eyebrow" id="galleryEyebrow"></span>
+      <h2 class="section-heading" id="galleryHeading"></h2>
       <div class="divider"></div>
     </div>
   </div>
-  <div class="gallery-strip reveal">
-    <div class="gallery-strip-item"><img src="https://images.unsplash.com/photo-1763048208932-cbe149724374?auto=format&fit=crop&w=600&q=80" alt="Style 1"/></div>
-    <div class="gallery-strip-item"><img src="https://images.unsplash.com/photo-1762767527280-6767cadbf6bd?auto=format&fit=crop&w=600&q=80" alt="Style 2"/></div>
-    <div class="gallery-strip-item"><img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=600&q=80" alt="Style 3"/></div>
-    <div class="gallery-strip-item"><img src="https://images.unsplash.com/photo-1638899108736-8a1b29b1a8d8?auto=format&fit=crop&w=600&q=80" alt="Style 4"/></div>
-  </div>
-  <div style="text-align:center;padding:2.5rem;"><a href="gallery/index.html" class="btn btn-outline">View Full Gallery</a></div>
+  <div class="gallery-strip reveal" id="galleryStrip"></div>
+  <div style="text-align:center;padding:2.5rem"><a href="gallery/index.html" class="btn btn-outline">View Full Gallery</a></div>
 </section>
 
+<!-- QUOTE -->
 <section class="quote-section reveal">
-  <blockquote>"My goal is simple: every client should leave with a style that feels secure, looks intentional, and does not punish their edges."</blockquote>
-  <cite>— Lead Stylist, Mel Hair Braiding</cite>
+  <blockquote id="quoteText"></blockquote>
+  <cite id="quoteAuthor"></cite>
 </section>
 
-<section class="section" id="care" style="background:var(--bg-2);">
+<!-- CARE TIPS -->
+<section class="section" id="care" style="background:var(--bg-2)">
   <div class="section-inner">
-    <div class="reveal"><span class="eyebrow">Before You Arrive</span><h2 class="section-heading">A little prep keeps the install smooth.</h2><div class="divider"></div></div>
-    <div class="care-grid">
-      <div class="care-item reveal reveal-delay-1"><span class="care-num">01</span><div><h4>Come with clean hair</h4><p>No heavy oils or gels — clean, detangled, and stretched gives the neatest finish.</p></div></div>
-      <div class="care-item reveal reveal-delay-2"><span class="care-num">02</span><div><h4>Protect at night</h4><p>Sleep with satin and moisturize your scalp lightly between washes.</p></div></div>
-      <div class="care-item reveal reveal-delay-3"><span class="care-num">03</span><div><h4>Book timely touch-ups</h4><p>Schedule removal or refresh before the style starts pulling or matting.</p></div></div>
+    <div class="reveal">
+      <span class="eyebrow" id="careEyebrow"></span>
+      <h2 class="section-heading" id="careHeading"></h2>
+      <div class="divider"></div>
     </div>
+    <div class="care-grid" id="careGrid"></div>
   </div>
 </section>
 
+<!-- BOOKING CTA -->
 <div class="booking-cta" id="booking">
-  <div class="booking-cta-img"></div>
+  <div class="booking-cta-img" id="bookingImg"></div>
   <div class="booking-cta-content reveal">
-    <span class="eyebrow">Ready?</span>
-    <h2 class="section-heading">Tell us what you want in the chair.</h2>
+    <span class="eyebrow" id="bookingEyebrow"></span>
+    <h2 class="section-heading" id="bookingHeading"></h2>
     <div class="divider"></div>
-    <p class="section-sub">Send your preferred style, date, and contact details. You'll receive confirmation with prep notes, timing, and deposit instructions.</p>
-    <a href="book/index.html" class="btn btn-primary" style="margin-top:1.8rem;align-self:flex-start;">Request Appointment</a>
+    <p class="section-sub" id="bookingCopy"></p>
+    <a href="book/index.html" class="btn btn-primary" style="margin-top:1.8rem;align-self:flex-start" id="bookingBtn"></a>
   </div>
 </div>
 
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
     <div>
       <div class="footer-logo">MHB <span>Mel Hair Braiding</span></div>
-      <p style="font-size:.9rem;color:rgba(245,239,230,.55);max-width:240px;line-height:1.7;">Protective styling, braid care, and custom looks by appointment in Charlotte, NC.</p>
+      <p class="footer-tagline" style="font-size:.9rem;color:var(--text-dim);max-width:240px;line-height:1.7;margin-top:.5rem"></p>
     </div>
-    <div>
-      <h4>Pages</h4>
-      <ul class="footer-links">
-        <li><a href="about/index.html">About Us</a></li>
-        <li><a href="pricing/index.html">Pricing</a></li>
-        <li><a href="gallery/index.html">Gallery</a></li>
-        <li><a href="testimonials/index.html">Testimonials</a></li>
-        <li><a href="contact/index.html">Contact</a></li>
-        <li><a href="book/index.html">Book Now</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Contact</h4>
-      <ul class="footer-links">
-        <li><a href="tel:+15550181331">(555) 018-1331</a></li>
-        <li><a href="mailto:hello@melhairbraiding.net">hello@melhairbraiding.net</a></li>
-        <li style="color:rgba(245,239,230,.45);font-size:.85rem;margin-top:.5rem;">Charlotte, NC</li>
-      </ul>
-    </div>
+    <div><h4>Pages</h4><ul class="footer-links">
+      <li><a href="about/index.html">About Us</a></li>
+      <li><a href="pricing/index.html">Pricing</a></li>
+      <li><a href="gallery/index.html">Gallery</a></li>
+      <li><a href="testimonials/index.html">Testimonials</a></li>
+      <li><a href="contact/index.html">Contact</a></li>
+      <li><a href="book/index.html">Book Now</a></li>
+    </ul></div>
+    <div><h4>Contact</h4><ul class="footer-links" id="footerContact"></ul></div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Mel Hair Braiding. All rights reserved.</span>
-    <span>Photos via Unsplash</span>
+    <span id="footerCopy"></span>
+    <span id="footerCredit"></span>
   </div>
 </footer>
+
 <script src="assets/js/global.js"></script>
 <script>
-  const slides=document.querySelectorAll('.hero-slide'),dots=document.querySelectorAll('.hero-dot');
-  let current=0,timer;
-  function goTo(n){slides[current].classList.remove('active');dots[current].classList.remove('active');current=(n+slides.length)%slides.length;slides[current].classList.add('active');dots[current].classList.add('active');}
-  function autoPlay(){timer=setInterval(()=>goTo(current+1),5000);}
-  dots.forEach(d=>d.addEventListener('click',()=>{clearInterval(timer);goTo(+d.dataset.slide);autoPlay();}));
+(async () => {
+  const [site, brand, gallery] = await Promise.all([
+    fetch('content/site.json').then(r=>r.json()),
+    fetch('content/branding.json').then(r=>r.json()).catch(()=>({})),
+    fetch('content/gallery.json').then(r=>r.json()).catch(()=>({images:[]}))
+  ]);
+
+  // HERO slides
+  const slidesEl = document.getElementById('heroSlides');
+  const dotsEl = document.getElementById('heroDots');
+  let current = 0, timer;
+  (site.hero.slides||[]).forEach((s,i) => {
+    const div = document.createElement('div');
+    div.className = 'hero-slide' + (i===0?' active':'');
+    div.style.backgroundImage = `url('${s.image}')`;
+    slidesEl.appendChild(div);
+    const dot = document.createElement('div');
+    dot.className = 'hero-dot' + (i===0?' active':'');
+    dot.dataset.slide = i;
+    dot.addEventListener('click', () => { clearInterval(timer); goTo(i); autoPlay(); });
+    dotsEl.appendChild(dot);
+  });
+  function goTo(n) {
+    const slides = slidesEl.querySelectorAll('.hero-slide');
+    const dots = dotsEl.querySelectorAll('.hero-dot');
+    slides[current].classList.remove('active'); dots[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active'); dots[current].classList.add('active');
+  }
+  function autoPlay() { timer = setInterval(() => goTo(current+1), 5000); }
   autoPlay();
+
+  // Hero content
+  document.getElementById('heroEyebrow').textContent = site.hero.eyebrow||'';
+  document.getElementById('heroHeadline').innerHTML = `${site.hero.headline1||''}<br>${site.hero.headline2||''}`;
+  document.getElementById('heroCopy').textContent = site.hero.copy||'';
+  document.getElementById('heroPrimary').textContent = site.hero.primaryButton||'Book Now';
+  document.getElementById('heroSecondary').textContent = site.hero.secondaryButton||'View Pricing';
+
+  // Badges
+  const badgesEl = document.getElementById('heroBadges');
+  (site.hero.highlights||[]).forEach(h => {
+    badgesEl.innerHTML += `<div class="hero-badge"><strong>${h.title}</strong><span>${h.text}</span></div>`;
+  });
+
+  // Intro
+  document.getElementById('introEyebrow').textContent = site.intro?.eyebrow||'';
+  document.getElementById('introHeading').textContent = site.intro?.heading||'';
+  document.getElementById('introCopy').textContent = site.intro?.copy||'';
+  if (site.intro?.image) document.getElementById('introImg').src = site.intro.image;
+  document.getElementById('introQuote').textContent = `"${site.intro?.imageQuote||''}"`;
+
+  // Services
+  const sg = document.getElementById('servicesGrid');
+  document.getElementById('servicesEyebrow').textContent = site.servicesSection?.eyebrow||'What We Offer';
+  document.getElementById('servicesHeading').textContent = site.servicesSection?.heading||'Choose your next crown';
+  (site.services||[]).forEach((s,i) => {
+    sg.innerHTML += `<div class="service-card reveal reveal-delay-${(i%3)+1}">
+      <div class="service-init">${s.initials}</div>
+      <h3>${s.name}</h3><p>${s.description}</p>
+      <div class="service-meta"><span class="service-duration">${s.duration}</span><span class="service-price">${s.price}</span></div>
+    </div>`;
+  });
+
+  // Videos
+  document.getElementById('videoEyebrow').textContent = site.videos?.eyebrow||'Watch the Work';
+  document.getElementById('videoHeading').textContent = site.videos?.heading||'See the process in motion';
+  document.getElementById('videoCopy').textContent = site.videos?.copy||'';
+  const vg = document.getElementById('videoGrid');
+  (site.videos?.items||[]).forEach((v,i) => {
+    vg.innerHTML += `<div class="video-card reveal reveal-delay-${i%3}">
+      <img class="video-thumb" src="${v.thumbnail}" alt="${v.alt}"/>
+      <div class="video-overlay"><div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      <span class="video-label">${v.label}</span>
+    </div>`;
+  });
+
+  // Gallery strip (first 4 from gallery.json)
+  document.getElementById('galleryEyebrow').textContent = site.galleryPreview?.eyebrow||'The Look';
+  document.getElementById('galleryHeading').textContent = site.galleryPreview?.heading||'Detailed parts, smooth finish.';
+  const gs = document.getElementById('galleryStrip');
+  (gallery.images||[]).slice(0,4).forEach(img => {
+    gs.innerHTML += `<div class="gallery-strip-item"><img src="${img.image}" alt="${img.alt}"/></div>`;
+  });
+
+  // Quote
+  document.getElementById('quoteText').textContent = `"${site.quote?.text||''}"`;
+  document.getElementById('quoteAuthor').textContent = `— ${site.quote?.author||''}`;
+
+  // Care tips
+  document.getElementById('careEyebrow').textContent = site.care?.eyebrow||'Before You Arrive';
+  document.getElementById('careHeading').textContent = site.care?.heading||'A little prep keeps the install smooth.';
+  const cg = document.getElementById('careGrid');
+  (site.care?.tips||[]).forEach((t,i) => {
+    cg.innerHTML += `<div class="care-item reveal reveal-delay-${i+1}">
+      <span class="care-num">0${i+1}</span>
+      <div><h4>${t.title}</h4><p>${t.tip}</p></div>
+    </div>`;
+  });
+
+  // Booking CTA
+  document.getElementById('bookingEyebrow').textContent = site.booking?.eyebrow||'Ready?';
+  document.getElementById('bookingHeading').textContent = site.booking?.heading||'Tell us what you want in the chair.';
+  document.getElementById('bookingCopy').textContent = site.booking?.copy||'';
+  document.getElementById('bookingBtn').textContent = site.booking?.button||'Request Appointment';
+  if (site.booking?.image) document.getElementById('bookingImg').style.backgroundImage = `url('${site.booking.image}')`;
+
+  // Footer
+  document.getElementById('footerCopy').textContent = `© ${new Date().getFullYear()} ${brand.siteName||'Mel Hair Braiding'}. All rights reserved.`;
+  document.getElementById('footerCredit').textContent = site.footer?.credit||'';
+  document.querySelector('.footer-tagline').textContent = brand.footerTagline||site.footer?.copy||'';
+  document.getElementById('footerContact').innerHTML = `
+    <li><a href="${brand.phoneHref||'tel:+15550181331'}">${brand.phone||'(555) 018-1331'}</a></li>
+    <li><a href="mailto:${brand.email||'hello@melhairbraiding.net'}">${brand.email||'hello@melhairbraiding.net'}</a></li>
+    <li style="color:var(--text-dim);font-size:.85rem;margin-top:.5rem">${brand.location||'Charlotte, NC'}</li>`;
+
+  // Re-observe new reveal elements
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
+})();
 </script>
 </body>
 </html>
