@@ -10,47 +10,60 @@ display_url: "https://melhairbraiding.net"
 logo_url: "https://melhairbraiding.net/favicon.ico"
 
 collections:
-  - name: "site"
-    label: "Website Content"
+
+  - name: "settings"
+    label: "Site Settings"
     files:
-      - name: "homepage"
-        label: "Homepage"
+      - name: "branding"
+        label: "Branding & Logo"
+        file: "content/branding.json"
+        format: "json"
+        fields:
+          - { label: "Site Name", name: "siteName", widget: "string", default: "Mel Hair Braiding" }
+          - { label: "Logo Image", name: "logoImage", widget: "image", required: false, hint: "Upload your logo. Recommended: PNG transparent background, 300px+ wide." }
+          - { label: "Logo Text (if no image)", name: "logoText", widget: "string", default: "MHB" }
+          - { label: "Footer Tagline", name: "footerTagline", widget: "string" }
+          - { label: "Phone Number", name: "phone", widget: "string" }
+          - { label: "Phone Link", name: "phoneHref", widget: "string", hint: "Format: +15550181331" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "City / Location", name: "location", widget: "string" }
+
+  - name: "homepage"
+    label: "Homepage"
+    files:
+      - name: "home"
+        label: "Homepage Content"
         file: "content/site.json"
         format: "json"
         fields:
-          - { label: "Website Name", name: "siteName", widget: "string" }
-          - { label: "Logo Initials", name: "brandMark", widget: "string" }
           - { label: "Search Description", name: "description", widget: "text" }
-          - label: "Hero"
+          - label: "Hero Slideshow"
             name: "hero"
             widget: "object"
             fields:
               - { label: "Small Heading", name: "eyebrow", widget: "string" }
-              - { label: "Headline", name: "headline", widget: "string" }
-              - { label: "Paragraph", name: "copy", widget: "text" }
-              - { label: "Primary Button", name: "primaryButton", widget: "string" }
-              - { label: "Secondary Button", name: "secondaryButton", widget: "string" }
-              - { label: "Background Image", name: "backgroundImage", widget: "image", required: false }
-              - label: "Highlights"
-                name: "highlights"
+              - { label: "Headline Line 1", name: "headline1", widget: "string" }
+              - { label: "Headline Line 2", name: "headline2", widget: "string" }
+              - { label: "Subheading", name: "copy", widget: "text" }
+              - { label: "Primary Button Text", name: "primaryButton", widget: "string" }
+              - { label: "Secondary Button Text", name: "secondaryButton", widget: "string" }
+              - label: "Slide Images"
+                name: "slides"
                 widget: "list"
                 min: 1
+                max: 5
                 fields:
-                  - { label: "Title", name: "title", widget: "string" }
-                  - { label: "Text", name: "text", widget: "string" }
-          - label: "Intro"
+                  - { label: "Slide Image", name: "image", widget: "image" }
+                  - { label: "Alt Text", name: "alt", widget: "string" }
+          - label: "About Preview Section"
             name: "intro"
             widget: "object"
             fields:
               - { label: "Small Heading", name: "eyebrow", widget: "string" }
               - { label: "Heading", name: "heading", widget: "string" }
               - { label: "Paragraph", name: "copy", widget: "text" }
-          - label: "Services Heading"
-            name: "servicesSection"
-            widget: "object"
-            fields:
-              - { label: "Small Heading", name: "eyebrow", widget: "string" }
-              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Section Image", name: "image", widget: "image", required: false }
+              - { label: "Image Quote", name: "imageQuote", widget: "string" }
           - label: "Services"
             name: "services"
             widget: "list"
@@ -61,47 +74,136 @@ collections:
               - { label: "Description", name: "description", widget: "text" }
               - { label: "Duration", name: "duration", widget: "string" }
               - { label: "Price", name: "price", widget: "string" }
-              - { label: "Featured Color", name: "featured", widget: "boolean", default: false, required: false }
-          - label: "Gallery"
-            name: "gallery"
+          - label: "Quote Banner"
+            name: "quote"
             widget: "object"
             fields:
-              - { label: "Small Heading", name: "eyebrow", widget: "string" }
-              - { label: "Heading", name: "heading", widget: "string" }
-              - { label: "Main Image", name: "primaryImage", widget: "image", required: false }
-              - { label: "Main Image Description", name: "primaryAlt", widget: "string" }
-              - { label: "Caption", name: "caption", widget: "string" }
-              - { label: "Second Image", name: "secondaryImage", widget: "image", required: false }
-              - { label: "Second Image Description", name: "secondaryAlt", widget: "string" }
-              - { label: "Quote", name: "quote", widget: "text" }
-              - { label: "Quote Author", name: "quoteAuthor", widget: "string" }
-          - label: "Hair Care"
-            name: "care"
-            widget: "object"
-            fields:
-              - { label: "Small Heading", name: "eyebrow", widget: "string" }
-              - { label: "Heading", name: "heading", widget: "string" }
-              - { label: "Paragraph", name: "copy", widget: "text" }
-              - label: "Tips"
-                name: "tips"
-                widget: "list"
-                field: { label: "Tip", name: "tip", widget: "string" }
-          - label: "Booking"
-            name: "booking"
-            widget: "object"
-            fields:
-              - { label: "Small Heading", name: "eyebrow", widget: "string" }
-              - { label: "Heading", name: "heading", widget: "string" }
-              - { label: "Paragraph", name: "copy", widget: "text" }
-              - { label: "Button Text", name: "button", widget: "string" }
-              - { label: "Success Message", name: "successMessage", widget: "string" }
-              - { label: "Preview Message", name: "localMessage", widget: "string" }
-              - { label: "Phone Display", name: "phoneDisplay", widget: "string" }
-              - { label: "Phone Link", name: "phoneHref", widget: "string" }
-              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Quote Text", name: "text", widget: "text" }
+              - { label: "Attribution", name: "author", widget: "string" }
           - label: "Footer"
             name: "footer"
             widget: "object"
             fields:
               - { label: "Footer Text", name: "copy", widget: "text" }
               - { label: "Photo Credit", name: "credit", widget: "text" }
+
+  - name: "gallery"
+    label: "Gallery"
+    files:
+      - name: "gallery"
+        label: "Gallery Images"
+        file: "content/gallery.json"
+        format: "json"
+        fields:
+          - label: "Gallery Images"
+            name: "images"
+            widget: "list"
+            summary: "{{fields.caption}}"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Caption / Style Name", name: "caption", widget: "string" }
+              - { label: "Alt Text", name: "alt", widget: "string" }
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "Knotless Braids", value: "knotless" }
+                  - { label: "Box Braids", value: "box" }
+                  - { label: "Feed-In Cornrows", value: "cornrows" }
+                  - { label: "Boho Twists", value: "twists" }
+                  - { label: "Locs", value: "locs" }
+
+  - name: "about"
+    label: "About Page"
+    files:
+      - name: "about"
+        label: "About Page Content"
+        file: "content/about.json"
+        format: "json"
+        fields:
+          - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+          - { label: "Story Image", name: "storyImage", widget: "image", required: false }
+          - { label: "Story Heading", name: "storyHeading", widget: "string" }
+          - { label: "Story Paragraph 1", name: "story1", widget: "text" }
+          - { label: "Pull Quote", name: "pullQuote", widget: "string" }
+          - { label: "Story Paragraph 2", name: "story2", widget: "text" }
+          - label: "Team Members"
+            name: "team"
+            widget: "list"
+            summary: "{{fields.name}} - {{fields.role}}"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Photo", name: "photo", widget: "image", required: false }
+              - { label: "Bio", name: "bio", widget: "text" }
+
+  - name: "testimonials"
+    label: "Testimonials"
+    files:
+      - name: "testimonials"
+        label: "Client Testimonials"
+        file: "content/testimonials.json"
+        format: "json"
+        fields:
+          - label: "Testimonials"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.author}} - {{fields.service}}"
+            fields:
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Client Name", name: "author", widget: "string" }
+              - { label: "Service Received", name: "service", widget: "string" }
+              - { label: "Star Rating", name: "rating", widget: "number", min: 1, max: 5, default: 5 }
+              - { label: "Featured (dark card)", name: "featured", widget: "boolean", default: false }
+
+  - name: "pricing"
+    label: "Pricing"
+    files:
+      - name: "pricing"
+        label: "Pricing Page"
+        file: "content/pricing.json"
+        format: "json"
+        fields:
+          - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+          - { label: "Deposit Amount", name: "depositAmount", widget: "string", default: "$50" }
+          - { label: "Cancellation Policy", name: "cancellationPolicy", widget: "text" }
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            summary: "{{fields.name}} - {{fields.price}}"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Tagline", name: "tagline", widget: "string" }
+              - { label: "Starting Price", name: "price", widget: "string" }
+              - { label: "Duration", name: "duration", widget: "string" }
+              - { label: "Featured", name: "featured", widget: "boolean", default: false }
+              - label: "Features List"
+                name: "features"
+                widget: "list"
+                field: { label: "Feature", name: "feature", widget: "string" }
+          - label: "Add-Ons"
+            name: "addons"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Price", name: "price", widget: "string" }
+
+  - name: "contact"
+    label: "Contact & Hours"
+    files:
+      - name: "contact"
+        label: "Contact Info & Hours"
+        file: "content/contact.json"
+        format: "json"
+        fields:
+          - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Phone Link", name: "phoneHref", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Location Note", name: "location", widget: "string" }
+          - label: "Studio Hours"
+            name: "hours"
+            widget: "list"
+            fields:
+              - { label: "Day(s)", name: "day", widget: "string" }
+              - { label: "Hours", name: "hours", widget: "string" }
