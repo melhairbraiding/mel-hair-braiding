@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Contact — Mel Hair Braiding</title>
+  <link rel="stylesheet" href="../assets/css/global.css"/>
+  <style>
+    .contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:start}
+    .contact-method{display:flex;gap:1.5rem;align-items:flex-start;padding:1.8rem;background:#fff;border:1px solid var(--border);border-radius:4px;margin-bottom:1.2rem;transition:transform .3s,box-shadow .3s}
+    .contact-method:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+    .contact-icon{width:52px;height:52px;border-radius:50%;background:var(--cream);border:1.5px solid var(--clay);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+    .contact-method h4{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--clay);margin-bottom:.3rem}
+    .contact-method a,.contact-method p{color:var(--text);font-size:.98rem}
+    .contact-method a:hover{color:var(--clay)}
+    .hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.8rem}
+    .hours-row{display:flex;justify-content:space-between;padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.88rem}
+    .hours-row:last-child{border:none}
+    .hours-row .day{color:var(--text-muted)}
+    .hours-row .time{font-weight:500;color:var(--bark)}
+    .form-group{margin-bottom:1.4rem}
+    .form-group label{display:block;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.5rem}
+    .form-group input,.form-group select,.form-group textarea{width:100%;padding:.85rem 1rem;border:1.5px solid var(--border);border-radius:2px;font-family:'Jost',sans-serif;font-size:.95rem;color:var(--text);background:#fff;transition:border-color .2s}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--clay)}
+    .form-group textarea{resize:vertical;min-height:140px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+    .success-msg{display:none;background:var(--cream);border:1.5px solid var(--clay);border-radius:4px;padding:2rem;text-align:center}
+    .success-msg.show{display:block}
+    @media(max-width:900px){.contact-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<nav class="nav">
+  <a href="../index.html" class="nav-logo">MHB <span>Mel Hair Braiding</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li><li><a href="../about/index.html">About</a></li>
+    <li><a href="../pricing/index.html">Pricing</a></li><li><a href="../gallery/index.html">Gallery</a></li>
+    <li><a href="../testimonials/index.html">Testimonials</a></li><li><a href="index.html" class="active">Contact</a></li>
+    <li><a href="../book/index.html" class="nav-cta">Book Now</a></li>
+  </ul>
+  <div class="nav-hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="page-hero" style="height:40vh;">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1600&q=80');"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content"><span class="eyebrow">Reach Out</span><h1>Contact Us</h1></div>
+</div>
+
+<section class="section" style="background:var(--cream);">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="reveal">
+        <span class="eyebrow">Get in Touch</span>
+        <h2 class="section-heading" style="font-size:clamp(1.6rem,3vw,2.4rem);">We'd love to hear from you.</h2>
+        <div class="divider"></div>
+        <p style="color:var(--text-muted);line-height:1.9;margin-bottom:2rem;">Questions about a style, need to reschedule, or just want to say hello? Reach out any way that works for you.</p>
+
+        <div class="contact-method">
+          <div class="contact-icon">📞</div>
+          <div><h4>Phone / Text</h4><a href="tel:+15550181331">(555) 018-1331</a><p style="color:var(--text-muted);font-size:.85rem;margin-top:.3rem;">Texts preferred for quick questions</p></div>
+        </div>
+        <div class="contact-method">
+          <div class="contact-icon">✉️</div>
+          <div><h4>Email</h4><a href="mailto:hello@melhairbraiding.net">hello@melhairbraiding.net</a><p style="color:var(--text-muted);font-size:.85rem;margin-top:.3rem;">We respond within 24 hours</p></div>
+        </div>
+        <div class="contact-method">
+          <div class="contact-icon">📍</div>
+          <div><h4>Location</h4><p>Charlotte, NC<br/><span style="color:var(--text-muted);font-size:.85rem;">Full address provided after booking confirmation</span></p></div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:4px;padding:1.8rem;margin-top:.5rem;">
+          <h4 style="font-family:'Jost',sans-serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--clay);margin-bottom:1rem;">Studio Hours</h4>
+          <div class="hours-row"><span class="day">Tuesday – Friday</span><span class="time">9:00 am – 7:00 pm</span></div>
+          <div class="hours-row"><span class="day">Saturday</span><span class="time">8:00 am – 6:00 pm</span></div>
+          <div class="hours-row"><span class="day">Sunday</span><span class="time">By request only</span></div>
+          <div class="hours-row"><span class="day">Monday</span><span class="time">Closed</span></div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2">
+        <div class="card" style="padding:2.5rem;">
+          <h3 style="font-size:1.8rem;margin-bottom:.4rem;">Send a Message</h3>
+          <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:1.8rem;">For booking requests, please use the <a href="../book/index.html" style="color:var(--clay)">Book Now</a> page instead.</p>
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-group"><label>Name</label><input type="text" placeholder="Your name" required/></div>
+              <div class="form-group"><label>Email</label><input type="email" placeholder="you@email.com" required/></div>
+            </div>
+            <div class="form-group">
+              <label>Subject</label>
+              <select>
+                <option>General Question</option>
+                <option>Style Advice</option>
+                <option>Rescheduling</option>
+                <option>Partnership / Collaboration</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Message</label><textarea placeholder="Write your message here..." required></textarea></div>
+            <button type="submit" class="btn btn-primary" style="width:100%;">Send Message →</button>
+          </form>
+          <div class="success-msg" id="successMsg">
+            <div style="font-size:2rem;margin-bottom:.5rem;">✅</div>
+            <h3 style="font-size:1.4rem;margin-bottom:.5rem;">Message Sent!</h3>
+            <p style="color:var(--text-muted);">Thanks for reaching out. We'll get back to you within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP PLACEHOLDER -->
+<section style="height:380px;background:var(--sand);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;">
+  <div style="font-size:2.5rem;">📍</div>
+  <p style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--bark);font-style:italic;">Charlotte, North Carolina</p>
+  <p style="color:var(--text-muted);font-size:.88rem;">Exact address provided after booking confirmation</p>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div><div class="footer-logo">MHB <span>Mel Hair Braiding</span></div><p style="font-size:.9rem;color:rgba(245,239,230,.55);max-width:240px;line-height:1.7;">Protective styling by appointment in Charlotte, NC.</p></div>
+    <div><h4>Pages</h4><ul class="footer-links"><li><a href="../about/index.html">About Us</a></li><li><a href="../pricing/index.html">Pricing</a></li><li><a href="../gallery/index.html">Gallery</a></li><li><a href="../testimonials/index.html">Testimonials</a></li><li><a href="index.html">Contact</a></li><li><a href="../book/index.html">Book Now</a></li></ul></div>
+    <div><h4>Contact</h4><ul class="footer-links"><li><a href="tel:+15550181331">(555) 018-1331</a></li><li><a href="mailto:hello@melhairbraiding.net">hello@melhairbraiding.net</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Mel Hair Braiding.</span><span>Photos via Unsplash</span></div>
+</footer>
+<script src="../assets/js/global.js"></script>
+<script>
+setTimeout(()=>document.querySelector('.page-hero')?.classList.add('loaded'),100);
+document.getElementById('contactForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  e.target.style.display='none';
+  document.getElementById('successMsg').classList.add('show');
+});
+</script>
+</body></html>
