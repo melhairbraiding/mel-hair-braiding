@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Pricing — Mel Hair Braiding</title>
+  <link rel="stylesheet" href="../assets/css/global.css"/>
+  <style>
+    .pricing-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+    .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:3rem}
+    .price-card{background:#fff;border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+    .price-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+    .price-card.featured{border-color:var(--clay);box-shadow:0 0 0 2px var(--clay)}
+    .price-card-header{padding:2rem 2rem 1.5rem;border-bottom:1px solid var(--border)}
+    .price-card.featured .price-card-header{background:var(--clay)}
+    .price-card.featured h3,.price-card.featured .price-tag{color:#fff}
+    .price-card.featured .price-eyebrow{color:var(--sand)}
+    .price-eyebrow{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--clay);margin-bottom:.4rem}
+    .price-card h3{font-size:1.6rem;margin-bottom:.5rem}
+    .price-tag{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--clay)}
+    .price-tag span{font-size:.9rem;color:var(--text-muted);font-family:'Jost',sans-serif}
+    .price-card-body{padding:1.8rem 2rem}
+    .price-features{list-style:none}
+    .price-features li{display:flex;gap:.8rem;align-items:flex-start;padding:.5rem 0;border-bottom:1px solid rgba(0,0,0,.05);font-size:.9rem;color:var(--text-muted)}
+    .price-features li::before{content:'✓';color:var(--clay);font-weight:600;flex-shrink:0;margin-top:.05rem}
+    .price-duration{display:inline-block;margin-top:1.2rem;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);background:var(--cream);padding:.3rem .8rem;border-radius:2px}
+    .add-ons{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin-top:2rem}
+    .add-on{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:1.5rem;display:flex;justify-content:space-between;align-items:center}
+    .add-on-name{font-size:.95rem;font-weight:500}
+    .add-on-price{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--clay)}
+    .faq-list{margin-top:2rem}
+    .faq-item{border-bottom:1px solid var(--border);overflow:hidden}
+    .faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.3rem 0;cursor:pointer;font-size:1rem;font-weight:500;color:var(--bark)}
+    .faq-q svg{width:18px;height:18px;flex-shrink:0;transition:transform .3s;fill:var(--clay)}
+    .faq-item.open .faq-q svg{transform:rotate(45deg)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;font-size:.92rem;color:var(--text-muted);line-height:1.8}
+    .faq-item.open .faq-a{max-height:200px;padding-bottom:1.2rem}
+    @media(max-width:768px){.pricing-intro{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<nav class="nav">
+  <a href="../index.html" class="nav-logo">MHB <span>Mel Hair Braiding</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li><li><a href="../about/index.html">About</a></li>
+    <li><a href="index.html" class="active">Pricing</a></li><li><a href="../gallery/index.html">Gallery</a></li>
+    <li><a href="../testimonials/index.html">Testimonials</a></li><li><a href="../contact/index.html">Contact</a></li>
+    <li><a href="../book/index.html" class="nav-cta">Book Now</a></li>
+  </ul>
+  <div class="nav-hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1762767527280-6767cadbf6bd?auto=format&fit=crop&w=1600&q=80');"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content"><span class="eyebrow">Transparent Rates</span><h1>Pricing</h1></div>
+</div>
+
+<!-- INTRO -->
+<section class="section" style="background:var(--cream);">
+  <div class="section-inner">
+    <div class="pricing-intro">
+      <div class="reveal"><span class="eyebrow">How Pricing Works</span><h2 class="section-heading">Fair, clear, no surprises.</h2><div class="divider"></div><p style="color:var(--text-muted);line-height:1.9;">All prices listed are starting rates. Final pricing depends on hair length, density, braid size, and any added extensions or prep work. You'll receive a confirmed quote before your appointment begins — we don't like surprises, and neither do you.</p></div>
+      <div class="reveal reveal-delay-2"><div class="card" style="background:var(--bark);border:none;color:#fff;padding:2.5rem;">
+        <h3 style="color:var(--sand);margin-bottom:1rem;">Deposit Policy</h3>
+        <p style="color:rgba(245,239,230,.7);font-size:.9rem;line-height:1.8;margin-bottom:1rem;">A <strong style="color:var(--clay-light);">$50 deposit</strong> is required to hold all appointments. Deposits are applied to your final total.</p>
+        <p style="color:rgba(245,239,230,.7);font-size:.9rem;line-height:1.8;">Cancellations with less than <strong style="color:var(--clay-light);">48 hours notice</strong> forfeit the deposit.</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;"><span class="eyebrow">Service Menu</span><h2 class="section-heading">All Services & Rates</h2><div class="divider center"></div></div>
+    <div class="pricing-grid">
+      <div class="price-card reveal reveal-delay-1">
+        <div class="price-card-header"><div class="price-eyebrow">Most Popular</div><h3>Knotless Braids</h3><div class="price-tag">$220 <span>and up</span></div></div>
+        <div class="price-card-body"><ul class="price-features"><li>Feed-in technique for natural root</li><li>Reduced scalp tension</li><li>Available waist to floor length</li><li>Small, medium, or large size</li><li>Optional beads & accessories</li></ul><span class="price-duration">⏱ 4–7 hours</span><br/><a href="../book/index.html" class="btn btn-outline" style="margin-top:1.2rem;width:100%;text-align:center;">Book This Style</a></div>
+      </div>
+      <div class="price-card featured reveal reveal-delay-2">
+        <div class="price-card-header"><div class="price-eyebrow">Classic</div><h3>Box Braids</h3><div class="price-tag">$200 <span style="color:rgba(255,255,255,.6)">and up</span></div></div>
+        <div class="price-card-body"><ul class="price-features"><li>Clean, uniform sections</li><li>Secure ends — no slipping</li><li>Optional beads & cuffs</li><li>Short, medium, long, or extra long</li><li>Jumbo size available</li></ul><span class="price-duration">⏱ 4–8 hours</span><br/><a href="../book/index.html" class="btn btn-primary" style="margin-top:1.2rem;width:100%;text-align:center;">Book This Style</a></div>
+      </div>
+      <div class="price-card reveal reveal-delay-3">
+        <div class="price-card-header"><div class="price-eyebrow">Quick & Clean</div><h3>Feed-In Cornrows</h3><div class="price-tag">$95 <span>and up</span></div></div>
+        <div class="price-card-body"><ul class="price-features"><li>Straight-backs, stitch, or custom pattern</li><li>Ponytail or bun finish</li><li>Feed-in for length</li><li>Clean hairline work</li></ul><span class="price-duration">⏱ 2–5 hours</span><br/><a href="../book/index.html" class="btn btn-outline" style="margin-top:1.2rem;width:100%;text-align:center;">Book This Style</a></div>
+      </div>
+      <div class="price-card reveal reveal-delay-1">
+        <div class="price-card-header"><div class="price-eyebrow">Romantic Finish</div><h3>Boho Twists</h3><div class="price-tag">$240 <span>and up</span></div></div>
+        <div class="price-card-body"><ul class="price-features"><li>Curly accent pieces included</li><li>Fuller, movement-rich look</li><li>Medium to long length</li><li>Customizable curl pattern</li></ul><span class="price-duration">⏱ 5–8 hours</span><br/><a href="../book/index.html" class="btn btn-outline" style="margin-top:1.2rem;width:100%;text-align:center;">Book This Style</a></div>
+      </div>
+      <div class="price-card reveal reveal-delay-2">
+        <div class="price-card-header"><div class="price-eyebrow">Loc Journey</div><h3>Loc Care</h3><div class="price-tag">$85 <span>and up</span></div></div>
+        <div class="price-card-body"><ul class="price-features"><li>Retwists — all stages</li><li>Starter loc consult + install</li><li>Detox care treatments</li><li>Two-strand twist styling</li></ul><span class="price-duration">⏱ 1.5–4 hours</span><br/><a href="../book/index.html" class="btn btn-outline" style="margin-top:1.2rem;width:100%;text-align:center;">Book This Style</a></div>
+      </div>
+      <div class="price-card reveal reveal-delay-3">
+        <div class="price-card-header"><div class="price-eyebrow">Start Here</div><h3>Consultation</h3><div class="price-tag">$20 <span>flat</span></div></div>
+        <div class="price-card-body"><ul class="price-features"><li>Scalp & hair health check</li><li>Style recommendations</li><li>Budget & time planning</li><li>Applied to first service</li></ul><span class="price-duration">⏱ 20 minutes</span><br/><a href="../book/index.html" class="btn btn-outline" style="margin-top:1.2rem;width:100%;text-align:center;">Book Consultation</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADD-ONS -->
+<section class="section" style="background:var(--cream);">
+  <div class="section-inner">
+    <div class="reveal"><span class="eyebrow">Extras</span><h2 class="section-heading">Add-On Services</h2><div class="divider"></div></div>
+    <div class="add-ons">
+      <div class="add-on reveal reveal-delay-1"><span class="add-on-name">Hair Prep & Detangle</span><span class="add-on-price">+$30</span></div>
+      <div class="add-on reveal reveal-delay-2"><span class="add-on-name">Braid Extensions Included</span><span class="add-on-price">+$25</span></div>
+      <div class="add-on reveal reveal-delay-3"><span class="add-on-name">Beads & Accessories</span><span class="add-on-price">+$15</span></div>
+      <div class="add-on reveal reveal-delay-1"><span class="add-on-name">Color Extension Hair</span><span class="add-on-price">+$20</span></div>
+      <div class="add-on reveal reveal-delay-2"><span class="add-on-name">Braid Removal</span><span class="add-on-price">From $40</span></div>
+      <div class="add-on reveal reveal-delay-3"><span class="add-on-name">Scalp Treatment</span><span class="add-on-price">+$35</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;"><span class="eyebrow">Questions</span><h2 class="section-heading">Frequently Asked</h2><div class="divider center"></div></div>
+    <div class="faq-list reveal" style="max-width:720px;margin:2rem auto 0;">
+      <div class="faq-item"><div class="faq-q">Do I need to bring my own hair?<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div><p class="faq-a">You can bring your own braiding hair or purchase it through us at cost. We carry a range of extension types and colors. Just let us know your preference when booking.</p></div>
+      <div class="faq-item"><div class="faq-q">How do I prepare my hair for the appointment?<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div><p class="faq-a">Please arrive with hair washed, detangled, and stretched. No heavy oils, gels, or buildup. If you need prep services, add it on when booking and we'll take care of it.</p></div>
+      <div class="faq-item"><div class="faq-q">How long will my style last?<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div><p class="faq-a">Most styles last 4–8 weeks with proper care. We'll send you aftercare instructions after your appointment to help you get the most out of your style.</p></div>
+      <div class="faq-item"><div class="faq-q">What is your cancellation policy?<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div><p class="faq-a">We require 48 hours notice to cancel or reschedule without penalty. Late cancellations forfeit the $50 deposit. No-shows are charged the full deposit.</p></div>
+    </div>
+  </div>
+</section>
+
+<div style="background:var(--clay);text-align:center;padding:4rem 2rem;">
+  <span class="eyebrow" style="color:var(--sand);">Ready to book?</span>
+  <h2 style="color:#fff;margin:.5rem 0 1.5rem;">Choose your style and claim your seat.</h2>
+  <a href="../book/index.html" class="btn btn-light">Request Appointment</a>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div><div class="footer-logo">MHB <span>Mel Hair Braiding</span></div><p style="font-size:.9rem;color:rgba(245,239,230,.55);max-width:240px;line-height:1.7;">Protective styling by appointment in Charlotte, NC.</p></div>
+    <div><h4>Pages</h4><ul class="footer-links"><li><a href="../about/index.html">About Us</a></li><li><a href="index.html">Pricing</a></li><li><a href="../gallery/index.html">Gallery</a></li><li><a href="../testimonials/index.html">Testimonials</a></li><li><a href="../contact/index.html">Contact</a></li><li><a href="../book/index.html">Book Now</a></li></ul></div>
+    <div><h4>Contact</h4><ul class="footer-links"><li><a href="tel:+15550181331">(555) 018-1331</a></li><li><a href="mailto:hello@melhairbraiding.net">hello@melhairbraiding.net</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Mel Hair Braiding.</span><span>Photos via Unsplash</span></div>
+</footer>
+<script src="../assets/js/global.js"></script>
+<script>
+setTimeout(()=>document.querySelector('.page-hero')?.classList.add('loaded'),100);
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{const item=q.parentElement;item.classList.toggle('open');});});
+</script>
+</body></html>
