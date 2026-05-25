@@ -7,17 +7,17 @@
   <style>
     .stars{color:var(--clay);font-size:1.1rem;letter-spacing:.1rem;margin-bottom:.8rem}
     .testimonials-masonry{columns:3;column-gap:1.8rem;margin-top:3rem}
-    .testimonial-card{break-inside:avoid;background:#fff;border:1px solid var(--border);border-radius:4px;padding:2rem;margin-bottom:1.8rem;transition:transform .3s,box-shadow .3s}
+    .testimonial-card{break-inside:avoid;background:var(--bg-card);border:1px solid var(--border-dim);border-radius:4px;padding:2rem;margin-bottom:1.8rem;transition:transform .3s,box-shadow .3s}
     .testimonial-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-    .testimonial-card.featured{background:var(--bark);border-color:var(--bark)}
+    .testimonial-card.featured{background:var(--bark);border-color:var(--text)}
     .testimonial-card.featured blockquote{color:var(--sand)}
     .testimonial-card.featured .t-author{color:rgba(245,239,230,.7)}
     .testimonial-card.featured .t-service{color:var(--clay-light)}
     .testimonial-card.featured .stars{color:var(--clay-light)}
-    blockquote{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:var(--bark);line-height:1.7;margin-bottom:1.2rem}
+    blockquote{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:var(--text);line-height:1.7;margin-bottom:1.2rem}
     .t-author{font-size:.85rem;font-weight:600;color:var(--text)}
     .t-service{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--clay);margin-top:.2rem}
-    .rating-summary{display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:center;background:var(--cream);border-radius:4px;padding:3rem;margin-bottom:4rem}
+    .rating-summary{display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:center;background:var(--bg-2);border-radius:4px;padding:3rem;margin-bottom:4rem}
     .rating-big{text-align:center}
     .rating-num{font-family:'Cormorant Garamond',serif;font-size:5rem;color:var(--clay);line-height:1}
     .rating-label{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)}
@@ -26,7 +26,7 @@
     .rating-row span{font-size:.82rem;color:var(--text-muted);min-width:2rem}
     .rating-bar-bg{flex:1;height:8px;background:var(--sand);border-radius:4px;overflow:hidden}
     .rating-bar-fill{height:100%;background:var(--clay);border-radius:4px}
-    .cta-review{background:var(--cream);border:2px dashed var(--clay);border-radius:4px;padding:2.5rem;text-align:center;margin-top:3rem}
+    .cta-review{background:var(--bg-2);border:2px dashed var(--clay);border-radius:4px;padding:2.5rem;text-align:center;margin-top:3rem}
     @media(max-width:900px){.testimonials-masonry{columns:2}.rating-summary{grid-template-columns:1fr;text-align:center}}
     @media(max-width:600px){.testimonials-masonry{columns:1}}
   </style>
@@ -49,7 +49,7 @@
 </div>
 
 <!-- RATING SUMMARY -->
-<section class="section" style="background:var(--cream);">
+<section class="section" style="background:var(--bg-2);">
   <div class="section-inner">
     <div class="reveal">
       <div class="rating-summary">
