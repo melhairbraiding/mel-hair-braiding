@@ -2,12 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>About Us — Mel Hair Braiding</title>
+  <title>About — Mel Hair Braiding</title>
   <link rel="stylesheet" href="../assets/css/global.css"/>
   <style>
     .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
     .story-img{width:100%;height:540px;object-fit:cover;border-radius:3px}
     .story-pull{font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-style:italic;color:var(--clay);line-height:1.5;border-left:3px solid var(--clay);padding-left:1.5rem;margin:2rem 0}
+    .milestones{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem;text-align:center}
+    .milestone-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;color:var(--clay);line-height:1}
+    .milestone-label{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-top:.4rem}
     .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem}
     .value-card{background:var(--bg-card);border:1px solid var(--border-dim);border-radius:4px;padding:2.5rem 2rem;text-align:center}
     .value-icon{font-size:2.2rem;margin-bottom:1rem}
@@ -16,14 +19,11 @@
     .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2.5rem;margin-top:3rem}
     .team-card{text-align:center}
     .team-img{width:100%;height:320px;object-fit:cover;border-radius:3px;margin-bottom:1.2rem}
-    .team-card h3{font-size:1.5rem;margin-bottom:.2rem}
+    .team-card h3{font-size:1.5rem;margin-bottom:.2rem;color:var(--text)}
     .team-role{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--clay)}
     .team-bio{font-size:.9rem;color:var(--text-muted);margin-top:.8rem;line-height:1.8}
-    .milestones{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem;text-align:center}
-    .milestone-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;color:var(--clay);line-height:1}
-    .milestone-label{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-top:.4rem}
     @media(max-width:900px){.story-grid{grid-template-columns:1fr}.values-grid{grid-template-columns:1fr 1fr}.milestones{grid-template-columns:1fr 1fr}}
-    @media(max-width:600px){.values-grid{grid-template-columns:1fr}.milestones{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.values-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -38,79 +38,78 @@
   <div class="nav-hamburger"><span></span><span></span><span></span></div>
 </nav>
 <div class="page-hero">
-  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1638899108736-8a1b29b1a8d8?auto=format&fit=crop&w=1600&q=80');"></div>
+  <div class="page-hero-bg" id="aboutHeroBg" style="background-image:url('https://images.unsplash.com/photo-1638899108736-8a1b29b1a8d8?auto=format&fit=crop&w=1600&q=80');"></div>
   <div class="page-hero-overlay"></div>
   <div class="page-hero-content"><span class="eyebrow">Who We Are</span><h1>About Us</h1></div>
 </div>
-
-<!-- STORY -->
-<section class="section" style="background:var(--bg-2);">
+<section class="section" style="background:var(--bg-2)">
   <div class="section-inner">
     <div class="story-grid">
-      <div class="reveal"><img class="story-img" src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=800&q=80" alt="Mel styling"/></div>
+      <div class="reveal"><img class="story-img" id="storyImg" src="" alt="Mel styling"/></div>
       <div class="reveal reveal-delay-2">
         <span class="eyebrow">Our Story</span>
-        <h2 class="section-heading">Born from a love of natural hair and patient hands.</h2>
+        <h2 class="section-heading" id="storyHeading"></h2>
         <div class="divider"></div>
-        <p style="color:var(--text-muted);line-height:1.9;margin-bottom:1rem;">Mel Hair Braiding was founded in Charlotte with one simple belief: every client deserves a stylist who listens first, braids second. What started as weekend sessions in a home studio grew into a full-service protective styling space built on trust, technique, and genuine care.</p>
-        <blockquote class="story-pull">"I learned to braid in my grandmother's kitchen. Every style I do carries that memory."</blockquote>
-        <p style="color:var(--text-muted);line-height:1.9;">Today, Mel and her team serve clients across Charlotte with the same intention that started it all — clean parts, comfortable tension, and styles that protect your hair while keeping you looking polished.</p>
+        <p style="color:var(--text-muted);line-height:1.9;margin-bottom:1rem" id="story1"></p>
+        <blockquote class="story-pull" id="pullQuote"></blockquote>
+        <p style="color:var(--text-muted);line-height:1.9" id="story2"></p>
       </div>
     </div>
   </div>
 </section>
-
-<!-- MILESTONES -->
-<section class="section">
+<section class="section" style="background:var(--bg)">
   <div class="section-inner">
-    <div class="reveal" style="text-align:center;"><span class="eyebrow">By the Numbers</span><h2 class="section-heading">10+ Years of Craft</h2><div class="divider center"></div></div>
-    <div class="milestones">
-      <div class="reveal reveal-delay-1"><div class="milestone-num">10+</div><div class="milestone-label">Years in Business</div></div>
-      <div class="reveal reveal-delay-2"><div class="milestone-num">500+</div><div class="milestone-label">Happy Clients</div></div>
-      <div class="reveal reveal-delay-3"><div class="milestone-num">3</div><div class="milestone-label">Expert Stylists</div></div>
-      <div class="reveal reveal-delay-4"><div class="milestone-num">6</div><div class="milestone-label">Signature Services</div></div>
-    </div>
+    <div class="reveal" style="text-align:center"><span class="eyebrow">By the Numbers</span><h2 class="section-heading">A decade of craft</h2><div class="divider center"></div></div>
+    <div class="milestones" id="statsGrid"></div>
   </div>
 </section>
-
-<!-- VALUES -->
-<section class="section" style="background:var(--bg-2);">
+<section class="section" style="background:var(--bg-2)">
   <div class="section-inner">
-    <div class="reveal" style="text-align:center;"><span class="eyebrow">What We Stand For</span><h2 class="section-heading">Our Values</h2><div class="divider center"></div></div>
-    <div class="values-grid">
-      <div class="value-card reveal reveal-delay-1"><div class="value-icon">🌿</div><h3>Hair Health First</h3><p>Every technique is chosen to protect your natural hair — low tension, proper prep, and honest aftercare advice always.</p></div>
-      <div class="value-card reveal reveal-delay-2"><div class="value-icon">✨</div><h3>Intentional Craft</h3><p>We don't rush. Clean parts, consistent tension, and smooth finishes take time — and we give every install that time.</p></div>
-      <div class="value-card reveal reveal-delay-3"><div class="value-icon">🤝</div><h3>Client Comfort</h3><p>From your first message to your last strand, we want you feeling informed, comfortable, and confident in the chair.</p></div>
-    </div>
+    <div class="reveal" style="text-align:center"><span class="eyebrow" id="valuesEyebrow"></span><h2 class="section-heading" id="valuesHeading"></h2><div class="divider center"></div></div>
+    <div class="values-grid" id="valuesGrid"></div>
   </div>
 </section>
-
-<!-- TEAM -->
-<section class="section">
+<section class="section" style="background:var(--bg)">
   <div class="section-inner">
-    <div class="reveal" style="text-align:center;"><span class="eyebrow">The People Behind the Braids</span><h2 class="section-heading">Meet the Team</h2><div class="divider center"></div></div>
-    <div class="team-grid">
-      <div class="team-card reveal reveal-delay-1"><img class="team-img" src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=600&q=80" alt="Mel"/><h3>Mel</h3><span class="team-role">Founder & Lead Stylist</span><p class="team-bio">Specializing in knotless braids, boho twists, and loc care. 10+ years of experience and a deep love for natural hair health.</p></div>
-      <div class="team-card reveal reveal-delay-2"><img class="team-img" src="https://images.unsplash.com/photo-1763048208932-cbe149724374?auto=format&fit=crop&w=600&q=80" alt="Jordan"/><h3>Jordan</h3><span class="team-role">Braiding Specialist</span><p class="team-bio">Expert in feed-in cornrows, stitch braids, and box braids. Known for razor-sharp parts and quick, comfortable installs.</p></div>
-      <div class="team-card reveal reveal-delay-3"><img class="team-img" src="https://images.unsplash.com/photo-1638899108736-8a1b29b1a8d8?auto=format&fit=crop&w=600&q=80" alt="Nia"/><h3>Nia</h3><span class="team-role">Loc & Twist Specialist</span><p class="team-bio">Passionate about loc journeys, starter sets, and protective twists. Gentle hands and a calming presence in the studio.</p></div>
-    </div>
+    <div class="reveal" style="text-align:center"><span class="eyebrow">The People Behind the Braids</span><h2 class="section-heading">Meet the Team</h2><div class="divider center"></div></div>
+    <div class="team-grid" id="teamGrid"></div>
   </div>
 </section>
-
-<div style="background:var(--clay);text-align:center;padding:4rem 2rem;">
-  <span class="eyebrow" style="color:var(--sand);">Ready to sit in the chair?</span>
-  <h2 style="color:#fff;margin:.5rem 0 1.5rem;">Let's create something you'll love.</h2>
+<div style="background:var(--clay);text-align:center;padding:4rem 2rem">
+  <span class="eyebrow" style="color:rgba(255,255,255,.7)">Ready to sit in the chair?</span>
+  <h2 style="color:#fff;margin:.5rem 0 1.5rem">Let's create something you'll love.</h2>
   <a href="../book/index.html" class="btn btn-light">Book Your Appointment</a>
 </div>
-
 <footer class="footer">
   <div class="footer-inner">
-    <div><div class="footer-logo">MHB <span>Mel Hair Braiding</span></div><p style="font-size:.9rem;color:rgba(245,239,230,.55);max-width:240px;line-height:1.7;">Protective styling, braid care, and custom looks by appointment.</p></div>
-    <div><h4>Pages</h4><ul class="footer-links"><li><a href="../about/index.html">About Us</a></li><li><a href="../pricing/index.html">Pricing</a></li><li><a href="../gallery/index.html">Gallery</a></li><li><a href="../testimonials/index.html">Testimonials</a></li><li><a href="../contact/index.html">Contact</a></li><li><a href="../book/index.html">Book Now</a></li></ul></div>
-    <div><h4>Contact</h4><ul class="footer-links"><li><a href="tel:+15550181331">(555) 018-1331</a></li><li><a href="mailto:hello@melhairbraiding.net">hello@melhairbraiding.net</a></li></ul></div>
+    <div><div class="footer-logo">MHB <span>Mel Hair Braiding</span></div><p class="footer-tagline" style="font-size:.9rem;color:var(--text-dim);max-width:240px;line-height:1.7;margin-top:.5rem"></p></div>
+    <div><h4>Pages</h4><ul class="footer-links"><li><a href="index.html">About Us</a></li><li><a href="../pricing/index.html">Pricing</a></li><li><a href="../gallery/index.html">Gallery</a></li><li><a href="../testimonials/index.html">Testimonials</a></li><li><a href="../contact/index.html">Contact</a></li><li><a href="../book/index.html">Book Now</a></li></ul></div>
+    <div><h4>Contact</h4><ul class="footer-links" id="footerContact"></ul></div>
   </div>
-  <div class="footer-bottom"><span>© 2026 Mel Hair Braiding.</span><span>Photos via Unsplash</span></div>
+  <div class="footer-bottom"><span id="footerCopy"></span></div>
 </footer>
 <script src="../assets/js/global.js"></script>
-<script>setTimeout(()=>document.querySelector('.page-hero')?.classList.add('loaded'),100);</script>
+<script>
+(async () => {
+  const [data, brand] = await Promise.all([
+    fetch('../content/about.json').then(r=>r.json()).catch(()=>({})),
+    fetch('../content/branding.json').then(r=>r.json()).catch(()=>({}))
+  ]);
+  document.getElementById('footerCopy').textContent = `© ${new Date().getFullYear()} ${brand.siteName||'Mel Hair Braiding'}.`;
+  document.querySelector('.footer-tagline').textContent = brand.footerTagline||'';
+  document.getElementById('footerContact').innerHTML = `<li><a href="${brand.phoneHref||''}">${brand.phone||''}</a></li><li><a href="mailto:${brand.email||''}">${brand.email||''}</a></li>`;
+  if (data.heroImage) document.getElementById('aboutHeroBg').style.backgroundImage = `url('${data.heroImage}')`;
+  if (data.storyImage) document.getElementById('storyImg').src = data.storyImage;
+  document.getElementById('storyHeading').textContent = data.storyHeading||'';
+  document.getElementById('story1').textContent = data.story1||'';
+  document.getElementById('pullQuote').textContent = `"${data.pullQuote||''}"`;
+  document.getElementById('story2').textContent = data.story2||'';
+  document.getElementById('valuesEyebrow').textContent = data.valuesEyebrow||'Our Values';
+  document.getElementById('valuesHeading').textContent = data.valuesHeading||'What We Stand For';
+  document.getElementById('statsGrid').innerHTML = (data.stats||[]).map(s=>`<div class="reveal"><div class="milestone-num">${s.number}</div><div class="milestone-label">${s.label}</div></div>`).join('');
+  document.getElementById('valuesGrid').innerHTML = (data.values||[]).map((v,i)=>`<div class="value-card reveal reveal-delay-${i+1}"><div class="value-icon">${v.icon}</div><h3>${v.title}</h3><p>${v.text}</p></div>`).join('');
+  document.getElementById('teamGrid').innerHTML = (data.team||[]).map((m,i)=>`<div class="team-card reveal reveal-delay-${i+1}"><img class="team-img" src="${m.photo||''}" alt="${m.name}"/><h3>${m.name}</h3><span class="team-role">${m.role}</span><p class="team-bio">${m.bio}</p></div>`).join('');
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+})();
+</script>
 </body></html>
