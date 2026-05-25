@@ -1,0 +1,53 @@
+{
+  "heroImage": "https://images.unsplash.com/photo-1638899108736-8a1b29b1a8d8?auto=format&fit=crop&w=1600&q=80",
+  "storyImage": "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=800&q=80",
+  "storyHeading": "Born from a love of natural hair and patient hands.",
+  "story1": "Mel Hair Braiding was founded in Charlotte with one simple belief: every client deserves a stylist who listens first, braids second. What started as weekend sessions in a home studio grew into a full-service protective styling space built on trust, technique, and genuine care.",
+  "pullQuote": "I learned to braid in my grandmother's kitchen. Every style I do carries that memory.",
+  "story2": "Today, Mel and her team serve clients across Charlotte with the same intention that started it all — clean parts, comfortable tension, and styles that protect your hair while keeping you looking polished.",
+  "valuesEyebrow": "What We Stand For",
+  "valuesHeading": "Our Values",
+  "values": [
+    {
+      "icon": "🌿",
+      "title": "Hair Health First",
+      "text": "Every technique is chosen to protect your natural hair — low tension, proper prep, and honest aftercare advice always."
+    },
+    {
+      "icon": "✨",
+      "title": "Intentional Craft",
+      "text": "We don't rush. Clean parts, consistent tension, and smooth finishes take time — and we give every install that time."
+    },
+    {
+      "icon": "🤝",
+      "title": "Client Comfort",
+      "text": "From your first message to your last strand, we want you feeling informed, comfortable, and confident in the chair."
+    }
+  ],
+  "team": [
+    {
+      "name": "Mel",
+      "role": "Founder & Lead Stylist",
+      "photo": "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=600&q=80",
+      "bio": "Specializing in knotless braids, boho twists, and loc care. 10+ years of experience and a deep love for natural hair health."
+    },
+    {
+      "name": "Jordan",
+      "role": "Braiding Specialist",
+      "photo": "https://images.unsplash.com/photo-1763048208932-cbe149724374?auto=format&fit=crop&w=600&q=80",
+      "bio": "Expert in feed-in cornrows, stitch braids, and box braids. Known for razor-sharp parts and quick, comfortable installs."
+    },
+    {
+      "name": "Nia",
+      "role": "Loc & Twist Specialist",
+      "photo": "https://images.unsplash.com/photo-1638899108736-8a1b29b1a8d8?auto=format&fit=crop&w=600&q=80",
+      "bio": "Passionate about loc journeys, starter sets, and protective twists. Gentle hands and a calming presence in the studio."
+    }
+  ],
+  "stats": [
+    { "number": "10+", "label": "Years in Business" },
+    { "number": "500+", "label": "Happy Clients" },
+    { "number": "3", "label": "Expert Stylists" },
+    { "number": "6", "label": "Signature Services" }
+  ]
+}

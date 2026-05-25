@@ -1,0 +1,76 @@
+{
+  "images": [
+    {
+      "image": "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=600&q=80",
+      "caption": "Knotless Braids — Long",
+      "alt": "Long knotless braids on client",
+      "category": "knotless"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1762767527280-6767cadbf6bd?auto=format&fit=crop&w=600&q=80",
+      "caption": "Box Braids — Medium",
+      "alt": "Medium box braids",
+      "category": "box"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1763048208932-cbe149724374?auto=format&fit=crop&w=600&q=80",
+      "caption": "Feed-In Cornrows",
+      "alt": "Feed-in cornrows style",
+      "category": "cornrows"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1638899108736-8a1b29b1a8d8?auto=format&fit=crop&w=600&q=80",
+      "caption": "Loc Care — Retwist",
+      "alt": "Loc retwist session",
+      "category": "locs"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=600&q=80",
+      "caption": "Boho Twists — Full Length",
+      "alt": "Full length boho twists",
+      "category": "twists"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=600&q=80",
+      "caption": "Knotless Braids — Small",
+      "alt": "Small knotless braids",
+      "category": "knotless"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1762767527280-6767cadbf6bd?auto=format&fit=crop&w=600&q=80",
+      "caption": "Box Braids — Long",
+      "alt": "Long box braids",
+      "category": "box"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1763048208932-cbe149724374?auto=format&fit=crop&w=600&q=80",
+      "caption": "Stitch Cornrows",
+      "alt": "Stitch cornrow pattern",
+      "category": "cornrows"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=600&q=80",
+      "caption": "Boho Twists — Shoulder Length",
+      "alt": "Shoulder length boho twists",
+      "category": "twists"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1638899108736-8a1b29b1a8d8?auto=format&fit=crop&w=600&q=80",
+      "caption": "Loc Retwist — Mature Locs",
+      "alt": "Mature loc retwist",
+      "category": "locs"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=600&q=80",
+      "caption": "Knotless Braids — Medium",
+      "alt": "Medium knotless braids",
+      "category": "knotless"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1762767527280-6767cadbf6bd?auto=format&fit=crop&w=600&q=80",
+      "caption": "Jumbo Box Braids",
+      "alt": "Jumbo box braids style",
+      "category": "box"
+    }
+  ]
+}

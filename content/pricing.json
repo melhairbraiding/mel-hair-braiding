@@ -1,0 +1,95 @@
+{
+  "heroImage": "https://images.unsplash.com/photo-1762767527280-6767cadbf6bd?auto=format&fit=crop&w=1600&q=80",
+  "depositAmount": "$50",
+  "cancellationPolicy": "A $50 deposit is required to hold all appointments. Deposits are applied to your final total. Cancellations with less than 48 hours notice forfeit the deposit. No-shows are charged the full deposit.",
+  "services": [
+    {
+      "name": "Knotless Braids",
+      "tagline": "Most Popular",
+      "price": "$220",
+      "duration": "4–7 hours",
+      "featured": false,
+      "features": [
+        "Feed-in technique for natural root",
+        "Reduced scalp tension",
+        "Available waist to floor length",
+        "Small, medium, or large size",
+        "Optional beads & accessories"
+      ]
+    },
+    {
+      "name": "Box Braids",
+      "tagline": "Classic",
+      "price": "$200",
+      "duration": "4–8 hours",
+      "featured": true,
+      "features": [
+        "Clean, uniform sections",
+        "Secure ends — no slipping",
+        "Optional beads & cuffs",
+        "Short, medium, long, or extra long",
+        "Jumbo size available"
+      ]
+    },
+    {
+      "name": "Feed-In Cornrows",
+      "tagline": "Quick & Clean",
+      "price": "$95",
+      "duration": "2–5 hours",
+      "featured": false,
+      "features": [
+        "Straight-backs, stitch, or custom pattern",
+        "Ponytail or bun finish",
+        "Feed-in for length",
+        "Clean hairline work"
+      ]
+    },
+    {
+      "name": "Boho Twists",
+      "tagline": "Romantic Finish",
+      "price": "$240",
+      "duration": "5–8 hours",
+      "featured": false,
+      "features": [
+        "Curly accent pieces included",
+        "Fuller, movement-rich look",
+        "Medium to long length",
+        "Customizable curl pattern"
+      ]
+    },
+    {
+      "name": "Loc Care",
+      "tagline": "Loc Journey",
+      "price": "$85",
+      "duration": "1.5–4 hours",
+      "featured": false,
+      "features": [
+        "Retwists — all stages",
+        "Starter loc consult + install",
+        "Detox care treatments",
+        "Two-strand twist styling"
+      ]
+    },
+    {
+      "name": "Consultation",
+      "tagline": "Start Here",
+      "price": "$20",
+      "duration": "20 minutes",
+      "featured": false,
+      "features": [
+        "Scalp & hair health check",
+        "Style recommendations",
+        "Budget & time planning",
+        "Applied to first service"
+      ]
+    }
+  ],
+  "addons": [
+    { "name": "Hair Prep & Detangle", "price": "+$30" },
+    { "name": "Braid Extensions Included", "price": "+$25" },
+    { "name": "Beads & Accessories", "price": "+$15" },
+    { "name": "Color Extension Hair", "price": "+$20" },
+    { "name": "Braid Removal", "price": "From $40" },
+    { "name": "Scalp Treatment", "price": "+$35" }
+  ]
+}

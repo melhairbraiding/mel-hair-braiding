@@ -1,0 +1,67 @@
+{
+  "items": [
+    {
+      "quote": "Mel is the only person I trust with my hair. She takes her time, checks in during the install, and the result is always exactly what I asked for. My knotless braids lasted 7 weeks and still looked neat.",
+      "author": "Aisha T.",
+      "service": "Knotless Braids",
+      "rating": 5,
+      "featured": true
+    },
+    {
+      "quote": "I came in for a consultation not knowing what I wanted, and Mel helped me figure out the perfect style for my hair texture and lifestyle. Ended up with feed-in cornrows and I've gotten so many compliments.",
+      "author": "Brianna M.",
+      "service": "Feed-In Cornrows",
+      "rating": 5,
+      "featured": false
+    },
+    {
+      "quote": "Jordan did my box braids and was so fast and gentle. My edges are completely intact. I'll be back every 6 weeks!",
+      "author": "Kezia R.",
+      "service": "Box Braids",
+      "rating": 5,
+      "featured": false
+    },
+    {
+      "quote": "I have sensitive edges and have had bad experiences before. Nia was so careful and patient — I fell asleep in the chair because I was so relaxed. My retwist looked perfect.",
+      "author": "Dominique W.",
+      "service": "Loc Retwist",
+      "rating": 5,
+      "featured": false
+    },
+    {
+      "quote": "The boho twists I got here are STUNNING. The photos don't do justice. I get stopped on the street every week. Worth every penny and every hour in the chair.",
+      "author": "Tanya J.",
+      "service": "Boho Twists",
+      "rating": 5,
+      "featured": false
+    },
+    {
+      "quote": "I've been coming to Mel since 2019 and won't go anywhere else. She remembers my hair history, suggests what's best for its health, and is just a genuinely kind person to spend the day with.",
+      "author": "Camille O.",
+      "service": "Long-time Client",
+      "rating": 5,
+      "featured": true
+    },
+    {
+      "quote": "The booking process was so smooth and the studio is clean and welcoming. Mel confirmed all details upfront — no surprises. My daughter and I both got our hair done and left feeling like queens.",
+      "author": "Renee & Jade F.",
+      "service": "Knotless Braids + Box Braids",
+      "rating": 5,
+      "featured": false
+    },
+    {
+      "quote": "Finally found someone who does starter locs properly! Nia explained every step and gave me an amazing aftercare kit and guide. My locs are thriving.",
+      "author": "Marcus L.",
+      "service": "Starter Locs",
+      "rating": 5,
+      "featured": false
+    },
+    {
+      "quote": "Quick, clean, and affordable. My feed-in cornrows are always exactly what I need for work — professional and polished. Jordan finishes in record time without sacrificing quality.",
+      "author": "Simone P.",
+      "service": "Feed-In Cornrows",
+      "rating": 5,
+      "featured": false
+    }
+  ]
+}
