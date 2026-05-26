@@ -3,32 +3,58 @@
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Contact Mel Hair Braiding | Upper Marlboro, MD</title>
-  <meta name="description" content="Contact Mel Hair Braiding in Upper Marlboro, MD. Reach out by phone, email, or contact form. Studio hours and location details available."/>
+  <meta name="description" content="Contact Mel Hair Braiding in Upper Marlboro, MD. Call, email, or send a message. Studio hours and Google Maps directions included."/>
   <meta name="robots" content="index, follow"/>
   <link rel="canonical" href="https://melhairbraiding.net/contact/"/>
-  <meta property="og:title" content="Contact Mel Hair Braiding"/>
-  <meta property="og:description" content="Get in touch with Mel Hair Braiding — Upper Marlboro, MD braid studio."/>
-  <meta property="og:url" content="https://melhairbraiding.net/contact/"/>
   <link rel="stylesheet" href="../assets/css/global.css"/>
   <style>
     .contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:start}
-    .contact-method{display:flex;gap:1.5rem;align-items:flex-start;padding:1.8rem;background:var(--bg-card);border:1px solid var(--border-dim);border-radius:4px;margin-bottom:1.2rem;transition:transform .3s,box-shadow .3s}
-    .contact-method:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
-    .contact-icon{width:52px;height:52px;border-radius:50%;background:var(--bg-3);border:1.5px solid var(--clay);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
-    .contact-method h4{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--clay);margin-bottom:.3rem}
-    .contact-method a,.contact-method p{color:var(--text);font-size:.98rem}
-    .contact-method a:hover{color:var(--clay)}
-    .hours-row{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid var(--border-dim);font-size:.88rem}
-    .hours-row:last-child{border:none}
-    .hours-row .day{color:var(--text-muted)}.hours-row .time{font-weight:500;color:var(--text)}
-    .form-group{margin-bottom:1.4rem}
-    .form-group label{display:block;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.5rem}
-    .form-group input,.form-group select,.form-group textarea{width:100%;padding:.85rem 1rem;border:1.5px solid var(--border-dim);border-radius:2px;font-family:'Jost',sans-serif;font-size:.95rem;color:var(--text);background:var(--bg-3);transition:border-color .2s}
+
+    /* Clickable contact buttons */
+    .contact-btn{
+      display:flex;gap:1.2rem;align-items:center;
+      padding:1.4rem 1.6rem;
+      background:var(--bg-card);border:1px solid var(--border-dim);
+      border-radius:4px;margin-bottom:1rem;
+      text-decoration:none;
+      transition:transform .2s,box-shadow .2s,border-color .2s;
+    }
+    .contact-btn:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--clay)}
+    .contact-btn-icon{
+      width:48px;height:48px;border-radius:50%;
+      background:var(--bg-3);border:1.5px solid var(--clay);
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.3rem;flex-shrink:0;
+    }
+    .contact-btn-label{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--clay);margin-bottom:.2rem}
+    .contact-btn-value{font-size:1rem;color:var(--text);font-weight:500}
+    .contact-btn-hint{font-size:.78rem;color:var(--text-dim);margin-top:.15rem}
+
+    /* Hours table */
+    .hours-table{width:100%;border-collapse:collapse;margin-top:.5rem}
+    .hours-table tr{border-bottom:1px solid var(--border-dim)}
+    .hours-table tr:last-child{border:none}
+    .hours-table td{padding:.55rem 0;font-size:.88rem}
+    .hours-table td:first-child{color:var(--text-muted)}
+    .hours-table td:last-child{color:var(--text);font-weight:500;text-align:right}
+    .hours-table tr.today td{color:var(--clay) !important}
+
+    /* Form */
+    .form-group{margin-bottom:1.2rem}
+    .form-group label{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.4rem}
+    .form-group input,.form-group select,.form-group textarea{
+      width:100%;padding:.85rem 1rem;
+      border:1.5px solid var(--border-dim);border-radius:2px;
+      font-family:'Jost',sans-serif;font-size:.95rem;
+      color:var(--text);background:var(--bg-3);
+      transition:border-color .2s;
+    }
     .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--clay)}
-    .form-group textarea{resize:vertical;min-height:140px}
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+    .form-group textarea{resize:vertical;min-height:130px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
     .success-msg{display:none;background:var(--bg-card);border:1.5px solid var(--clay);border-radius:4px;padding:2rem;text-align:center}
     .success-msg.show{display:block}
+
     @media(max-width:900px){.contact-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}}
   </style>
 </head>
@@ -36,133 +62,215 @@
 <nav class="nav">
   <a href="../index.html" class="nav-logo">MHB <span>Mel Hair Braiding</span></a>
   <ul class="nav-links">
-    <li><a href="../index.html">Home</a></li><li><a href="../about/index.html">About</a></li>
-    <li><a href="../pricing/index.html">Pricing</a></li><li><a href="../gallery/index.html">Gallery</a></li>
-    <li><a href="../testimonials/index.html">Testimonials</a></li><li><a href="index.html" class="active">Contact</a></li>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about/index.html">About</a></li>
+    <li><a href="../pricing/index.html">Pricing</a></li>
+    <li><a href="../gallery/index.html">Gallery</a></li>
+    <li><a href="../testimonials/index.html">Testimonials</a></li>
+    <li><a href="index.html" class="active">Contact</a></li>
     <li><a href="../book/index.html" class="nav-cta">Book Now</a></li>
   </ul>
   <div class="nav-hamburger"><span></span><span></span><span></span></div>
 </nav>
+
 <div class="page-hero" style="height:40vh">
-  <div class="page-hero-bg" id="contactHeroBg" style="background-image:url('https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1600&q=80');"></div>
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1600&q=80');"></div>
   <div class="page-hero-overlay"></div>
   <div class="page-hero-content"><span class="eyebrow">Reach Out</span><h1>Contact Us</h1></div>
 </div>
-<section class="section" style="background:var(--bg-2)">
+
+<section class="section" style="background:var(--bg)">
   <div class="section-inner">
     <div class="contact-grid">
+
+      <!-- LEFT: Contact info + hours -->
       <div class="reveal">
         <span class="eyebrow">Get in Touch</span>
         <h2 class="section-heading" style="font-size:clamp(1.6rem,3vw,2.4rem)">We'd love to hear from you.</h2>
         <div class="divider"></div>
-        <div id="contactMethods"></div>
-        <div class="card" style="margin-top:.5rem">
-          <h4 style="font-family:'Jost',sans-serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--clay);margin-bottom:1rem">Studio Hours</h4>
-          <div id="hoursGrid">
-            <div class="hours-row"><span class="day">Tuesday – Friday</span><span class="time">9:00 am – 7:00 pm</span></div>
-            <div class="hours-row"><span class="day">Saturday</span><span class="time">8:00 am – 6:00 pm</span></div>
-            <div class="hours-row"><span class="day">Sunday</span><span class="time">By request only</span></div>
-            <div class="hours-row"><span class="day">Monday</span><span class="time">Closed</span></div>
+
+        <!-- CALL button -->
+        <a href="tel:+12028928841" class="contact-btn">
+          <div class="contact-btn-icon">📞</div>
+          <div>
+            <div class="contact-btn-label">Call or Text</div>
+            <div class="contact-btn-value">(202) 892-8841</div>
+            <div class="contact-btn-hint">Tap to call or text us directly</div>
           </div>
+        </a>
+
+        <!-- EMAIL button -->
+        <a href="mailto:melhairbraiding1@gmail.com" class="contact-btn">
+          <div class="contact-btn-icon">✉️</div>
+          <div>
+            <div class="contact-btn-label">Email Us</div>
+            <div class="contact-btn-value">melhairbraiding1@gmail.com</div>
+            <div class="contact-btn-hint">Tap to open your email app</div>
+          </div>
+        </a>
+
+        <!-- DIRECTIONS button -->
+        <a href="https://maps.app.goo.gl/C4oyMT5LRyWnePTT7" target="_blank" rel="noopener" class="contact-btn">
+          <div class="contact-btn-icon">📍</div>
+          <div>
+            <div class="contact-btn-label">Get Directions</div>
+            <div class="contact-btn-value">Upper Marlboro, MD</div>
+            <div class="contact-btn-hint">Tap to open Google Maps</div>
+          </div>
+        </a>
+
+        <!-- STUDIO HOURS -->
+        <div class="card" style="margin-top:1.5rem">
+          <h4 style="font-family:'Jost',sans-serif;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--clay);margin-bottom:1rem">Studio Hours</h4>
+          <table class="hours-table">
+            <tr id="h-mon"><td>Monday</td><td>6:00 am – 6:00 pm</td></tr>
+            <tr id="h-tue"><td>Tuesday</td><td>6:00 am – 6:00 pm</td></tr>
+            <tr id="h-wed"><td>Wednesday</td><td>6:00 am – 6:00 pm</td></tr>
+            <tr id="h-thu"><td>Thursday</td><td>6:00 am – 6:00 pm</td></tr>
+            <tr id="h-fri"><td>Friday</td><td>6:00 am – 6:00 pm</td></tr>
+            <tr id="h-sat"><td>Saturday</td><td>7:00 am – 7:00 pm</td></tr>
+            <tr id="h-sun"><td>Sunday</td><td>By Appointment Only</td></tr>
+          </table>
         </div>
       </div>
+
+      <!-- RIGHT: Contact form -->
       <div class="reveal reveal-delay-2">
         <div class="card" style="padding:2.5rem">
           <h3 style="font-size:1.8rem;margin-bottom:.4rem">Send a Message</h3>
-          <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:1.8rem">For bookings, use the <a href="../book/index.html" style="color:var(--clay)">Book Now</a> page.</p>
-          <form id="contactForm" action="https://formspree.io/f/xzdwkbeq" data-email="melhairbraiding1@gmail.com" method="POST">
+          <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:1.8rem">
+            For bookings, use the <a href="../book/index.html" style="color:var(--clay)">Book Now</a> page instead.
+          </p>
+          <form id="contactForm" action="https://formspree.io/f/xzdwkbeq" method="POST">
             <input type="hidden" name="_subject" value="New message from melhairbraiding.net"/>
-            <input type="hidden" name="_next" value="https://melhairbraiding.net/contact/"/>
             <div class="form-row">
-              <div class="form-group"><label>Name</label><input type="text" name="name" placeholder="Your name" required/></div>
-              <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required/></div>
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name" placeholder="Your name" required/>
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="you@email.com" required/>
+              </div>
             </div>
-            <div class="form-group"><label>Subject</label>
-              <select name="subject"><option>General Question</option><option>Style Advice</option><option>Rescheduling</option><option>Other</option></select>
+            <div class="form-group">
+              <label>Phone (optional)</label>
+              <input type="tel" name="phone" placeholder="(202) 000-0000"/>
             </div>
-            <div class="form-group"><label>Message</label><textarea name="message" placeholder="Write your message here..." required></textarea></div>
-            <button type="submit" class="btn btn-primary" style="width:100%">Send Message →</button>
+            <div class="form-group">
+              <label>Subject</label>
+              <select name="subject">
+                <option>General Question</option>
+                <option>Style Advice</option>
+                <option>Rescheduling</option>
+                <option>Pricing Question</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea name="message" placeholder="Write your message here..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%" id="submitBtn">
+              Send Message →
+            </button>
           </form>
-          <div class="success-msg" id="successMsg"><div style="font-size:2rem;margin-bottom:.5rem">✅</div><h3 style="font-size:1.4rem;margin-bottom:.5rem">Message Sent!</h3><p style="color:var(--text-muted)">Thanks! We'll get back to you within 24 hours.</p></div>
+          <div class="success-msg" id="successMsg">
+            <div style="font-size:2.5rem;margin-bottom:.8rem">✅</div>
+            <h3 style="font-size:1.5rem;margin-bottom:.5rem">Message Sent!</h3>
+            <p style="color:var(--text-muted)">Thanks for reaching out! We'll get back to you within 24 hours at the email you provided.</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<section style="position:relative;height:380px;background:var(--bg-3);">
+
+<!-- GOOGLE MAP -->
+<div style="position:relative;height:380px">
   <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3107.!2d-76.7499!3d38.8462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDUwJzQ2LjMiTiA3NsKwNDQnNTkuNiJX!5e0!3m2!1sen!2sus!4v1234567890"
-    width="100%" height="100%" style="border:0;filter:grayscale(40%) contrast(1.1);" allowfullscreen="" loading="lazy">
+    src="https://maps.google.com/maps?q=Upper+Marlboro+MD&output=embed"
+    width="100%" height="100%"
+    style="border:0;display:block;filter:grayscale(30%) contrast(1.1);"
+    allowfullscreen="" loading="lazy">
   </iframe>
   <a href="https://maps.app.goo.gl/C4oyMT5LRyWnePTT7" target="_blank" rel="noopener"
-     style="position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);background:var(--clay);color:#fff;padding:.7rem 1.8rem;border-radius:2px;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;box-shadow:0 4px 20px rgba(0,0,0,.4)">
+     style="position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);
+            background:var(--clay);color:#fff;padding:.75rem 2rem;
+            border-radius:2px;font-family:'Jost',sans-serif;font-size:.82rem;
+            letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;
+            box-shadow:0 4px 20px rgba(0,0,0,.5);text-decoration:none">
     📍 Open in Google Maps
   </a>
-</section>
+</div>
+
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
-    <div><div class="footer-logo">MHB <span>Mel Hair Braiding</span></div><p class="footer-tagline" style="font-size:.9rem;color:var(--text-dim);max-width:240px;line-height:1.7;margin-top:.5rem"></p></div>
-    <div><h4>Pages</h4><ul class="footer-links"><li><a href="../about/index.html">About Us</a></li><li><a href="../pricing/index.html">Pricing</a></li><li><a href="../gallery/index.html">Gallery</a></li><li><a href="../testimonials/index.html">Testimonials</a></li><li><a href="index.html">Contact</a></li><li><a href="../book/index.html">Book Now</a></li></ul></div>
     <div>
+      <div class="footer-logo">MHB <span>Mel Hair Braiding</span></div>
+      <p class="footer-tagline" style="font-size:.9rem;color:var(--text-dim);max-width:240px;line-height:1.7;margin-top:.5rem">
+        Protective styling, braid care, and custom looks by appointment in Upper Marlboro, MD.
+      </p>
+    </div>
+    <div>
+      <h4>Pages</h4>
+      <ul class="footer-links">
+        <li><a href="../about/index.html">About Us</a></li>
+        <li><a href="../pricing/index.html">Pricing</a></li>
+        <li><a href="../gallery/index.html">Gallery</a></li>
+        <li><a href="../testimonials/index.html">Testimonials</a></li>
+        <li><a href="index.html">Contact</a></li>
+        <li><a href="../book/index.html">Book Now</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact-col">
       <h4>Contact</h4>
-      <ul class="footer-links" id="footerContact"></ul>
-      <div class="social-links" style="margin-top:1.2rem"></div>
+      <ul class="footer-links">
+        <li><a href="tel:+12028928841">(202) 892-8841</a></li>
+        <li><a href="mailto:melhairbraiding1@gmail.com">melhairbraiding1@gmail.com</a></li>
+        <li style="color:var(--text-dim);font-size:.85rem;margin-top:.4rem">Upper Marlboro, MD</li>
+      </ul>
+      <div class="social-cta-links" style="margin-top:1.2rem"></div>
     </div>
   </div>
-  <div class="footer-bottom"><span id="footerCopy"></span></div>
+  <div class="footer-bottom">
+    <span>© 2026 Mel Hair Braiding. All rights reserved.</span>
+  </div>
 </footer>
+
 <script src="../assets/js/global.js"></script>
 <script>
-(async () => {
-  const [data, brand] = await Promise.all([
-    fetch('../content/contact.json').then(r=>r.json()).catch(()=>({hours:[]})),
-    fetch('../content/branding.json').then(r=>r.json()).catch(()=>({}))
-  ]);
-  document.getElementById('footerCopy').textContent = `© ${new Date().getFullYear()} ${brand.siteName||'Mel Hair Braiding'}.`;
-  document.querySelector('.footer-tagline').textContent = brand.footerTagline||'';
-  const phone = data.phone||brand.phone||'(555) 018-1331';
-  const phoneHref = data.phoneHref||brand.phoneHref||'tel:+15550181331';
-  const email = data.email||brand.email||'hello@melhairbraiding.net';
-  document.getElementById('footerContact').innerHTML = `<li><a href="${phoneHref}">${phone}</a></li><li><a href="mailto:${email}">${email}</a></li>`;
-  if (data.heroImage) document.getElementById('contactHeroBg').style.backgroundImage = `url('${data.heroImage}')`;
-  if (data.location) document.getElementById('locationDisplay').textContent = data.location;
-  document.getElementById('contactMethods').innerHTML = `
-    <a href="${phoneHref}" class="contact-method" style="text-decoration:none;display:flex">
-      <div class="contact-icon">📞</div>
-      <div>
-        <h4>Call or Text Us</h4>
-        <span style="color:var(--clay);font-size:1rem;font-weight:500">${phone}</span>
-        <p style="color:var(--text-muted);font-size:.82rem;margin-top:.3rem">Tap to call directly from your phone</p>
-      </div>
-    </a>
-    <a href="mailto:${email}" class="contact-method" style="text-decoration:none;display:flex">
-      <div class="contact-icon">✉️</div>
-      <div>
-        <h4>Send an Email</h4>
-        <span style="color:var(--clay);font-size:1rem">${email}</span>
-        <p style="color:var(--text-muted);font-size:.82rem;margin-top:.3rem">Tap to open your email app</p>
-      </div>
-    </a>
-    <a href="https://maps.app.goo.gl/C4oyMT5LRyWnePTT7" target="_blank" rel="noopener" class="contact-method" style="text-decoration:none;display:flex">
-      <div class="contact-icon">📍</div>
-      <div>
-        <h4>Find Us on Google Maps</h4>
-        <span style="color:var(--clay);font-size:.95rem">Upper Marlboro, MD</span>
-        <p style="color:var(--text-muted);font-size:.82rem;margin-top:.3rem">Tap to open directions in Google Maps</p>
-      </div>
-    </a>`;
-  if (data.hours && data.hours.length) { document.getElementById('hoursGrid').innerHTML = (data.hours||[]).map(h=>`<div class="hours-row"><span class="day">${h.day}</span><span class="time">${h.hours}</span></div>`).join(''); }
+  // Highlight today's hours row
+  const days = ['h-sun','h-mon','h-tue','h-wed','h-thu','h-fri','h-sat'];
+  const todayRow = document.getElementById(days[new Date().getDay()]);
+  if (todayRow) todayRow.classList.add('today');
+
+  // Form submission via Formspree
   const form = document.getElementById('contactForm');
   form.addEventListener('submit', async e => {
     e.preventDefault();
-    const btn = form.querySelector('button[type=submit]');
-    btn.textContent = 'Sending...'; btn.disabled = true;
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
     try {
-      const res = await fetch(form.action, { method:'POST', body: new FormData(form), headers:{'Accept':'application/json'} });
-      if (res.ok) { form.style.display='none'; document.getElementById('successMsg').classList.add('show'); }
-      else { btn.textContent = 'Error — try again'; btn.disabled = false; }
-    } catch(err) { btn.textContent = 'Error — try again'; btn.disabled = false; }
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('successMsg').classList.add('show');
+      } else {
+        btn.textContent = 'Error — please try again';
+        btn.disabled = false;
+      }
+    } catch(err) {
+      btn.textContent = 'Error — please try again';
+      btn.disabled = false;
+    }
   });
-})();
 </script>
-</body></html>
+</body>
+</html>
