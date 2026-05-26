@@ -29,30 +29,79 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 // ── Page hero entrance ──
 setTimeout(() => document.querySelector('.page-hero')?.classList.add('loaded'), 100);
 
-// ── NAV: load branding from JSON ──
+// ── WELCOME BANNER — inject on homepage only ──
+function injectBanner() {
+  const hero = document.querySelector('.hero');
+  if (!hero) return; // only homepage has .hero
+  const existing = document.querySelector('.welcome-banner');
+  if (existing) return;
+  const banner = document.createElement('div');
+  banner.className = 'welcome-banner';
+  const msg = '✦ Welcome to Mel Hair Braiding ✦';
+  const repeated = Array(16).fill(`<span>${msg}</span>`).join('&nbsp;&nbsp;&nbsp;&nbsp;');
+  banner.innerHTML = `<div class="welcome-banner-track">${repeated}&nbsp;&nbsp;&nbsp;&nbsp;${repeated}</div>`;
+  hero.parentNode.insertBefore(banner, hero);
+}
+injectBanner();
+
+// ── SOCIAL TEXT BUTTONS — inject wherever .social-cta-links exists ──
+function renderSocialCTA(container) {
+  if (!container) return;
+  container.innerHTML = `
+    <a href="https://www.instagram.com/mel_hair_braiding/" target="_blank" rel="noopener" class="social-cta-link">
+      <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+      Check us out on Instagram
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=100069341483920" target="_blank" rel="noopener" class="social-cta-link">
+      <svg viewBox="0 0 24 24"><path fill="currentColor" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      Check us out on Facebook
+    </a>
+    <a href="https://www.tiktok.com/@melhairbraiding" target="_blank" rel="noopener" class="social-cta-link">
+      <svg viewBox="0 0 24 24"><path fill="currentColor" d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg>
+      Follow us on TikTok
+    </a>`;
+}
+document.querySelectorAll('.social-cta-links').forEach(renderSocialCTA);
+
+// ── STYLESEAT BUTTON — inject in every footer ──
+function injectStyleSeat() {
+  const footerContacts = document.querySelectorAll('.footer-contact-col');
+  footerContacts.forEach(col => {
+    if (col.querySelector('.styleseat-btn')) return;
+    const btn = document.createElement('a');
+    btn.href = 'https://www.styleseat.com/m/v/melhairbraiding';
+    btn.target = '_blank';
+    btn.rel = 'noopener';
+    btn.className = 'styleseat-btn';
+    btn.style.cssText = 'margin-top:1.2rem;display:inline-flex;';
+    btn.innerHTML = `<svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#fff;flex-shrink:0"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"/></svg> Book on StyleSeat`;
+    col.appendChild(btn);
+  });
+}
+injectStyleSeat();
+
+// ── BRANDING loader ──
 async function loadBranding() {
   try {
-    const depth = window.location.pathname.split('/').filter(Boolean).length;
+    const depth = window.location.pathname.split('/').filter(p=>p && !p.includes('.')).length;
     const prefix = depth > 0 ? '../'.repeat(depth) : '';
     const res = await fetch(`${prefix}content/branding.json`);
     if (!res.ok) return;
     const b = await res.json();
-    // Logo
     const logoEl = document.querySelector('.nav-logo');
     if (logoEl) {
       if (b.logoImage) {
         logoEl.innerHTML = `<img src="${prefix}${b.logoImage}" alt="${b.siteName}" style="height:38px;object-fit:contain;">`;
       } else {
-        logoEl.innerHTML = `${b.logoText || 'MHB'} <span>${b.siteName || 'Mel Hair Braiding'}</span>`;
+        logoEl.innerHTML = `${b.logoText||'MHB'} <span>${b.siteName||'Mel Hair Braiding'}</span>`;
       }
     }
-    // Footer
     const fLogo = document.querySelector('.footer-logo');
     if (fLogo) {
       if (b.logoImage) {
         fLogo.innerHTML = `<img src="${prefix}${b.logoImage}" alt="${b.siteName}" style="height:44px;object-fit:contain;margin-bottom:.5rem;">`;
       } else {
-        fLogo.innerHTML = `${b.logoText || 'MHB'} <span>${b.siteName || 'Mel Hair Braiding'}</span>`;
+        fLogo.innerHTML = `${b.logoText||'MHB'} <span>${b.siteName||'Mel Hair Braiding'}</span>`;
       }
     }
     const fTag = document.querySelector('.footer-tagline');
@@ -60,19 +109,3 @@ async function loadBranding() {
   } catch(e) {}
 }
 loadBranding();
-
-// ── Inject social links wherever .social-links exists ──
-function renderSocials(container) {
-  if (!container) return;
-  container.innerHTML = `
-    <a href="https://www.facebook.com/profile.php?id=100069341483920" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
-      <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-    </a>
-    <a href="https://www.instagram.com/mel_hair_braiding/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
-      <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="var(--bg)"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="var(--bg)" stroke-width="2"/></svg>
-    </a>
-    <a href="https://www.tiktok.com/@melhairbraiding" target="_blank" rel="noopener" class="social-link" aria-label="TikTok">
-      <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg>
-    </a>`;
-}
-document.querySelectorAll('.social-links').forEach(renderSocials);
