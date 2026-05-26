@@ -3,7 +3,25 @@
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <meta name="description" content="Mel Hair Braiding — Knotless braids, box braids, feed-ins, twists, and loc care in Charlotte, NC."/>
-  <title>Mel Hair Braiding</title>
+  <title>Mel Hair Braiding | Knotless Braids, Box Braids & Protective Styles — Upper Marlboro, MD</title>
+  <meta name="description" content="Mel Hair Braiding offers knotless braids, box braids, feed-in cornrows, boho twists, and loc care in Upper Marlboro, MD. Book your protective style appointment today."/>
+  <meta name="keywords" content="hair braiding Upper Marlboro MD, knotless braids Maryland, box braids near me, protective styles, loc care, boho twists, cornrows"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://melhairbraiding.net/"/>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mel Hair Braiding | Upper Marlboro, MD"/>
+  <meta property="og:description" content="Knotless braids, box braids, cornrows, boho twists & loc care. Book your protective style in Upper Marlboro, MD."/>
+  <meta property="og:url" content="https://melhairbraiding.net/"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://melhairbraiding.net/assets/uploads/og-image.jpg"/>
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Mel Hair Braiding | Upper Marlboro, MD"/>
+  <meta name="twitter:description" content="Knotless braids, box braids, cornrows, boho twists & loc care. Book now!"/>
+  <!-- Schema.org Local Business -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"HairSalon","name":"Mel Hair Braiding","url":"https://melhairbraiding.net","telephone":"(555) 018-1331","email":"hello@melhairbraiding.net","address":{"@type":"PostalAddress","addressLocality":"Upper Marlboro","addressRegion":"MD","addressCountry":"US"},"openingHours":["Tu-Fr 09:00-19:00","Sa 08:00-18:00"],"sameAs":["https://www.facebook.com/profile.php?id=100069341483920","https://www.instagram.com/mel_hair_braiding/","https://www.tiktok.com/@melhairbraiding","https://www.styleseat.com/m/v/melhairbraiding"]}
+  </script>
   <link rel="stylesheet" href="assets/css/global.css"/>
   <style>
     .hero{position:relative;height:100vh;min-height:600px;overflow:hidden;margin-top:var(--nav-h)}
@@ -100,8 +118,19 @@
 </nav>
 
 <!-- HERO -->
+<!-- WELCOME BANNER -->
+<div class="welcome-banner" aria-label="Welcome banner">
+  <div class="welcome-banner-track" id="bannerTrack"></div>
+</div>
+
 <section class="hero" id="top">
-  <div class="hero-slides" id="heroSlides"></div>
+  <div class="hero-video-bg" id="heroVideoBg">
+    <video id="heroVideo0" loop muted playsinline></video>
+    <video id="heroVideo1" loop muted playsinline></video>
+    <video id="heroVideo2" loop muted playsinline></video>
+    <div class="hero-video-overlay"></div>
+  </div>
+  <div class="hero-slides" id="heroSlides" style="display:none"></div>
   <div class="hero-content">
     <span class="hero-eyebrow" id="heroEyebrow"></span>
     <h1 id="heroHeadline"></h1>
@@ -219,7 +248,15 @@
       <li><a href="contact/index.html">Contact</a></li>
       <li><a href="book/index.html">Book Now</a></li>
     </ul></div>
-    <div><h4>Contact</h4><ul class="footer-links" id="footerContact"></ul></div>
+    <div>
+      <h4>Contact</h4>
+      <ul class="footer-links" id="footerContact"></ul>
+      <div class="social-links" style="margin-top:1.2rem"></div>
+      <a href="https://www.styleseat.com/m/v/melhairbraiding" target="_blank" rel="noopener" class="styleseat-btn" style="margin-top:1.2rem">
+        <svg viewBox="0 0 24 24"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"/></svg>
+        Book on StyleSeat
+      </a>
+    </div>
   </div>
   <div class="footer-bottom">
     <span id="footerCopy"></span>
@@ -371,6 +408,50 @@
     <li><a href="${brand.phoneHref||'tel:+15550181331'}">${brand.phone||'(555) 018-1331'}</a></li>
     <li><a href="mailto:${brand.email||'hello@melhairbraiding.net'}">${brand.email||'hello@melhairbraiding.net'}</a></li>
     <li style="color:var(--text-dim);font-size:.85rem;margin-top:.5rem">${brand.location||'Charlotte, NC'}</li>`;
+
+  // Re-observe new reveal elements
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
+  // Welcome banner
+  const bannerTrack = document.getElementById('bannerTrack');
+  if (bannerTrack) {
+    const msg = 'Welcome to Mel Hair Braiding';
+    const dot = '<span class="dot">✦</span>';
+    const repeated = Array(12).fill(`<span>${msg}</span>${dot}`).join('');
+    bannerTrack.innerHTML = repeated + repeated; // duplicate for seamless loop
+  }
+
+  // Video hero — load from admin (videoFile) with image poster fallback
+  const slides = site.hero.slides || [];
+  const videoEls = [
+    document.getElementById('heroVideo0'),
+    document.getElementById('heroVideo1'),
+    document.getElementById('heroVideo2')
+  ];
+  let activeVids = [];
+  videoEls.forEach((v, i) => {
+    if (!v || !slides[i]) return;
+    if (slides[i].image) v.poster = slides[i].image;
+    if (slides[i].videoFile) {
+      v.src = slides[i].videoFile;
+      v.load();
+    }
+    activeVids.push(v);
+  });
+
+  let currentVid = 0;
+  if (activeVids.length) {
+    activeVids[0].classList.add('active');
+    if (activeVids[0].src) activeVids[0].play().catch(()=>{});
+
+    setInterval(() => {
+      activeVids[currentVid].classList.remove('active');
+      if (activeVids[currentVid].src) activeVids[currentVid].pause();
+      currentVid = (currentVid + 1) % activeVids.length;
+      activeVids[currentVid].classList.add('active');
+      if (activeVids[currentVid].src) activeVids[currentVid].play().catch(()=>{});
+      document.querySelectorAll('.hero-dot').forEach((d,i) => d.classList.toggle('active', i===currentVid));
+    }, 5000);
+  }
 
   // Re-observe new reveal elements
   document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
