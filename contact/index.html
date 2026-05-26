@@ -65,7 +65,7 @@
         <div class="card" style="padding:2.5rem">
           <h3 style="font-size:1.8rem;margin-bottom:.4rem">Send a Message</h3>
           <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:1.8rem">For bookings, use the <a href="../book/index.html" style="color:var(--clay)">Book Now</a> page.</p>
-          <form id="contactForm" action="https://formspree.io/f/xzdwkbeq" method="POST">
+          <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" data-email="melhairbraiding1@gmail.com" method="POST">
             <input type="hidden" name="_subject" value="New message from melhairbraiding.net"/>
             <input type="hidden" name="_next" value="https://melhairbraiding.net/contact/"/>
             <div class="form-row">
@@ -84,10 +84,15 @@
     </div>
   </div>
 </section>
-<section style="height:320px;background:var(--bg-3);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem">
-  <div style="font-size:2.5rem">📍</div>
-  <p style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--text);font-style:italic" id="locationDisplay">Charlotte, North Carolina</p>
-  <p style="color:var(--text-dim);font-size:.88rem">Exact address provided after booking confirmation</p>
+<section style="position:relative;height:380px;background:var(--bg-3);">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3107.!2d-76.7499!3d38.8462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDUwJzQ2LjMiTiA3NsKwNDQnNTkuNiJX!5e0!3m2!1sen!2sus!4v1234567890"
+    width="100%" height="100%" style="border:0;filter:grayscale(40%) contrast(1.1);" allowfullscreen="" loading="lazy">
+  </iframe>
+  <a href="https://maps.app.goo.gl/C4oyMT5LRyWnePTT7" target="_blank" rel="noopener"
+     style="position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);background:var(--clay);color:#fff;padding:.7rem 1.8rem;border-radius:2px;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;box-shadow:0 4px 20px rgba(0,0,0,.4)">
+    📍 Open in Google Maps
+  </a>
 </section>
 <footer class="footer">
   <div class="footer-inner">
@@ -117,9 +122,30 @@
   if (data.heroImage) document.getElementById('contactHeroBg').style.backgroundImage = `url('${data.heroImage}')`;
   if (data.location) document.getElementById('locationDisplay').textContent = data.location;
   document.getElementById('contactMethods').innerHTML = `
-    <div class="contact-method"><div class="contact-icon">📞</div><div><h4>Phone / Text</h4><a href="${phoneHref}">${phone}</a><p style="color:var(--text-muted);font-size:.85rem;margin-top:.3rem">Texts preferred for quick questions</p></div></div>
-    <div class="contact-method"><div class="contact-icon">✉️</div><div><h4>Email</h4><a href="mailto:${email}">${email}</a><p style="color:var(--text-muted);font-size:.85rem;margin-top:.3rem">We respond within 24 hours</p></div></div>
-    <div class="contact-method"><div class="contact-icon">📍</div><div><h4>Location</h4><p>${data.location||'Charlotte, NC'}</p></div></div>`;
+    <a href="${phoneHref}" class="contact-method" style="text-decoration:none;display:flex">
+      <div class="contact-icon">📞</div>
+      <div>
+        <h4>Call or Text Us</h4>
+        <span style="color:var(--clay);font-size:1rem;font-weight:500">${phone}</span>
+        <p style="color:var(--text-muted);font-size:.82rem;margin-top:.3rem">Tap to call directly from your phone</p>
+      </div>
+    </a>
+    <a href="mailto:${email}" class="contact-method" style="text-decoration:none;display:flex">
+      <div class="contact-icon">✉️</div>
+      <div>
+        <h4>Send an Email</h4>
+        <span style="color:var(--clay);font-size:1rem">${email}</span>
+        <p style="color:var(--text-muted);font-size:.82rem;margin-top:.3rem">Tap to open your email app</p>
+      </div>
+    </a>
+    <a href="https://maps.app.goo.gl/C4oyMT5LRyWnePTT7" target="_blank" rel="noopener" class="contact-method" style="text-decoration:none;display:flex">
+      <div class="contact-icon">📍</div>
+      <div>
+        <h4>Find Us on Google Maps</h4>
+        <span style="color:var(--clay);font-size:.95rem">Upper Marlboro, MD</span>
+        <p style="color:var(--text-muted);font-size:.82rem;margin-top:.3rem">Tap to open directions in Google Maps</p>
+      </div>
+    </a>`;
   document.getElementById('hoursGrid').innerHTML = (data.hours||[]).map(h=>`<div class="hours-row"><span class="day">${h.day}</span><span class="time">${h.hours}</span></div>`).join('');
   const form = document.getElementById('contactForm');
   form.addEventListener('submit', async e => {
