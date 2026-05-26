@@ -58,7 +58,12 @@
         <div id="contactMethods"></div>
         <div class="card" style="margin-top:.5rem">
           <h4 style="font-family:'Jost',sans-serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--clay);margin-bottom:1rem">Studio Hours</h4>
-          <div id="hoursGrid"></div>
+          <div id="hoursGrid">
+            <div class="hours-row"><span class="day">Tuesday – Friday</span><span class="time">9:00 am – 7:00 pm</span></div>
+            <div class="hours-row"><span class="day">Saturday</span><span class="time">8:00 am – 6:00 pm</span></div>
+            <div class="hours-row"><span class="day">Sunday</span><span class="time">By request only</span></div>
+            <div class="hours-row"><span class="day">Monday</span><span class="time">Closed</span></div>
+          </div>
         </div>
       </div>
       <div class="reveal reveal-delay-2">
@@ -146,7 +151,7 @@
         <p style="color:var(--text-muted);font-size:.82rem;margin-top:.3rem">Tap to open directions in Google Maps</p>
       </div>
     </a>`;
-  document.getElementById('hoursGrid').innerHTML = (data.hours||[]).map(h=>`<div class="hours-row"><span class="day">${h.day}</span><span class="time">${h.hours}</span></div>`).join('');
+  if (data.hours && data.hours.length) { document.getElementById('hoursGrid').innerHTML = (data.hours||[]).map(h=>`<div class="hours-row"><span class="day">${h.day}</span><span class="time">${h.hours}</span></div>`).join(''); }
   const form = document.getElementById('contactForm');
   form.addEventListener('submit', async e => {
     e.preventDefault();
