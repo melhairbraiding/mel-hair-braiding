@@ -47,13 +47,15 @@ collections:
               - { label: "Subheading", name: "copy", widget: "text" }
               - { label: "Primary Button Text", name: "primaryButton", widget: "string" }
               - { label: "Secondary Button Text", name: "secondaryButton", widget: "string" }
-              - label: "Slide Images"
+              - label: "Hero Background Videos (up to 3)"
                 name: "slides"
                 widget: "list"
                 min: 1
-                max: 5
+                max: 3
+                hint: "Upload short MP4 videos (15-30 sec, under 50MB each). They will play silently in the background, rotating every 5 seconds."
                 fields:
-                  - { label: "Slide Image", name: "image", widget: "image" }
+                  - { label: "Video File (MP4)", name: "videoFile", widget: "file", required: false, hint: "Upload an MP4 video file for background playback." }
+                  - { label: "Fallback Image", name: "image", widget: "image", hint: "Shown while video loads or on slow connections." }
                   - { label: "Alt Text", name: "alt", widget: "string" }
           - label: "About Preview Section"
             name: "intro"
