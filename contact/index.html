@@ -2,7 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Contact — Mel Hair Braiding</title>
+  <title>Contact Mel Hair Braiding | Upper Marlboro, MD</title>
+  <meta name="description" content="Contact Mel Hair Braiding in Upper Marlboro, MD. Reach out by phone, email, or contact form. Studio hours and location details available."/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://melhairbraiding.net/contact/"/>
+  <meta property="og:title" content="Contact Mel Hair Braiding"/>
+  <meta property="og:description" content="Get in touch with Mel Hair Braiding — Upper Marlboro, MD braid studio."/>
+  <meta property="og:url" content="https://melhairbraiding.net/contact/"/>
   <link rel="stylesheet" href="../assets/css/global.css"/>
   <style>
     .contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:start}
@@ -59,16 +65,20 @@
         <div class="card" style="padding:2.5rem">
           <h3 style="font-size:1.8rem;margin-bottom:.4rem">Send a Message</h3>
           <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:1.8rem">For bookings, use the <a href="../book/index.html" style="color:var(--clay)">Book Now</a> page.</p>
-          <form id="contactForm">
+          <form id="contactForm" action="https://formspree.io/f/xzdwkbeq" method="POST">
+            <input type="hidden" name="_subject" value="New message from melhairbraiding.net"/>
+            <input type="hidden" name="_next" value="https://melhairbraiding.net/contact/"/>
             <div class="form-row">
-              <div class="form-group"><label>Name</label><input type="text" placeholder="Your name" required/></div>
-              <div class="form-group"><label>Email</label><input type="email" placeholder="you@email.com" required/></div>
+              <div class="form-group"><label>Name</label><input type="text" name="name" placeholder="Your name" required/></div>
+              <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required/></div>
             </div>
-            <div class="form-group"><label>Subject</label><select><option>General Question</option><option>Style Advice</option><option>Rescheduling</option><option>Other</option></select></div>
-            <div class="form-group"><label>Message</label><textarea placeholder="Write your message here..." required></textarea></div>
+            <div class="form-group"><label>Subject</label>
+              <select name="subject"><option>General Question</option><option>Style Advice</option><option>Rescheduling</option><option>Other</option></select>
+            </div>
+            <div class="form-group"><label>Message</label><textarea name="message" placeholder="Write your message here..." required></textarea></div>
             <button type="submit" class="btn btn-primary" style="width:100%">Send Message →</button>
           </form>
-          <div class="success-msg" id="successMsg"><div style="font-size:2rem;margin-bottom:.5rem">✅</div><h3 style="font-size:1.4rem;margin-bottom:.5rem">Message Sent!</h3><p style="color:var(--text-muted)">Thanks for reaching out. We'll get back to you within 24 hours.</p></div>
+          <div class="success-msg" id="successMsg"><div style="font-size:2rem;margin-bottom:.5rem">✅</div><h3 style="font-size:1.4rem;margin-bottom:.5rem">Message Sent!</h3><p style="color:var(--text-muted)">Thanks! We'll get back to you within 24 hours.</p></div>
         </div>
       </div>
     </div>
@@ -83,7 +93,11 @@
   <div class="footer-inner">
     <div><div class="footer-logo">MHB <span>Mel Hair Braiding</span></div><p class="footer-tagline" style="font-size:.9rem;color:var(--text-dim);max-width:240px;line-height:1.7;margin-top:.5rem"></p></div>
     <div><h4>Pages</h4><ul class="footer-links"><li><a href="../about/index.html">About Us</a></li><li><a href="../pricing/index.html">Pricing</a></li><li><a href="../gallery/index.html">Gallery</a></li><li><a href="../testimonials/index.html">Testimonials</a></li><li><a href="index.html">Contact</a></li><li><a href="../book/index.html">Book Now</a></li></ul></div>
-    <div><h4>Contact</h4><ul class="footer-links" id="footerContact"></ul></div>
+    <div>
+      <h4>Contact</h4>
+      <ul class="footer-links" id="footerContact"></ul>
+      <div class="social-links" style="margin-top:1.2rem"></div>
+    </div>
   </div>
   <div class="footer-bottom"><span id="footerCopy"></span></div>
 </footer>
@@ -107,7 +121,17 @@
     <div class="contact-method"><div class="contact-icon">✉️</div><div><h4>Email</h4><a href="mailto:${email}">${email}</a><p style="color:var(--text-muted);font-size:.85rem;margin-top:.3rem">We respond within 24 hours</p></div></div>
     <div class="contact-method"><div class="contact-icon">📍</div><div><h4>Location</h4><p>${data.location||'Charlotte, NC'}</p></div></div>`;
   document.getElementById('hoursGrid').innerHTML = (data.hours||[]).map(h=>`<div class="hours-row"><span class="day">${h.day}</span><span class="time">${h.hours}</span></div>`).join('');
-  document.getElementById('contactForm').addEventListener('submit', e => { e.preventDefault(); e.target.style.display='none'; document.getElementById('successMsg').classList.add('show'); });
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type=submit]');
+    btn.textContent = 'Sending...'; btn.disabled = true;
+    try {
+      const res = await fetch(form.action, { method:'POST', body: new FormData(form), headers:{'Accept':'application/json'} });
+      if (res.ok) { form.style.display='none'; document.getElementById('successMsg').classList.add('show'); }
+      else { btn.textContent = 'Error — try again'; btn.disabled = false; }
+    } catch(err) { btn.textContent = 'Error — try again'; btn.disabled = false; }
+  });
 })();
 </script>
 </body></html>
