@@ -53,6 +53,12 @@
     .video-play svg{width:24px;height:24px;fill:#fff;margin-left:3px}
     .video-label{position:absolute;bottom:1rem;left:1rem;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(240,232,223,.8)}
     .video-upload-cta{margin-top:2rem;text-align:center;color:var(--text-dim);font-size:.85rem;font-style:italic}
+    .video-duration{position:absolute;top:.7rem;right:.7rem;background:rgba(0,0,0,.6);color:#fff;font-size:.72rem;padding:.2rem .5rem;border-radius:2px}
+    .video-lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.96);z-index:1000;align-items:center;justify-content:center;flex-direction:column;gap:1rem}
+    .video-lightbox.open{display:flex}
+    .video-lightbox video{max-width:90vw;max-height:80vh;border-radius:4px;outline:none}
+    .video-lb-close{position:absolute;top:1.5rem;right:2rem;font-size:2.5rem;color:#fff;cursor:pointer;background:none;border:none;line-height:1}
+    .video-lb-label{color:var(--text-muted);font-size:.85rem;letter-spacing:.12em;text-transform:uppercase}
 
     .gallery-strip{display:flex;gap:0;overflow:hidden;margin-top:3rem;border-radius:4px}
     .gallery-strip-item{flex:1;min-width:0;position:relative;overflow:hidden;transition:flex .5s ease;cursor:pointer}
@@ -292,12 +298,39 @@
   document.getElementById('videoHeading').textContent = site.videos?.heading||'See the process in motion';
   document.getElementById('videoCopy').textContent = site.videos?.copy||'';
   const vg = document.getElementById('videoGrid');
+
+  // Video lightbox
+  const lb = document.createElement('div');
+  lb.className = 'video-lightbox';
+  lb.id = 'videoLightbox';
+  lb.innerHTML = `<button class="video-lb-close" id="videoLbClose">✕</button><video controls id="videoLbPlayer"></video><div class="video-lb-label" id="videoLbLabel"></div>`;
+  document.body.appendChild(lb);
+  document.getElementById('videoLbClose').addEventListener('click', () => { lb.classList.remove('open'); document.getElementById('videoLbPlayer').pause(); });
+  lb.addEventListener('click', e => { if(e.target===lb){lb.classList.remove('open'); document.getElementById('videoLbPlayer').pause();}});
+
   (site.videos?.items||[]).forEach((v,i) => {
-    vg.innerHTML += `<div class="video-card reveal reveal-delay-${i%3}">
-      <img class="video-thumb" src="${v.thumbnail}" alt="${v.alt}"/>
+    const card = document.createElement('div');
+    card.className = `video-card reveal reveal-delay-${i%3}`;
+    card.innerHTML = `
+      <img class="video-thumb" src="${v.thumbnail||''}" alt="${v.alt||''}" onerror="this.style.background='var(--bg-3)';this.style.minHeight='200px'"/>
       <div class="video-overlay"><div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-      <span class="video-label">${v.label}</span>
-    </div>`;
+      <span class="video-label">${v.label||''}</span>
+      ${v.duration?`<span class="video-duration">${v.duration}</span>`:''}`;
+    card.addEventListener('click', () => {
+      const player = document.getElementById('videoLbPlayer');
+      document.getElementById('videoLbLabel').textContent = v.label||'';
+      if (v.videoFile) {
+        player.src = v.videoFile;
+        lb.classList.add('open');
+        player.play();
+      } else {
+        // No video uploaded yet — show placeholder message
+        player.removeAttribute('src');
+        lb.classList.add('open');
+        player.outerHTML = `<div style="color:var(--text-muted);text-align:center;padding:3rem"><div style="font-size:3rem;margin-bottom:1rem">🎬</div><p>No video uploaded yet.</p><p style="font-size:.85rem;margin-top:.5rem">Upload a video via Admin → Homepage → Videos</p></div>`;
+      }
+    });
+    vg.appendChild(card);
   });
 
   // Gallery strip (first 4 from gallery.json)
