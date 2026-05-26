@@ -1,7 +1,7 @@
 {
   "heroImage": "https://images.unsplash.com/photo-1762767527280-6767cadbf6bd?auto=format&fit=crop&w=1600&q=80",
-  "depositAmount": "$50",
-  "cancellationPolicy": "A $50 deposit is required to hold all appointments. Deposits are applied to your final total. Cancellations with less than 48 hours notice forfeit the deposit. No-shows are charged the full deposit.",
+  "depositAmount": "$20",
+  "cancellationPolicy": "A $20 deposit is required to hold all appointments. Deposits are applied to your final total. Cancellations with less than 48 hours notice forfeit the deposit. No-shows are charged the full deposit.",
   "services": [
     {
       "name": "Knotless Braids",
