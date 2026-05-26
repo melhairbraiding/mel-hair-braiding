@@ -74,18 +74,53 @@ collections:
               - { label: "Description", name: "description", widget: "text" }
               - { label: "Duration", name: "duration", widget: "string" }
               - { label: "Price", name: "price", widget: "string" }
+          - label: "Video Section"
+            name: "videos"
+            widget: "object"
+            fields:
+              - { label: "Small Heading", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Subheading", name: "copy", widget: "text" }
+              - label: "Videos"
+                name: "items"
+                widget: "list"
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: "Video File (MP4)", name: "videoFile", widget: "file", required: false, hint: "Upload an MP4 video. Keep under 50MB for fast loading. Recommended: 20-30 second clips.", media_library: { config: { multiple: false } } }
+                  - { label: "Thumbnail Image", name: "thumbnail", widget: "image", required: false, hint: "Cover image shown before the video plays. Upload your own photo here." }
+                  - { label: "Video Label", name: "label", widget: "string", hint: "e.g. Knotless Install, Box Braids" }
+                  - { label: "Alt Text", name: "alt", widget: "string" }
+                  - { label: "Duration (display only)", name: "duration", widget: "string", default: "0:20", hint: "e.g. 0:20, 0:45, 1:30" }
+          - label: "Gallery Strip Section"
+            name: "galleryPreview"
+            widget: "object"
+            fields:
+              - { label: "Small Heading", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
           - label: "Quote Banner"
             name: "quote"
             widget: "object"
             fields:
               - { label: "Quote Text", name: "text", widget: "text" }
               - { label: "Attribution", name: "author", widget: "string" }
+          - label: "Care Tips Section"
+            name: "care"
+            widget: "object"
+            fields:
+              - { label: "Small Heading", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - label: "Tips"
+                name: "tips"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "tip", widget: "text" }
           - label: "Footer"
             name: "footer"
             widget: "object"
             fields:
               - { label: "Footer Text", name: "copy", widget: "text" }
-              - { label: "Photo Credit", name: "credit", widget: "text" }
+              - { label: "Photo Credit (optional)", name: "credit", widget: "string", required: false }
 
   - name: "gallery"
     label: "Gallery"
