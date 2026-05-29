@@ -1,9 +1,9 @@
 {
   "images": [
     {
-      "image": "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=600&q=80",
-      "caption": "Knotless Braids — Long",
-      "alt": "Long knotless braids on client",
+      "image": "/assets/uploads/img_5318.jpeg",
+      "caption": "Knotless Braids medium ",
+      "alt": "Middle back knotless braids on client",
       "category": "knotless"
     },
     {
@@ -13,15 +13,15 @@
       "category": "box"
     },
     {
-      "image": "https://images.unsplash.com/photo-1763048208932-cbe149724374?auto=format&fit=crop&w=600&q=80",
+      "image": "/assets/uploads/img_6329.jpeg",
       "caption": "Feed-In Cornrows",
       "alt": "Feed-in cornrows style",
       "category": "cornrows"
     },
     {
-      "image": "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=600&q=80",
-      "caption": "Boho Twists — Full Length",
-      "alt": "Full length boho twists",
+      "image": "/assets/uploads/img_5195.jpeg",
+      "caption": "Boho Twists — shoulder length ",
+      "alt": "boho twists",
       "category": "twists"
     },
     {
@@ -31,33 +31,27 @@
       "category": "knotless"
     },
     {
-      "image": "https://images.unsplash.com/photo-1762767527280-6767cadbf6bd?auto=format&fit=crop&w=600&q=80",
-      "caption": "Box Braids — Long",
-      "alt": "Long box braids",
+      "image": "/assets/uploads/img_5264.jpeg",
+      "caption": "Butterfly braids",
+      "alt": "4 butterfly braids",
       "category": "box"
     },
     {
-      "image": "https://images.unsplash.com/photo-1763048208932-cbe149724374?auto=format&fit=crop&w=600&q=80",
-      "caption": "Stitch Cornrows",
-      "alt": "Stitch cornrow pattern",
-      "category": "cornrows"
-    },
-    {
-      "image": "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=600&q=80",
-      "caption": "Boho Twists — Shoulder Length",
-      "alt": "Shoulder length boho twists",
+      "image": "/assets/uploads/img_4814.jpeg",
+      "caption": "Bora bora  — midback Length",
+      "alt": "Mid back length Borabora",
       "category": "twists"
     },
     {
-      "image": "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=600&q=80",
-      "caption": "Knotless Braids — Medium",
-      "alt": "Medium knotless braids",
+      "image": "/assets/uploads/img_1144.jpeg",
+      "caption": "Knotless Braids — large",
+      "alt": "Large knotless braids",
       "category": "knotless"
     },
     {
-      "image": "https://images.unsplash.com/photo-1762767527280-6767cadbf6bd?auto=format&fit=crop&w=600&q=80",
-      "caption": "Jumbo Box Braids",
-      "alt": "Jumbo box braids style",
+      "image": "/assets/uploads/img_6787.jpeg",
+      "caption": "Jumbo knotless braid",
+      "alt": "Jumbo knotless braids style",
       "category": "box"
     }
   ]
