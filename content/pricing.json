@@ -1,5 +1,5 @@
 {
-  "heroImage": "https://images.unsplash.com/photo-1762767527280-6767cadbf6bd?auto=format&fit=crop&w=1600&q=80",
+  "heroImage": "/assets/uploads/img_5233.jpeg",
   "depositAmount": "$20",
   "cancellationPolicy": "A $20 deposit is required to hold all appointments. Deposits are applied to your final total. Cancellations with less than 48 hours notice forfeit the deposit. No-shows are charged the full deposit.",
   "services": [
@@ -10,7 +10,7 @@
       "duration": "4–7 hours",
       "featured": false,
       "features": [
-        "Feed-in technique for natural root",
+        "Jumbo -$160",
         "Reduced scalp tension",
         "Available waist to floor length",
         "Small, medium, or large size",
@@ -85,11 +85,29 @@
     }
   ],
   "addons": [
-    { "name": "Hair Prep & Detangle", "price": "+$30" },
-    { "name": "Braid Extensions Included", "price": "+$25" },
-    { "name": "Beads & Accessories", "price": "+$15" },
-    { "name": "Color Extension Hair", "price": "+$20" },
-    { "name": "Braid Removal", "price": "From $40" },
-    { "name": "Scalp Treatment", "price": "+$35" }
+    {
+      "name": "Hair Prep & Detangle",
+      "price": "+$30"
+    },
+    {
+      "name": "Braid Extensions Included",
+      "price": "+$25"
+    },
+    {
+      "name": "Beads & Accessories",
+      "price": "+$15"
+    },
+    {
+      "name": "Color Extension Hair",
+      "price": "+$20"
+    },
+    {
+      "name": "Braid Removal",
+      "price": "From $40"
+    },
+    {
+      "name": "Scalp Treatment",
+      "price": "+$35"
+    }
   ]
 }
