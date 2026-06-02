@@ -66,6 +66,21 @@ collections:
               - { label: "Paragraph", name: "copy", widget: "text" }
               - { label: "Section Image", name: "image", widget: "image", required: false }
               - { label: "Image Quote", name: "imageQuote", widget: "string" }
+          - { label: "Price List Image (optional)", name: "priceListImage", widget: "image", required: false, hint: "Upload your price list image — shown on the pricing page below the table." }
+          - label: "Knotless & Box Braids Price Matrix"
+            name: "knotlessAndBox"
+            widget: "object"
+            fields:
+              - label: "Price Rows"
+                name: "rows"
+                widget: "list"
+                summary: "{{fields.length}}"
+                fields:
+                  - { label: "Length", name: "length", widget: "string" }
+                  - label: "Prices (Small, S.Medium, Medium, Large, Jumbo)"
+                    name: "prices"
+                    widget: "list"
+                    field: { label: "Price ($)", name: "price", widget: "number" }
           - label: "Services"
             name: "services"
             widget: "list"
@@ -204,6 +219,21 @@ collections:
           - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
           - { label: "Deposit Amount", name: "depositAmount", widget: "string", default: "$50" }
           - { label: "Cancellation Policy", name: "cancellationPolicy", widget: "text" }
+          - { label: "Price List Image (optional)", name: "priceListImage", widget: "image", required: false, hint: "Upload your price list image — shown on the pricing page below the table." }
+          - label: "Knotless & Box Braids Price Matrix"
+            name: "knotlessAndBox"
+            widget: "object"
+            fields:
+              - label: "Price Rows"
+                name: "rows"
+                widget: "list"
+                summary: "{{fields.length}}"
+                fields:
+                  - { label: "Length", name: "length", widget: "string" }
+                  - label: "Prices (Small, S.Medium, Medium, Large, Jumbo)"
+                    name: "prices"
+                    widget: "list"
+                    field: { label: "Price ($)", name: "price", widget: "number" }
           - label: "Services"
             name: "services"
             widget: "list"
