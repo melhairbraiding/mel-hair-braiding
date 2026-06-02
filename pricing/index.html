@@ -39,6 +39,14 @@
     .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;font-size:.92rem;color:var(--text-muted);line-height:1.8}
     .faq-item.open .faq-a{max-height:200px;padding-bottom:1.2rem}
     @media(max-width:768px){.pricing-intro{grid-template-columns:1fr}}
+    #priceMatrix th,#priceMatrix td{padding:.75rem 1rem;text-align:center;border:1px solid var(--border-dim);font-size:.88rem}
+    #priceMatrix thead tr{background:var(--clay)}
+    #priceMatrix thead th{color:#fff;font-family:'Jost',sans-serif;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+    #priceMatrix thead th:first-child{text-align:left}
+    #priceMatrix tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+    #priceMatrix tbody tr:hover{background:rgba(201,122,58,.06)}
+    #priceMatrix tbody td:first-child{text-align:left;font-weight:500;color:var(--text);white-space:nowrap}
+    #priceMatrix tbody td:not(:first-child){color:var(--clay);font-family:'Cormorant Garamond',serif;font-size:1.1rem}
   </style>
 </head>
 <body>
@@ -75,7 +83,33 @@
     <div class="pricing-grid" id="pricingGrid"></div>
   </div>
 </section>
+<!-- PRICE MATRIX TABLE -->
 <section class="section" style="background:var(--bg-2)">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="eyebrow">Knotless &amp; Box Braids</span>
+      <h2 class="section-heading">Price by Size &amp; Length</h2>
+      <div class="divider"></div>
+      <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:.5rem">✓ All hair included &nbsp;·&nbsp; Extra $20 for wash &nbsp;·&nbsp; Extra charge for tangled/thick hair</p>
+      <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:2rem">No oils on hair before coming in</p>
+    </div>
+    <div style="overflow-x:auto" class="reveal">
+      <table id="priceMatrix" style="width:100%;border-collapse:collapse;min-width:560px">
+        <thead>
+          <tr id="matrixHeader"></tr>
+        </thead>
+        <tbody id="matrixBody"></tbody>
+      </table>
+    </div>
+    <!-- Price list image upload slot -->
+    <div style="margin-top:3rem;text-align:center" class="reveal">
+      <p style="color:var(--text-muted);font-size:.85rem;margin-bottom:1rem">You can also display your price list image here — upload via Admin → Pricing → Price List Image</p>
+      <img id="priceListImage" src="" alt="Price list" style="display:none;max-width:500px;width:100%;border-radius:4px;margin:0 auto"/>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg)">
   <div class="section-inner">
     <div class="reveal"><span class="eyebrow">Extras</span><h2 class="section-heading">Add-On Services</h2><div class="divider"></div></div>
     <div class="add-ons" id="addonsGrid"></div>
@@ -139,6 +173,24 @@
   });
 
   document.querySelectorAll('.faq-q').forEach(q => q.addEventListener('click', () => q.parentElement.classList.toggle('open')));
+
+  // Render price matrix
+  if (data.knotlessAndBox) {
+    const kb = data.knotlessAndBox;
+    const header = document.getElementById('matrixHeader');
+    header.innerHTML = `<th style="background:var(--clay-dark)">Length / Size</th>` + kb.sizes.map(s=>`<th>${s}</th>`).join('');
+    const body = document.getElementById('matrixBody');
+    body.innerHTML = kb.rows.map(row =>
+      `<tr><td>${row.length}</td>${row.prices.map(p=>`<td>$${p}</td>`).join('')}</tr>`
+    ).join('');
+  }
+
+  // Show price list image if set
+  if (data.priceListImage) {
+    const img = document.getElementById('priceListImage');
+    img.src = data.priceListImage;
+    img.style.display = 'block';
+  }
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 })();
 </script>
