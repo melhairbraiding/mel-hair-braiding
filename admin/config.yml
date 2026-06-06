@@ -66,21 +66,36 @@ collections:
               - { label: "Paragraph", name: "copy", widget: "text" }
               - { label: "Section Image", name: "image", widget: "image", required: false }
               - { label: "Image Quote", name: "imageQuote", widget: "string" }
-          - { label: "Price List Image (optional)", name: "priceListImage", widget: "image", required: false, hint: "Upload your price list image — shown on the pricing page below the table." }
-          - label: "Knotless & Box Braids Price Matrix"
-            name: "knotlessAndBox"
-            widget: "object"
+          - label: "Price List Images"
+            name: "priceListImages"
+            widget: "list"
+            hint: "Upload price list images (JPEGs). Add as many as you need — each displays on the pricing page."
+            summary: "Image {{index}}"
+            field: { label: "Price List Image", name: "image", widget: "image" }
+          - label: "Price Tables (Editable)"
+            name: "priceTables"
+            widget: "list"
+            hint: "Add, remove, or edit price tables. Each table appears on the pricing page and feeds into the booking calculator."
+            summary: "{{fields.title}}"
             fields:
+              - { label: "Table Title", name: "title", widget: "string", hint: "e.g. Knotless & Box Braids" }
+              - { label: "Subtitle / Note", name: "subtitle", widget: "string", hint: "e.g. *All Hairs Included*", required: false }
+              - label: "Column Headers (Sizes)"
+                name: "sizes"
+                widget: "list"
+                hint: "e.g. Small, S-Medium, Medium, Large, Jumbo"
+                field: { label: "Size", name: "size", widget: "string" }
               - label: "Price Rows"
                 name: "rows"
                 widget: "list"
                 summary: "{{fields.length}}"
                 fields:
-                  - { label: "Length", name: "length", widget: "string" }
-                  - label: "Prices (Small, S.Medium, Medium, Large, Jumbo)"
+                  - { label: "Length / Row Label", name: "length", widget: "string" }
+                  - label: "Prices (one per size column, left to right)"
                     name: "prices"
                     widget: "list"
                     field: { label: "Price ($)", name: "price", widget: "number" }
+              - { label: "Footer Notes", name: "notes", widget: "text", required: false, hint: "e.g. Extra $30 for wash · No oils before coming in" }
           - label: "Services"
             name: "services"
             widget: "list"
@@ -219,21 +234,36 @@ collections:
           - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
           - { label: "Deposit Amount", name: "depositAmount", widget: "string", default: "$50" }
           - { label: "Cancellation Policy", name: "cancellationPolicy", widget: "text" }
-          - { label: "Price List Image (optional)", name: "priceListImage", widget: "image", required: false, hint: "Upload your price list image — shown on the pricing page below the table." }
-          - label: "Knotless & Box Braids Price Matrix"
-            name: "knotlessAndBox"
-            widget: "object"
+          - label: "Price List Images"
+            name: "priceListImages"
+            widget: "list"
+            hint: "Upload price list images (JPEGs). Add as many as you need — each displays on the pricing page."
+            summary: "Image {{index}}"
+            field: { label: "Price List Image", name: "image", widget: "image" }
+          - label: "Price Tables (Editable)"
+            name: "priceTables"
+            widget: "list"
+            hint: "Add, remove, or edit price tables. Each table appears on the pricing page and feeds into the booking calculator."
+            summary: "{{fields.title}}"
             fields:
+              - { label: "Table Title", name: "title", widget: "string", hint: "e.g. Knotless & Box Braids" }
+              - { label: "Subtitle / Note", name: "subtitle", widget: "string", hint: "e.g. *All Hairs Included*", required: false }
+              - label: "Column Headers (Sizes)"
+                name: "sizes"
+                widget: "list"
+                hint: "e.g. Small, S-Medium, Medium, Large, Jumbo"
+                field: { label: "Size", name: "size", widget: "string" }
               - label: "Price Rows"
                 name: "rows"
                 widget: "list"
                 summary: "{{fields.length}}"
                 fields:
-                  - { label: "Length", name: "length", widget: "string" }
-                  - label: "Prices (Small, S.Medium, Medium, Large, Jumbo)"
+                  - { label: "Length / Row Label", name: "length", widget: "string" }
+                  - label: "Prices (one per size column, left to right)"
                     name: "prices"
                     widget: "list"
                     field: { label: "Price ($)", name: "price", widget: "number" }
+              - { label: "Footer Notes", name: "notes", widget: "text", required: false, hint: "e.g. Extra $30 for wash · No oils before coming in" }
           - label: "Services"
             name: "services"
             widget: "list"
