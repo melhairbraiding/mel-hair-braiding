@@ -2,186 +2,51 @@
   "heroImage": "https://images.unsplash.com/photo-1762767527280-6767cadbf6bd?auto=format&fit=crop&w=1600&q=80",
   "depositAmount": "$20",
   "cancellationPolicy": "A $20 deposit is required to hold all appointments. Deposits are applied to your final total. Cancellations with less than 48 hours notice forfeit the deposit.",
-  "note": "All hair included. Extra $20 for wash. Extra charge for tangled & over thick hair. No oils on hair before coming in.",
-  "knotlessAndBox": {
-    "enabled": true,
-    "sizes": [
-      "Small",
-      "S.Medium",
-      "Medium",
-      "Large",
-      "Jumbo"
-    ],
-    "rows": [
-      {
-        "length": "Shoulder",
-        "prices": [
-          240,
-          220,
-          200,
-          180,
-          180
-        ]
-      },
-      {
-        "length": "Mid-Back",
-        "prices": [
-          270,
-          250,
-          200,
-          180,
-          180
-        ]
-      },
-      {
-        "length": "Waist Length",
-        "prices": [
-          300,
-          280,
-          200,
-          180,
-          180
-        ]
-      },
-      {
-        "length": "Top Butt",
-        "prices": [
-          350,
-          320,
-          220,
-          200,
-          200
-        ]
-      },
-      {
-        "length": "Mid Butt",
-        "prices": [
-          400,
-          350,
-          250,
-          220,
-          220
-        ]
-      },
-      {
-        "length": "Under Butt",
-        "prices": [
-          450,
-          400,
-          300,
-          250,
-          250
-        ]
-      }
-    ]
-  },
-  "services": [
+  "priceListImages": [],
+  "priceTables": [
     {
-      "name": "Knotless Braids",
-      "tagline": "Most Popular",
-      "price": "$180",
-      "duration": "4–7 hours",
-      "featured": true,
-      "features": [
-        "Feed-in technique for natural root",
-        "Reduced scalp tension",
-        "All hair included",
-        "Small, S.Medium, Medium, Large, Jumbo sizes",
-        "Optional beads & accessories"
-      ]
+      "title": "Knotless & Box Braids",
+      "subtitle": "*All Hairs Included*",
+      "sizes": ["Small","S-Medium","Medium","Large","Jumbo"],
+      "rows": [
+        { "length": "Shoulder",     "prices": [280, 230, 200, 180, 180] },
+        { "length": "Mid-Back",     "prices": [300, 250, 200, 180, 180] },
+        { "length": "Waist-Length", "prices": [340, 280, 220, 200, 200] },
+        { "length": "Top-Butt",     "prices": [380, 320, 250, 220, 220] },
+        { "length": "Mid-Butt",     "prices": [420, 350, 300, 250, 250] },
+        { "length": "Under-Butt",   "prices": [460, 400, 350, 280, 280] }
+      ],
+      "notes": "Extra $30 for wash · Extra charge for tangled & over thick hair · No oils on hair before coming in"
     },
     {
-      "name": "Box Braids",
-      "tagline": "Classic",
-      "price": "$180",
-      "duration": "4–8 hours",
-      "featured": true,
-      "features": [
-        "Clean, uniform sections",
-        "Secure ends — no slipping",
-        "All hair included",
-        "Optional beads & cuffs",
-        "Short to Under Butt length"
-      ]
-    },
-    {
-      "name": "Feed-In Cornrows",
-      "tagline": "Quick & Clean",
-      "price": "$95",
-      "duration": "2–5 hours",
-      "featured": false,
-      "features": [
-        "Straight-backs, stitch, or custom pattern",
-        "Ponytail or bun finish",
-        "Feed-in for length",
-        "Clean hairline work"
-      ]
-    },
-    {
-      "name": "Boho Twists",
-      "tagline": "Romantic Finish",
-      "price": "$240",
-      "duration": "5–8 hours",
-      "featured": false,
-      "features": [
-        "Curly accent pieces included",
-        "Fuller, movement-rich look",
-        "Medium to long length",
-        "Customizable curl pattern"
-      ]
-    },
-    {
-      "name": "Loc Care",
-      "tagline": "Loc Journey",
-      "price": "$85",
-      "duration": "1.5–4 hours",
-      "featured": false,
-      "features": [
-        "Retwists — all stages",
-        "Starter loc consult + install",
-        "Detox care treatments",
-        "Two-strand twist styling"
-      ]
-    },
-    {
-      "name": "Consultation",
-      "tagline": "Start Here",
-      "price": "$20",
-      "duration": "20 minutes",
-      "featured": false,
-      "features": [
-        "Scalp & hair health check",
-        "Style recommendations",
-        "Budget & time planning",
-        "Applied to first service"
-      ]
+      "title": "Boho Knotless/Box Braids",
+      "subtitle": "*Braiding Hair + 100% Human Hair Included*",
+      "sizes": ["Small","S-Medium","Medium","Large","Jumbo"],
+      "rows": [
+        { "length": "Shoulder",     "prices": [350, 310, 260, 240, 240] },
+        { "length": "Mid-Back",     "prices": [395, 340, 260, 240, 240] },
+        { "length": "Waist-Length", "prices": [440, 370, 280, 260, 260] },
+        { "length": "Top-Butt",     "prices": [480, 410, 360, 280, 280] },
+        { "length": "Mid-Butt",     "prices": [520, 450, 390, 310, 310] },
+        { "length": "Under-Butt",   "prices": [560, 490, 440, 340, 340] }
+      ],
+      "notes": "Call/send pics for Gypsy, Bora Bora prices & all other styles not listed"
     }
+  ],
+  "services": [
+    { "name": "Knotless Braids", "tagline": "Most Popular", "price": "$180", "duration": "4–7 hours", "featured": false, "features": ["Feed-in technique for natural root","Reduced scalp tension","All hair included","Small through Jumbo sizes","Optional beads & accessories"] },
+    { "name": "Box Braids", "tagline": "Classic", "price": "$180", "duration": "4–8 hours", "featured": true, "features": ["Clean, uniform sections","Secure ends — no slipping","All hair included","Optional beads & cuffs","Shoulder to Under Butt length"] },
+    { "name": "Boho Knotless/Box", "tagline": "Premium", "price": "$240", "duration": "5–9 hours", "featured": false, "features": ["Braiding hair + 100% human hair included","Soft curly finish","Small through Jumbo sizes","Shoulder to Under Butt length"] },
+    { "name": "Feed-In Cornrows", "tagline": "Quick & Clean", "price": "$95", "duration": "2–5 hours", "featured": false, "features": ["Straight-backs, stitch, or custom pattern","Ponytail or bun finish","Feed-in for length","Clean hairline work"] },
+    { "name": "Loc Care", "tagline": "Loc Journey", "price": "$85", "duration": "1.5–4 hours", "featured": false, "features": ["Retwists — all stages","Starter loc consult + install","Detox care treatments"] },
+    { "name": "Consultation", "tagline": "Start Here", "price": "$20", "duration": "20 minutes", "featured": false, "features": ["Scalp & hair health check","Style recommendations","Applied to first service"] }
   ],
   "addons": [
-    {
-      "name": "Hair Wash",
-      "price": "+$20"
-    },
-    {
-      "name": "Beads & Accessories",
-      "price": "+$15"
-    },
-    {
-      "name": "Color Extension Hair",
-      "price": "+$20"
-    },
-    {
-      "name": "Braid Removal",
-      "price": "From $40"
-    },
-    {
-      "name": "Scalp Treatment",
-      "price": "+$35"
-    },
-    {
-      "name": "Extra thick/tangled hair",
-      "price": "Extra charge"
-    }
-  ],
-  "priceListImage": "/assets/uploads/hair-price-clean.jpeg"
+    { "name": "Hair Wash", "price": "+$30" },
+    { "name": "Beads & Accessories", "price": "+$15" },
+    { "name": "Color Extension Hair", "price": "+$20" },
+    { "name": "Braid Removal", "price": "From $40" },
+    { "name": "Scalp Treatment", "price": "+$35" },
+    { "name": "Extra thick/tangled hair", "price": "Extra charge" }
+  ]
 }
