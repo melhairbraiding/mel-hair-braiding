@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NCRCKGJ5');</script>
+<!-- End Google Tag Manager -->
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <meta name="description" content="Mel Hair Braiding — Knotless braids, box braids, feed-ins, twists, and loc care in Marlboro, MD."/>
   <title>Mel Hair Braiding | Knotless Braids, Box Braids & Protective Styles — Upper Marlboro, MD</title>
@@ -42,13 +49,6 @@
     .hero-dot{width:28px;height:3px;border-radius:2px;background:rgba(255,255,255,.3);cursor:pointer;transition:background .3s,width .3s}
     .hero-dot.active{background:var(--clay);width:44px}
     @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-
-    /* Welcome banner override — crisp readable font */
-    .welcome-banner{background:var(--clay);overflow:hidden;height:42px;display:flex;align-items:center;position:relative;z-index:98}
-    .welcome-banner-track{display:flex;align-items:center;gap:0;white-space:nowrap;animation:marquee 75s linear infinite;will-change:transform}
-    .welcome-banner-track span{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#fff;font-style:normal;padding:0 2.5rem}
-    .welcome-banner-track .dot{color:rgba(255,255,255,.5);padding:0;letter-spacing:0;font-size:.6rem}
-    @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
     .intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
     .intro-img-wrap{position:relative}
@@ -110,6 +110,10 @@
   </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCRCKGJ5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <nav class="nav">
   <a href="index.html" class="nav-logo">MHB <span>Mel Hair Braiding</span></a>
   <ul class="nav-links">
@@ -255,12 +259,12 @@
       <li><a href="contact/index.html">Contact</a></li>
       <li><a href="book/index.html">Book Now</a></li>
     </ul></div>
-    <div class="footer-contact-col">
+    <div>
       <h4>Contact</h4>
       <ul class="footer-links" id="footerContact"></ul>
-      <div class="social-cta-links" style="margin-top:1.2rem"></div>
-      <a href="https://www.styleseat.com/m/v/melhairbraiding" target="_blank" rel="noopener" class="styleseat-btn" style="margin-top:1.2rem;display:inline-flex">
-        <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:none;stroke:#fff;stroke-width:2;flex-shrink:0"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"/></svg>
+      <div class="social-links" style="margin-top:1.2rem"></div>
+      <a href="https://www.styleseat.com/m/v/melhairbraiding" target="_blank" rel="noopener" class="styleseat-btn" style="margin-top:1.2rem">
+        <svg viewBox="0 0 24 24"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"/></svg>
         Book on StyleSeat
       </a>
     </div>
@@ -421,7 +425,7 @@
   // Welcome banner
   const bannerTrack = document.getElementById('bannerTrack');
   if (bannerTrack) {
-    const msg = 'Welcome to Mel Hair Braiding — Call/Text us 24/7 at +1 (202) 892-8841 or Email melhairbraiding1@gmail.com';
+    const msg = 'Welcome to Mel Hair Braiding';
     const dot = '<span class="dot">✦</span>';
     const repeated = Array(12).fill(`<span>${msg}</span>${dot}`).join('');
     bannerTrack.innerHTML = repeated + repeated; // duplicate for seamless loop
