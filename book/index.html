@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NCRCKGJ5');</script>
+<!-- End Google Tag Manager -->
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Book an Appointment | Mel Hair Braiding | Upper Marlboro, MD</title>
   <meta name="description" content="Book your braiding appointment at Mel Hair Braiding. Choose your style, size, and length — price calculated instantly. Pay $20 deposit to hold your seat."/>
   <link rel="stylesheet" href="../assets/css/global.css"/>
   <style>
     .book-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:start}
-
-    /* Step headers */
     .step-block{margin-bottom:2.5rem}
     .step-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem}
     .step-num{width:34px;height:34px;border-radius:50%;background:var(--clay);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;flex-shrink:0}
     .step-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--text)}
-
-    /* Service selector */
     .service-options{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
     .svc-opt{position:relative}
     .svc-opt input{position:absolute;opacity:0;width:0;height:0}
@@ -23,22 +26,16 @@
     .svc-opt label:hover{border-color:var(--clay)}
     .svc-name{font-size:.92rem;font-weight:500;color:var(--text)}
     .svc-base{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--clay);margin-top:.2rem}
-
-    /* Size & Length grid selectors */
     .size-options{display:flex;flex-wrap:wrap;gap:.6rem}
     .sel-pill{position:relative}
     .sel-pill input{position:absolute;opacity:0;width:0;height:0}
     .sel-pill label{display:block;padding:.5rem 1.1rem;border:1.5px solid var(--border-dim);border-radius:20px;cursor:pointer;font-size:.85rem;color:var(--text-muted);transition:all .2s;background:var(--bg-card);white-space:nowrap}
     .sel-pill input:checked + label{border-color:var(--clay);background:var(--clay);color:#fff}
     .sel-pill label:hover{border-color:var(--clay);color:var(--clay)}
-
-    /* Price display */
     .price-display{background:var(--bg-2);border:1px solid var(--border);border-radius:4px;padding:1.2rem 1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between}
     .price-display-label{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)}
     .price-display-value{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--clay)}
     .price-display-note{font-size:.78rem;color:var(--text-dim);margin-top:.2rem}
-
-    /* Add-ons */
     .addon-options{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
     .addon-opt{position:relative}
     .addon-opt input{position:absolute;opacity:0;width:0;height:0}
@@ -46,16 +43,12 @@
     .addon-opt input:checked + label{border-color:var(--clay);color:var(--text);background:rgba(201,122,58,.08)}
     .addon-opt label:hover{border-color:var(--clay)}
     .addon-price{color:var(--clay);font-weight:500;font-size:.82rem}
-
-    /* Form fields */
     .form-group{margin-bottom:1.1rem}
     .form-group label{display:block;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.4rem}
     .form-group input,.form-group select,.form-group textarea{width:100%;padding:.8rem 1rem;border:1.5px solid var(--border-dim);border-radius:2px;font-family:'Jost',sans-serif;font-size:.95rem;color:var(--text);background:var(--bg-3);transition:border-color .2s}
     .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--clay)}
     .form-group textarea{resize:vertical;min-height:80px}
     .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-
-    /* Summary sidebar */
     .booking-summary{background:var(--bg-card);border:1px solid var(--border-dim);border-radius:4px;padding:2rem;position:sticky;top:calc(var(--nav-h) + 1rem)}
     .summary-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--text);margin-bottom:1.5rem}
     .summary-row{display:flex;justify-content:space-between;align-items:flex-start;padding:.6rem 0;border-bottom:1px solid var(--border-dim);font-size:.88rem;gap:.5rem}
@@ -66,18 +59,19 @@
     .sum-total-label{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted)}
     .sum-total-val{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--clay)}
     .deposit-note{background:rgba(201,122,58,.08);border-left:3px solid var(--clay);padding:1rem;border-radius:0 3px 3px 0;font-size:.82rem;color:var(--text-muted);margin:1rem 0;line-height:1.7}
-
     .success-card{display:none;background:var(--bg-card);border:1.5px solid var(--clay);border-radius:4px;padding:3rem;text-align:center}
     .success-card.show{display:block}
-
     .hidden{display:none}
     .styleseat-banner{background:var(--bg-2);border:1px solid var(--border);border-radius:4px;padding:1.2rem 1.8rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;margin-bottom:2.5rem;flex-wrap:wrap}
-
     @media(max-width:900px){.book-layout{grid-template-columns:1fr}.booking-summary{position:static}.service-options{grid-template-columns:1fr}.addon-options{grid-template-columns:1fr}}
     @media(max-width:500px){.form-row{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCRCKGJ5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <nav class="nav">
   <a href="../index.html" class="nav-logo">MHB <span>Mel Hair Braiding</span></a>
   <ul class="nav-links">
@@ -100,8 +94,6 @@
 
 <section class="section" style="background:var(--bg)">
   <div class="section-inner">
-
-    <!-- StyleSeat banner -->
     <div class="styleseat-banner reveal">
       <div>
         <div style="font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--clay);margin-bottom:.3rem">Fastest Option</div>
@@ -112,32 +104,21 @@
         Book on StyleSeat
       </a>
     </div>
-
     <div style="text-align:center;margin-bottom:2.5rem;color:var(--text-dim);font-size:.85rem">— or configure your style below and pay a $20 deposit —</div>
-
     <div class="book-layout">
-      <!-- LEFT FORM -->
       <div id="bookForm">
-
-        <!-- STEP 1: Service -->
         <div class="step-block">
           <div class="step-header"><div class="step-num">1</div><div class="step-title">Choose Your Service</div></div>
           <div class="service-options" id="serviceOptions"></div>
         </div>
-
-        <!-- STEP 2: Size (only for braids) -->
         <div class="step-block hidden" id="sizeBlock">
           <div class="step-header"><div class="step-num">2</div><div class="step-title">Choose Your Size</div></div>
           <div class="size-options" id="sizeOptions"></div>
         </div>
-
-        <!-- STEP 3: Length (only for braids) -->
         <div class="step-block hidden" id="lengthBlock">
           <div class="step-header"><div class="step-num" id="lengthStepNum">3</div><div class="step-title">Choose Your Length</div></div>
           <div class="size-options" id="lengthOptions"></div>
         </div>
-
-        <!-- STEP 4: Price display -->
         <div class="step-block hidden" id="priceBlock">
           <div class="price-display">
             <div>
@@ -147,14 +128,10 @@
             </div>
           </div>
         </div>
-
-        <!-- STEP 5: Add-ons -->
         <div class="step-block hidden" id="addonsBlock">
           <div class="step-header"><div class="step-num" id="addonsStepNum">4</div><div class="step-title">Add-Ons (Optional)</div></div>
           <div class="addon-options" id="addonOptions"></div>
         </div>
-
-        <!-- STEP 6: Your Details -->
         <div class="step-block" id="detailsBlock">
           <div class="step-header"><div class="step-num" id="detailsStepNum">5</div><div class="step-title">Your Details</div></div>
           <div class="form-row">
@@ -177,8 +154,6 @@
           </div>
           <div class="form-group"><label>Notes (optional)</label><textarea id="notes" placeholder="Inspiration photos, scalp concerns, or anything we should know..."></textarea></div>
         </div>
-
-        <!-- STEP 7: Pay Deposit -->
         <div class="step-block">
           <div class="step-header"><div class="step-num" id="payStepNum">6</div><div class="step-title">Pay $20 Deposit</div></div>
           <div class="deposit-note">💳 Your <strong style="color:var(--clay)">$20 deposit</strong> holds your appointment and is applied to your total. Remaining balance due at the studio.</div>
@@ -188,8 +163,6 @@
           <p style="font-size:.75rem;color:var(--text-dim);text-align:center;margin-top:.8rem">🔒 Secure payment via PayPal · No PayPal account needed</p>
         </div>
       </div>
-
-      <!-- RIGHT SUMMARY -->
       <div class="booking-summary reveal reveal-delay-2">
         <div class="summary-title">Booking Summary</div>
         <div class="summary-row"><span class="sum-label">Service</span><span class="sum-val" id="sumService">—</span></div>
@@ -213,7 +186,6 @@
         </a>
       </div>
     </div>
-
     <div class="success-card" id="successCard">
       <div style="font-size:3rem;margin-bottom:1rem">🎉</div>
       <h3 style="font-size:2rem;margin-bottom:.5rem">Deposit Received!</h3>
@@ -234,19 +206,16 @@
 
 <script src="../assets/js/global.js"></script>
 <script>
-// Price matrix for Knotless & Box Braids
-// [Small, S.Medium, Medium, Large, Jumbo]
 const SIZES = ['Small','S.Medium','Medium','Large','Jumbo'];
 const LENGTHS = ['Shoulder','Mid-Back','Waist Length','Top Butt','Mid Butt','Under Butt'];
 const PRICE_MATRIX = [
-  [280, 230, 200, 180, 180], // Shoulder
-  [300, 250, 200, 180, 180], // Mid-Back
-  [340, 280, 220, 200, 200], // Waist-Length
-  [380, 320, 250, 220, 220], // Top-Butt
-  [420, 350, 300, 250, 250], // Mid-Butt
-  [460, 400, 350, 280, 280], // Under-Butt
+  [280, 230, 200, 180, 180],
+  [300, 250, 200, 180, 180],
+  [340, 280, 220, 200, 200],
+  [380, 320, 250, 220, 220],
+  [420, 350, 300, 250, 250],
+  [460, 400, 350, 280, 280],
 ];
-
 const ADDONS = [
   { name:'Hair Wash', price: 20 },
   { name:'Beads & Accessories', price: 15 },
@@ -254,7 +223,6 @@ const ADDONS = [
   { name:'Braid Removal', price: 40 },
   { name:'Scalp Treatment', price: 35 },
 ];
-
 const SERVICES = [
   { name:'Knotless Braids', base:'From $180', hasSizeLength: true },
   { name:'Box Braids',      base:'From $180', hasSizeLength: true },
@@ -263,64 +231,34 @@ const SERVICES = [
   { name:'Loc Care',        base:'From $85',  hasSizeLength: false, price: 85 },
   { name:'Consultation',    base:'$20',       hasSizeLength: false, price: 20 },
 ];
-
 let state = { service: null, size: null, length: null, addons: [], price: null };
-
-// Render service options
 const svcEl = document.getElementById('serviceOptions');
 SERVICES.forEach((s,i) => {
-  svcEl.innerHTML += `<div class="svc-opt">
-    <input type="radio" name="svc" id="svc${i}" value="${i}" onchange="selectService(${i})"/>
-    <label for="svc${i}"><div class="svc-name">${s.name}</div><div class="svc-base">${s.base}</div></label>
-  </div>`;
+  svcEl.innerHTML += `<div class="svc-opt"><input type="radio" name="svc" id="svc${i}" value="${i}" onchange="selectService(${i})"/><label for="svc${i}"><div class="svc-name">${s.name}</div><div class="svc-base">${s.base}</div></label></div>`;
 });
-
-// Render size pills
 const sizeEl = document.getElementById('sizeOptions');
 SIZES.forEach((sz,i) => {
-  sizeEl.innerHTML += `<div class="sel-pill">
-    <input type="radio" name="sz" id="sz${i}" value="${i}" onchange="selectSize(${i})"/>
-    <label for="sz${i}">${sz}</label>
-  </div>`;
+  sizeEl.innerHTML += `<div class="sel-pill"><input type="radio" name="sz" id="sz${i}" value="${i}" onchange="selectSize(${i})"/><label for="sz${i}">${sz}</label></div>`;
 });
-
-// Render length pills
 const lenEl = document.getElementById('lengthOptions');
 LENGTHS.forEach((ln,i) => {
-  lenEl.innerHTML += `<div class="sel-pill">
-    <input type="radio" name="ln" id="ln${i}" value="${i}" onchange="selectLength(${i})"/>
-    <label for="ln${i}">${ln}</label>
-  </div>`;
+  lenEl.innerHTML += `<div class="sel-pill"><input type="radio" name="ln" id="ln${i}" value="${i}" onchange="selectLength(${i})"/><label for="ln${i}">${ln}</label></div>`;
 });
-
-// Render add-ons
 const addonsEl = document.getElementById('addonOptions');
 ADDONS.forEach((a,i) => {
-  addonsEl.innerHTML += `<div class="addon-opt">
-    <input type="checkbox" id="ao${i}" value="${i}" onchange="toggleAddon(${i})"/>
-    <label for="ao${i}"><span>${a.name}</span><span class="addon-price">+$${a.price}</span></label>
-  </div>`;
+  addonsEl.innerHTML += `<div class="addon-opt"><input type="checkbox" id="ao${i}" value="${i}" onchange="toggleAddon(${i})"/><label for="ao${i}"><span>${a.name}</span><span class="addon-price">+$${a.price}</span></label></div>`;
 });
-
 function selectService(i) {
-  state.service = SERVICES[i];
-  state.size = null; state.length = null; state.price = null;
+  state.service = SERVICES[i]; state.size = null; state.length = null; state.price = null;
   document.getElementById('sumService').textContent = SERVICES[i].name;
-
   const hasSL = SERVICES[i].hasSizeLength;
   document.getElementById('sizeBlock').classList.toggle('hidden', !hasSL);
   document.getElementById('lengthBlock').classList.toggle('hidden', !hasSL);
   document.getElementById('addonsBlock').classList.remove('hidden');
-
-  // Reset size/length selections
   document.querySelectorAll('input[name=sz]').forEach(r=>r.checked=false);
   document.querySelectorAll('input[name=ln]').forEach(r=>r.checked=false);
-
   if (!hasSL) {
-    state.price = SERVICES[i].price;
-    showPrice(state.price);
-    updateSummary();
-    // Renumber steps
+    state.price = SERVICES[i].price; showPrice(state.price); updateSummary();
     document.getElementById('addonsStepNum').textContent = '3';
     document.getElementById('detailsStepNum').textContent = '4';
     document.getElementById('payStepNum').textContent = '5';
@@ -332,86 +270,32 @@ function selectService(i) {
   }
   updateSummary();
 }
-
-function selectSize(i) {
-  state.size = i;
-  document.getElementById('sumSizeRow').classList.remove('hidden');
-  document.getElementById('sumSize').textContent = SIZES[i];
-  calcPrice();
-}
-
-function selectLength(i) {
-  state.length = i;
-  document.getElementById('sumLengthRow').classList.remove('hidden');
-  document.getElementById('sumLength').textContent = LENGTHS[i];
-  calcPrice();
-}
-
-function calcPrice() {
-  if (state.size !== null && state.length !== null) {
-    state.price = PRICE_MATRIX[state.length][state.size];
-    showPrice(state.price);
-  }
-  updateSummary();
-}
-
-function showPrice(p) {
-  document.getElementById('priceBlock').classList.remove('hidden');
-  document.getElementById('calcPrice').textContent = `$${p}`;
-}
-
-function toggleAddon(i) {
-  const idx = state.addons.indexOf(i);
-  if (idx === -1) state.addons.push(i);
-  else state.addons.splice(idx, 1);
-  updateSummary();
-}
-
+function selectSize(i) { state.size = i; document.getElementById('sumSizeRow').classList.remove('hidden'); document.getElementById('sumSize').textContent = SIZES[i]; calcPrice(); }
+function selectLength(i) { state.length = i; document.getElementById('sumLengthRow').classList.remove('hidden'); document.getElementById('sumLength').textContent = LENGTHS[i]; calcPrice(); }
+function calcPrice() { if (state.size !== null && state.length !== null) { state.price = PRICE_MATRIX[state.length][state.size]; showPrice(state.price); } updateSummary(); }
+function showPrice(p) { document.getElementById('priceBlock').classList.remove('hidden'); document.getElementById('calcPrice').textContent = `$${p}`; }
+function toggleAddon(i) { const idx = state.addons.indexOf(i); if (idx === -1) state.addons.push(i); else state.addons.splice(idx, 1); updateSummary(); }
 function updateSummary() {
   const addonTotal = state.addons.reduce((s,i) => s + ADDONS[i].price, 0);
   const total = (state.price || 0) + addonTotal;
-
   document.getElementById('sumEstPrice').textContent = state.price ? `$${state.price}` : '—';
   document.getElementById('sumBalance').textContent = total > 0 ? `$${total - 20}` : '—';
-
-  if (state.addons.length) {
-    document.getElementById('sumAddonsRow').classList.remove('hidden');
-    document.getElementById('sumAddons').textContent = state.addons.map(i=>ADDONS[i].name).join(', ');
-  } else {
-    document.getElementById('sumAddonsRow').classList.add('hidden');
-  }
+  if (state.addons.length) { document.getElementById('sumAddonsRow').classList.remove('hidden'); document.getElementById('sumAddons').textContent = state.addons.map(i=>ADDONS[i].name).join(', '); }
+  else { document.getElementById('sumAddonsRow').classList.add('hidden'); }
 }
-
 function handleBooking() {
   if (!state.service) { alert('Please select a service.'); return; }
-  if (state.service.hasSizeLength && (state.size === null || state.length === null)) {
-    alert('Please select both a size and length for your style.'); return;
-  }
+  if (state.service.hasSizeLength && (state.size === null || state.length === null)) { alert('Please select both a size and length for your style.'); return; }
   const fname = document.getElementById('fname').value.trim();
   const email = document.getElementById('email').value.trim();
   const phone = document.getElementById('phone').value.trim();
   const date  = document.getElementById('prefDate').value;
   if (!fname || !email || !phone || !date) { alert('Please fill in all required fields.'); return; }
-
   const addonNames = state.addons.map(i=>ADDONS[i].name).join(', ');
-  const note = [
-    state.service.name,
-    state.size !== null ? `Size: ${SIZES[state.size]}` : '',
-    state.length !== null ? `Length: ${LENGTHS[state.length]}` : '',
-    addonNames ? `Add-ons: ${addonNames}` : '',
-    `Date: ${date}`,
-    `Client: ${fname}`
-  ].filter(Boolean).join(' | ');
-
+  const note = [state.service.name, state.size !== null ? `Size: ${SIZES[state.size]}` : '', state.length !== null ? `Length: ${LENGTHS[state.length]}` : '', addonNames ? `Add-ons: ${addonNames}` : '', `Date: ${date}`, `Client: ${fname}`].filter(Boolean).join(' | ');
   window.open(`https://www.paypal.me/RosianeLontchi/20?note=${encodeURIComponent(note)}`, '_blank');
-
-  setTimeout(() => {
-    document.getElementById('bookForm').style.display = 'none';
-    document.getElementById('successCard').classList.add('show');
-  }, 1500);
+  setTimeout(() => { document.getElementById('bookForm').style.display = 'none'; document.getElementById('successCard').classList.add('show'); }, 1500);
 }
-
-// Footer
 document.getElementById('footerCopy').textContent = `© ${new Date().getFullYear()} Mel Hair Braiding. All rights reserved.`;
 </script>
 </body>
