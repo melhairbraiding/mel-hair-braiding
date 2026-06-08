@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NCRCKGJ5');</script>
+<!-- End Google Tag Manager -->
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Braiding Prices | Mel Hair Braiding | Upper Marlboro, MD</title>
   <meta name="description" content="View pricing for knotless braids, box braids, cornrows, boho twists, loc care and more at Mel Hair Braiding in Upper Marlboro, MD."/>
@@ -63,6 +70,10 @@
   </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCRCKGJ5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <nav class="nav">
   <a href="../index.html" class="nav-logo">MHB <span>Mel Hair Braiding</span></a>
   <ul class="nav-links">
@@ -96,7 +107,6 @@
     <div class="pricing-grid" id="pricingGrid"></div>
   </div>
 </section>
-<!-- PRICE TABLES — dynamically rendered from JSON -->
 <section class="section" style="background:var(--bg-2)">
   <div class="section-inner">
     <div class="reveal" style="text-align:center">
@@ -105,12 +115,9 @@
       <div class="divider center"></div>
     </div>
     <div id="allPriceTables"></div>
-
-    <!-- Price list images -->
     <div id="priceListImages" style="margin-top:3rem;display:flex;flex-wrap:wrap;gap:2rem;justify-content:center"></div>
   </div>
 </section>
-
 <section class="section" style="background:var(--bg)">
   <div class="section-inner">
     <div class="reveal"><span class="eyebrow">Extras</span><h2 class="section-heading">Add-On Services</h2><div class="divider"></div></div>
@@ -136,7 +143,7 @@
   <div class="footer-inner">
     <div><div class="footer-logo">MHB <span>Mel Hair Braiding</span></div><p class="footer-tagline" style="font-size:.9rem;color:var(--text-dim);max-width:240px;line-height:1.7;margin-top:.5rem"></p></div>
     <div><h4>Pages</h4><ul class="footer-links"><li><a href="../about/index.html">About Us</a></li><li><a href="index.html">Pricing</a></li><li><a href="../gallery/index.html">Gallery</a></li><li><a href="../testimonials/index.html">Testimonials</a></li><li><a href="../contact/index.html">Contact</a></li><li><a href="../book/index.html">Book Now</a></li></ul></div>
-            <div class="footer-contact-col">
+    <div class="footer-contact-col">
       <h4>Contact</h4>
       <ul class="footer-links" id="footerContact"></ul>
       <div class="social-cta-links" style="margin-top:1.2rem"></div>
@@ -157,7 +164,6 @@
   if (data.heroImage) document.getElementById('pricingHeroBg').style.backgroundImage = `url('${data.heroImage}')`;
   if (data.depositAmount) document.getElementById('depositAmt').textContent = data.depositAmount;
   if (data.cancellationPolicy) document.getElementById('cancellationText').textContent = data.cancellationPolicy;
-
   const pg = document.getElementById('pricingGrid');
   (data.services||[]).forEach((s,i) => {
     pg.innerHTML += `<div class="price-card${s.featured?' featured':''} reveal reveal-delay-${(i%3)+1}">
@@ -168,15 +174,11 @@
         <a href="../book/index.html" class="btn ${s.featured?'btn-primary':'btn-outline'}" style="margin-top:1.2rem;width:100%;text-align:center">Book This Style</a>
       </div></div>`;
   });
-
   const ag = document.getElementById('addonsGrid');
   (data.addons||[]).forEach(a => {
     ag.innerHTML += `<div class="add-on reveal"><span class="add-on-name">${a.name}</span><span class="add-on-price">${a.price}</span></div>`;
   });
-
   document.querySelectorAll('.faq-q').forEach(q => q.addEventListener('click', () => q.parentElement.classList.toggle('open')));
-
-  // Render all price tables
   const tablesEl = document.getElementById('allPriceTables');
   (data.priceTables||[]).forEach((tbl,ti) => {
     const wrap = document.createElement('div');
@@ -201,8 +203,6 @@
     tablesEl.appendChild(wrap);
     observer.observe(wrap);
   });
-
-  // Render price list images
   const imgsEl = document.getElementById('priceListImages');
   (data.priceListImages||[]).forEach(item => {
     const src = typeof item === 'string' ? item : item.image;
