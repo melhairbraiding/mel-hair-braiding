@@ -1,124 +1,494 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NCRCKGJ5');</script>
-<!-- End Google Tag Manager -->
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Client Reviews | Mel Hair Braiding | Upper Marlboro, MD</title>
-  <meta name="description" content="Read what clients say about Mel Hair Braiding. 5-star reviews for knotless braids, box braids, loc care, and more in Upper Marlboro, MD."/>
+  <meta name="description" content="Mel Hair Braiding — Knotless braids, box braids, feed-ins, twists, and loc care in Marlboro, MD."/>
+  <title>Mel Hair Braiding | Knotless Braids, Box Braids & Protective Styles — Upper Marlboro, MD</title>
+  <meta name="description" content="Mel Hair Braiding offers knotless braids, box braids, feed-in cornrows, boho twists, and loc care in Upper Marlboro, MD. Book your protective style appointment today."/>
+  <meta name="keywords" content="hair braiding Upper Marlboro MD, knotless braids Maryland, box braids near me, protective styles, loc care, boho twists, cornrows"/>
   <meta name="robots" content="index, follow"/>
-  <link rel="canonical" href="https://melhairbraiding.net/testimonials/"/>
-  <meta property="og:title" content="Client Reviews | Mel Hair Braiding | Upper Marlboro, MD"/>
-  <meta property="og:description" content="Read what clients say about Mel Hair Braiding. 5-star reviews for knotless braids, box braids, loc care, and more in Upper Marlboro, MD."/>
-  <meta property="og:url" content="https://melhairbraiding.net/testimonials/"/>
-  <link rel="stylesheet" href="../assets/css/global.css"/>
+  <link rel="canonical" href="https://melhairbraiding.net/"/>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mel Hair Braiding | Upper Marlboro, MD"/>
+  <meta property="og:description" content="Knotless braids, box braids, cornrows, boho twists & loc care. Book your protective style in Upper Marlboro, MD."/>
+  <meta property="og:url" content="https://melhairbraiding.net/"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://melhairbraiding.net/assets/uploads/og-image.jpg"/>
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Mel Hair Braiding | Upper Marlboro, MD"/>
+  <meta name="twitter:description" content="Knotless braids, box braids, cornrows, boho twists & loc care. Book now!"/>
+  <!-- Schema.org Local Business -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"HairSalon","name":"Mel Hair Braiding","url":"https://melhairbraiding.net","telephone":"(555) 018-1331","email":"hello@melhairbraiding.net","address":{"@type":"PostalAddress","addressLocality":"Upper Marlboro","addressRegion":"MD","addressCountry":"US"},"openingHours":["Tu-Fr 09:00-19:00","Sa 08:00-18:00"],"sameAs":["https://www.facebook.com/profile.php?id=100069341483920","https://www.instagram.com/mel_hair_braiding/","https://www.tiktok.com/@melhairbraiding","https://www.styleseat.com/m/v/melhairbraiding"]}
+  </script>
+  <link rel="stylesheet" href="assets/css/global.css"/>
   <style>
-    .testimonials-masonry{columns:3;column-gap:1.8rem;margin-top:3rem}
-    .testimonial-card{break-inside:avoid;border:1px solid var(--border-dim);border-radius:4px;padding:2rem;margin-bottom:1.8rem;transition:transform .3s,box-shadow .3s;background:var(--bg-card)}
-    .testimonial-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-    .testimonial-card.featured{background:var(--surface);border-color:var(--border)}
-    .stars{color:var(--clay);font-size:1.1rem;letter-spacing:.1rem;margin-bottom:.8rem}
-    blockquote{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:var(--text);line-height:1.7;margin-bottom:1.2rem}
-    .t-author{font-size:.85rem;font-weight:600;color:var(--text)}
-    .t-service{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--clay);margin-top:.2rem}
-    .rating-summary{display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:center;background:var(--bg-card);border:1px solid var(--border-dim);border-radius:4px;padding:3rem;margin-bottom:4rem}
-    .rating-num{font-family:'Cormorant Garamond',serif;font-size:5rem;color:var(--clay);line-height:1}
-    .rating-label{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)}
-    .rating-row{display:flex;align-items:center;gap:1rem;margin-bottom:.6rem}
-    .rating-row span{font-size:.82rem;color:var(--text-muted);min-width:2rem}
-    .rating-bar-bg{flex:1;height:8px;background:var(--bg-3);border-radius:4px;overflow:hidden}
-    .rating-bar-fill{height:100%;background:var(--clay);border-radius:4px}
-    .empty-state{text-align:center;padding:4rem;color:var(--text-dim)}
-    @media(max-width:900px){.testimonials-masonry{columns:2}.rating-summary{grid-template-columns:1fr}}
-    @media(max-width:600px){.testimonials-masonry{columns:1}}
+    .hero{position:relative;height:100vh;min-height:600px;overflow:hidden;margin-top:var(--nav-h)}
+    .hero-slides{position:absolute;inset:0}
+    .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease}
+    .hero-slide.active{opacity:1}
+    .hero-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.75) 0%,rgba(201,122,58,.2) 60%,transparent 100%)}
+    .hero-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 clamp(2rem,8vw,8rem);max-width:780px}
+    .hero-eyebrow{display:block;font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold-light);margin-bottom:1.2rem;opacity:0;animation:fadeUp .8s .3s forwards}
+    .hero-content h1{color:#fff;font-style:italic;opacity:0;animation:fadeUp .9s .5s forwards;margin-bottom:1.2rem}
+    .hero-sub{color:rgba(240,232,223,.82);font-size:1.05rem;max-width:460px;line-height:1.8;opacity:0;animation:fadeUp .9s .7s forwards;margin-bottom:2rem}
+    .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp .9s .9s forwards}
+    .hero-badges{position:absolute;bottom:3rem;right:clamp(2rem,6vw,6rem);display:flex;gap:1.2rem;z-index:2}
+    .hero-badge{background:rgba(14,11,9,.4);backdrop-filter:blur(10px);border:1px solid rgba(240,232,223,.2);border-radius:4px;padding:.9rem 1.4rem;text-align:center;color:#fff}
+    .hero-badge strong{display:block;font-size:1.1rem;font-family:'Cormorant Garamond',serif}
+    .hero-badge span{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;opacity:.7}
+    .hero-dots{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;gap:.6rem;z-index:2}
+    .hero-dot{width:28px;height:3px;border-radius:2px;background:rgba(255,255,255,.3);cursor:pointer;transition:background .3s,width .3s}
+    .hero-dot.active{background:var(--clay);width:44px}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+    .intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+    .intro-img-wrap{position:relative}
+    .intro-img-wrap img{width:100%;height:520px;object-fit:cover;border-radius:3px}
+    .intro-img-badge{position:absolute;bottom:-1.5rem;right:-1.5rem;background:var(--clay);color:#fff;padding:1.5rem 2rem;border-radius:3px;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;max-width:180px;line-height:1.4;box-shadow:var(--shadow)}
+
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:3rem}
+    .service-card{background:var(--bg-card);border:1px solid var(--border-dim);border-radius:4px;padding:2rem;transition:transform .3s,box-shadow .3s,border-color .3s}
+    .service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--border)}
+    .service-init{width:50px;height:50px;border-radius:50%;background:var(--bg-3);border:1.5px solid var(--clay);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--clay);margin-bottom:1.2rem}
+    .service-card h3{margin-bottom:.4rem;font-size:1.4rem;color:var(--text)}
+    .service-card p{color:var(--text-muted);font-size:.9rem;margin-bottom:1rem}
+    .service-meta{display:flex;justify-content:space-between;align-items:center}
+    .service-duration{font-size:.78rem;letter-spacing:.08em;color:var(--text-dim)}
+    .service-price{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--clay)}
+
+    .video-section{background:var(--bg-2)}
+    .video-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1.2rem;margin-top:3rem}
+    .video-card{position:relative;border-radius:4px;overflow:hidden;background:var(--bg-3);cursor:pointer}
+    .video-card:first-child{grid-row:span 2}
+    .video-thumb{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .5s}
+    .video-card:first-child .video-thumb{height:100%;aspect-ratio:unset}
+    .video-card:hover .video-thumb{transform:scale(1.04)}
+    .video-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.7) 0%,transparent 60%);display:flex;align-items:center;justify-content:center}
+    .video-play{width:60px;height:60px;border-radius:50%;background:rgba(201,122,58,.8);border:2px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;transition:background .3s,transform .3s}
+    .video-card:hover .video-play{background:var(--clay);transform:scale(1.1)}
+    .video-play svg{width:24px;height:24px;fill:#fff;margin-left:3px}
+    .video-label{position:absolute;bottom:1rem;left:1rem;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(240,232,223,.8)}
+    .video-upload-cta{margin-top:2rem;text-align:center;color:var(--text-dim);font-size:.85rem;font-style:italic}
+    .video-duration{position:absolute;top:.7rem;right:.7rem;background:rgba(0,0,0,.6);color:#fff;font-size:.72rem;padding:.2rem .5rem;border-radius:2px}
+    .video-lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.96);z-index:1000;align-items:center;justify-content:center;flex-direction:column;gap:1rem}
+    .video-lightbox.open{display:flex}
+    .video-lightbox video{max-width:90vw;max-height:80vh;border-radius:4px;outline:none}
+    .video-lb-close{position:absolute;top:1.5rem;right:2rem;font-size:2.5rem;color:#fff;cursor:pointer;background:none;border:none;line-height:1}
+    .video-lb-label{color:var(--text-muted);font-size:.85rem;letter-spacing:.12em;text-transform:uppercase}
+
+    .gallery-strip{display:flex;gap:0;overflow:hidden;margin-top:3rem;border-radius:4px}
+    .gallery-strip-item{flex:1;min-width:0;position:relative;overflow:hidden;transition:flex .5s ease;cursor:pointer}
+    .gallery-strip-item:hover{flex:2.5}
+    .gallery-strip-item img{width:100%;height:420px;object-fit:cover;transition:transform .5s}
+    .gallery-strip-item:hover img{transform:scale(1.04)}
+
+    .quote-section{background:var(--clay);text-align:center;padding:5rem clamp(2rem,8vw,10rem)}
+    .quote-section blockquote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,3vw,2.4rem);font-style:italic;color:#fff;line-height:1.5;max-width:800px;margin:0 auto 1.5rem}
+    .quote-section cite{font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+
+    .care-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem}
+    .care-item{display:flex;gap:1.2rem;align-items:flex-start}
+    .care-num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;line-height:1;color:var(--clay);flex-shrink:0;min-width:2.5rem}
+    .care-item h4{font-size:1rem;color:var(--text);margin-bottom:.3rem}
+    .care-item p{font-size:.9rem;color:var(--text-muted)}
+
+    .booking-cta{display:grid;grid-template-columns:1fr 1fr}
+    .booking-cta-img{background-size:cover;background-position:center;min-height:420px}
+    .booking-cta-content{padding:clamp(3rem,6vw,6rem);display:flex;flex-direction:column;justify-content:center;background:var(--bg-2)}
+
+    @media(max-width:900px){.intro-grid{grid-template-columns:1fr}.intro-img-badge{right:0}.video-grid{grid-template-columns:1fr 1fr}.video-card:first-child{grid-row:unset;grid-column:span 2}.care-grid{grid-template-columns:1fr}.booking-cta{grid-template-columns:1fr}.hero-badges{display:none}}
+    @media(max-width:600px){.gallery-strip{flex-direction:column}.gallery-strip-item img{height:220px}.gallery-strip-item:hover{flex:1}.video-grid{grid-template-columns:1fr}.video-card:first-child{grid-column:unset}}
   </style>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCRCKGJ5"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 <nav class="nav">
-  <a href="../index.html" class="nav-logo">MHB <span>Mel Hair Braiding</span></a>
+  <a href="index.html" class="nav-logo">MHB <span>Mel Hair Braiding</span></a>
   <ul class="nav-links">
-    <li><a href="../index.html">Home</a></li><li><a href="../about/index.html">About</a></li>
-    <li><a href="../pricing/index.html">Pricing</a></li><li><a href="../gallery/index.html">Gallery</a></li>
-    <li><a href="index.html" class="active">Testimonials</a></li><li><a href="../contact/index.html">Contact</a></li>
-    <li><a href="../book/index.html" class="nav-cta">Book Now</a></li>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about/index.html">About</a></li>
+    <li><a href="pricing/index.html">Pricing</a></li>
+    <li><a href="gallery/index.html">Gallery</a></li>
+    <li><a href="testimonials/index.html">Testimonials</a></li>
+    <li><a href="contact/index.html">Contact</a></li>
+    <li><a href="book/index.html" class="nav-cta">Book Now</a></li>
   </ul>
   <div class="nav-hamburger"><span></span><span></span><span></span></div>
 </nav>
-<div class="page-hero">
-  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1600&q=80');"></div>
-  <div class="page-hero-overlay"></div>
-  <div class="page-hero-content"><span class="eyebrow">What Clients Say</span><h1>Testimonials</h1></div>
+
+<!-- HERO -->
+<!-- WELCOME BANNER -->
+<div class="welcome-banner" aria-label="Welcome banner">
+  <div class="welcome-banner-track" id="bannerTrack"></div>
 </div>
-<section class="section" style="background:var(--bg-2)">
-  <div class="section-inner">
-    <div class="reveal">
-      <div class="rating-summary" id="ratingSummary">
-        <div style="text-align:center"><div class="rating-num" id="avgRating">5.0</div><div class="stars">★★★★★</div><div class="rating-label" id="reviewCount">Loading reviews...</div></div>
-        <div id="ratingBars"></div>
-      </div>
+
+<section class="hero" id="top">
+  <div class="hero-video-bg" id="heroVideoBg">
+    <video id="heroVideo0" loop muted playsinline></video>
+    <video id="heroVideo1" loop muted playsinline></video>
+    <video id="heroVideo2" loop muted playsinline></video>
+    <div class="hero-video-overlay"></div>
+  </div>
+  <div class="hero-slides" id="heroSlides" style="display:none"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow" id="heroEyebrow"></span>
+    <h1 id="heroHeadline"></h1>
+    <p class="hero-sub" id="heroCopy"></p>
+    <div class="hero-btns">
+      <a href="book/index.html" class="btn btn-primary" id="heroPrimary"></a>
+      <a href="pricing/index.html" class="btn btn-light" id="heroSecondary"></a>
     </div>
-    <div class="reveal" style="text-align:center"><span class="eyebrow">Real Words from Real Clients</span><h2 class="section-heading">What Our Clients Say</h2><div class="divider center"></div></div>
-    <div class="testimonials-masonry" id="testimonialsGrid"><div class="empty-state">Loading testimonials...</div></div>
-    <div style="background:var(--bg-card);border:2px dashed var(--border);border-radius:4px;padding:2.5rem;text-align:center;margin-top:3rem">
-      <h3 style="font-size:1.6rem;margin-bottom:.5rem">Had a great experience?</h3>
-      <p style="color:var(--text-muted);margin-bottom:1.5rem">Leave us a Google review — it helps other clients find us.</p>
-      <a href="https://g.page/r/CRS_54y1w9ZfEBM/review" target="_blank" rel="noopener" class="btn btn-primary">Leave a Review on Google</a>
+  </div>
+  <div class="hero-badges" id="heroBadges"></div>
+  <div class="hero-dots" id="heroDots"></div>
+</section>
+
+<!-- INTRO -->
+<section class="section" id="about-intro" style="background:var(--bg-2)">
+  <div class="section-inner">
+    <div class="intro-grid">
+      <div class="intro-img-wrap reveal">
+        <img id="introImg" src="" alt="Stylist braiding"/>
+        <div class="intro-img-badge" id="introQuote"></div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <span class="eyebrow" id="introEyebrow"></span>
+        <h2 class="section-heading" id="introHeading"></h2>
+        <div class="divider"></div>
+        <p class="section-sub" id="introCopy"></p>
+        <a href="about/index.html" class="btn btn-outline" style="margin-top:1.8rem;display:inline-block">Our Story</a>
+      </div>
     </div>
   </div>
 </section>
-<div style="background:var(--clay);text-align:center;padding:4rem 2rem">
-  <span class="eyebrow" style="color:rgba(255,255,255,.7)">Join our happy clients</span>
-  <h2 style="color:#fff;margin:.5rem 0 1.5rem">Ready to book your appointment?</h2>
-  <a href="../book/index.html" class="btn btn-light">Book Now</a>
-</div>
-<footer class="footer">
-  <div class="footer-inner">
-    <div><div class="footer-logo">MHB <span>Mel Hair Braiding</span></div><p class="footer-tagline" style="font-size:.9rem;color:var(--text-dim);max-width:240px;line-height:1.7;margin-top:.5rem"></p></div>
-    <div><h4>Pages</h4><ul class="footer-links"><li><a href="../about/index.html">About Us</a></li><li><a href="../pricing/index.html">Pricing</a></li><li><a href="../gallery/index.html">Gallery</a></li><li><a href="index.html">Testimonials</a></li><li><a href="../contact/index.html">Contact</a></li><li><a href="../book/index.html">Book Now</a></li></ul></div>
-    <div class="footer-contact-col">
-      <h4>Contact</h4>
-      <ul class="footer-links" id="footerContact"></ul>
-      <div class="social-cta-links" style="margin-top:1.2rem"></div>
+
+<!-- SERVICES -->
+<section class="section" id="services" style="background:var(--bg)">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="eyebrow" id="servicesEyebrow"></span>
+      <h2 class="section-heading" id="servicesHeading"></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="services-grid" id="servicesGrid"></div>
+    <div style="text-align:center;margin-top:2.5rem"><a href="pricing/index.html" class="btn btn-outline">Full Pricing Details</a></div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section class="section video-section" id="videos">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="eyebrow" id="videoEyebrow"></span>
+      <h2 class="section-heading" id="videoHeading"></h2>
+      <div class="divider"></div>
+      <p class="section-sub" id="videoCopy"></p>
+    </div>
+    <div class="video-grid" id="videoGrid"></div>
+    <p class="video-upload-cta">📹 Upload your own videos via Admin panel → Homepage → Videos</p>
+  </div>
+</section>
+
+<!-- GALLERY STRIP -->
+<section class="section" id="gallery-preview" style="padding-bottom:0;background:var(--bg)">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="eyebrow" id="galleryEyebrow"></span>
+      <h2 class="section-heading" id="galleryHeading"></h2>
+      <div class="divider"></div>
     </div>
   </div>
-  <div class="footer-bottom"><span id="footerCopy"></span></div>
+  <div class="gallery-strip reveal" id="galleryStrip"></div>
+  <div style="text-align:center;padding:2.5rem"><a href="gallery/index.html" class="btn btn-outline">View Full Gallery</a></div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-section reveal">
+  <blockquote id="quoteText"></blockquote>
+  <cite id="quoteAuthor"></cite>
+</section>
+
+<!-- CARE TIPS -->
+<section class="section" id="care" style="background:var(--bg-2)">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="eyebrow" id="careEyebrow"></span>
+      <h2 class="section-heading" id="careHeading"></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="care-grid" id="careGrid"></div>
+  </div>
+</section>
+
+<!-- BOOKING CTA -->
+<div class="booking-cta" id="booking">
+  <div class="booking-cta-img" id="bookingImg"></div>
+  <div class="booking-cta-content reveal">
+    <span class="eyebrow" id="bookingEyebrow"></span>
+    <h2 class="section-heading" id="bookingHeading"></h2>
+    <div class="divider"></div>
+    <p class="section-sub" id="bookingCopy"></p>
+    <a href="book/index.html" class="btn btn-primary" style="margin-top:1.8rem;align-self:flex-start" id="bookingBtn"></a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">MHB <span>Mel Hair Braiding</span></div>
+      <p class="footer-tagline" style="font-size:.9rem;color:var(--text-dim);max-width:240px;line-height:1.7;margin-top:.5rem"></p>
+    </div>
+    <div><h4>Pages</h4><ul class="footer-links">
+      <li><a href="about/index.html">About Us</a></li>
+      <li><a href="pricing/index.html">Pricing</a></li>
+      <li><a href="gallery/index.html">Gallery</a></li>
+      <li><a href="testimonials/index.html">Testimonials</a></li>
+      <li><a href="contact/index.html">Contact</a></li>
+      <li><a href="book/index.html">Book Now</a></li>
+    </ul></div>
+    <div>
+      <h4>Contact</h4>
+      <ul class="footer-links" id="footerContact"></ul>
+      <div class="social-links" style="margin-top:1.2rem"></div>
+      <a href="https://www.styleseat.com/m/v/melhairbraiding" target="_blank" rel="noopener" class="styleseat-btn" style="margin-top:1.2rem">
+        <svg viewBox="0 0 24 24"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"/></svg>
+        Book on StyleSeat
+      </a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span id="footerCopy"></span>
+    <span id="footerCredit"></span>
+  </div>
 </footer>
-<script src="../assets/js/global.js"></script>
+
+<script src="assets/js/global.js"></script>
 <script>
 (async () => {
-  const [data, brand] = await Promise.all([
-    fetch('../content/testimonials.json').then(r=>r.json()).catch(()=>({items:[]})),
-    fetch('../content/branding.json').then(r=>r.json()).catch(()=>({}))
+  const [site, brand, gallery] = await Promise.all([
+    fetch('content/site.json').then(r=>r.json()),
+    fetch('content/branding.json').then(r=>r.json()).catch(()=>({})),
+    fetch('content/gallery.json').then(r=>r.json()).catch(()=>({images:[]}))
   ]);
-  document.getElementById('footerCopy').textContent = `© ${new Date().getFullYear()} ${brand.siteName||'Mel Hair Braiding'}.`;
-  document.querySelector('.footer-tagline').textContent = brand.footerTagline||'';
-  document.getElementById('footerContact').innerHTML = `<li><a href="${brand.phoneHref||''}">${brand.phone||''}</a></li><li><a href="mailto:${brand.email||''}">${brand.email||''}</a></li>`;
-  const items = data.items||[];
-  if (!items.length) { document.getElementById('testimonialsGrid').innerHTML = '<div class="empty-state">No testimonials yet — add them in the admin panel.</div>'; return; }
-  const avg = (items.reduce((s,i)=>s+(i.rating||5),0)/items.length).toFixed(1);
-  document.getElementById('avgRating').textContent = avg;
-  document.getElementById('reviewCount').textContent = `Based on ${items.length} reviews`;
-  const counts = [5,4,3,2,1].map(r => ({ r, c: items.filter(i=>(i.rating||5)===r).length }));
-  document.getElementById('ratingBars').innerHTML = counts.map(({r,c}) =>
-    `<div class="rating-row"><span>${r}★</span><div class="rating-bar-bg"><div class="rating-bar-fill" style="width:${Math.round(c/items.length*100)}%"></div></div><span style="min-width:2.5rem">${Math.round(c/items.length*100)}%</span></div>`
-  ).join('');
-  const grid = document.getElementById('testimonialsGrid');
-  grid.innerHTML = items.map(t => `
-    <div class="testimonial-card${t.featured?' featured':''}">
-      <div class="stars">${'★'.repeat(t.rating||5)}${'☆'.repeat(5-(t.rating||5))}</div>
-      <blockquote>"${t.quote}"</blockquote>
-      <div class="t-author">${t.author}</div>
-      <div class="t-service">${t.service}</div>
-    </div>`).join('');
+
+  // HERO slides
+  const slidesEl = document.getElementById('heroSlides');
+  const dotsEl = document.getElementById('heroDots');
+  let current = 0, timer;
+  (site.hero.slides||[]).forEach((s,i) => {
+    const div = document.createElement('div');
+    div.className = 'hero-slide' + (i===0?' active':'');
+    div.style.backgroundImage = `url('${s.image}')`;
+    slidesEl.appendChild(div);
+    const dot = document.createElement('div');
+    dot.className = 'hero-dot' + (i===0?' active':'');
+    dot.dataset.slide = i;
+    dot.addEventListener('click', () => { clearInterval(timer); goTo(i); autoPlay(); });
+    dotsEl.appendChild(dot);
+  });
+  function goTo(n) {
+    const slides = slidesEl.querySelectorAll('.hero-slide');
+    const dots = dotsEl.querySelectorAll('.hero-dot');
+    slides[current].classList.remove('active'); dots[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active'); dots[current].classList.add('active');
+  }
+  function autoPlay() { timer = setInterval(() => goTo(current+1), 5000); }
+  autoPlay();
+
+  // Hero content
+  document.getElementById('heroEyebrow').textContent = site.hero.eyebrow||'';
+  document.getElementById('heroHeadline').innerHTML = `${site.hero.headline1||''}<br>${site.hero.headline2||''}`;
+  document.getElementById('heroCopy').textContent = site.hero.copy||'';
+  document.getElementById('heroPrimary').textContent = site.hero.primaryButton||'Book Now';
+  document.getElementById('heroSecondary').textContent = site.hero.secondaryButton||'View Pricing';
+
+  // Badges
+  const badgesEl = document.getElementById('heroBadges');
+  (site.hero.highlights||[]).forEach(h => {
+    badgesEl.innerHTML += `<div class="hero-badge"><strong>${h.title}</strong><span>${h.text}</span></div>`;
+  });
+
+  // Intro
+  document.getElementById('introEyebrow').textContent = site.intro?.eyebrow||'';
+  document.getElementById('introHeading').textContent = site.intro?.heading||'';
+  document.getElementById('introCopy').textContent = site.intro?.copy||'';
+  if (site.intro?.image) document.getElementById('introImg').src = site.intro.image;
+  document.getElementById('introQuote').textContent = `"${site.intro?.imageQuote||''}"`;
+
+  // Services
+  const sg = document.getElementById('servicesGrid');
+  document.getElementById('servicesEyebrow').textContent = site.servicesSection?.eyebrow||'What We Offer';
+  document.getElementById('servicesHeading').textContent = site.servicesSection?.heading||'Choose your next crown';
+  (site.services||[]).forEach((s,i) => {
+    sg.innerHTML += `<div class="service-card reveal reveal-delay-${(i%3)+1}">
+      <div class="service-init">${s.initials}</div>
+      <h3>${s.name}</h3><p>${s.description}</p>
+      <div class="service-meta"><span class="service-duration">${s.duration}</span><span class="service-price">${s.price}</span></div>
+    </div>`;
+  });
+
+  // Videos
+  document.getElementById('videoEyebrow').textContent = site.videos?.eyebrow||'Watch the Work';
+  document.getElementById('videoHeading').textContent = site.videos?.heading||'See the process in motion';
+  document.getElementById('videoCopy').textContent = site.videos?.copy||'';
+  const vg = document.getElementById('videoGrid');
+
+  // Video lightbox
+  const lb = document.createElement('div');
+  lb.className = 'video-lightbox';
+  lb.id = 'videoLightbox';
+  lb.innerHTML = `<button class="video-lb-close" id="videoLbClose">✕</button><video controls id="videoLbPlayer"></video><div class="video-lb-label" id="videoLbLabel"></div>`;
+  document.body.appendChild(lb);
+  document.getElementById('videoLbClose').addEventListener('click', () => { lb.classList.remove('open'); document.getElementById('videoLbPlayer').pause(); });
+  lb.addEventListener('click', e => { if(e.target===lb){lb.classList.remove('open'); document.getElementById('videoLbPlayer').pause();}});
+
+  (site.videos?.items||[]).forEach((v,i) => {
+    const card = document.createElement('div');
+    card.className = `video-card reveal reveal-delay-${i%3}`;
+    card.innerHTML = `
+      <img class="video-thumb" src="${v.thumbnail||''}" alt="${v.alt||''}" onerror="this.style.background='var(--bg-3)';this.style.minHeight='200px'"/>
+      <div class="video-overlay"><div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      <span class="video-label">${v.label||''}</span>
+      ${v.duration?`<span class="video-duration">${v.duration}</span>`:''}`;
+    card.addEventListener('click', () => {
+      const player = document.getElementById('videoLbPlayer');
+      document.getElementById('videoLbLabel').textContent = v.label||'';
+      if (v.videoFile) {
+        player.src = v.videoFile;
+        lb.classList.add('open');
+        player.play();
+      } else {
+        // No video uploaded yet — show placeholder message
+        player.removeAttribute('src');
+        lb.classList.add('open');
+        player.outerHTML = `<div style="color:var(--text-muted);text-align:center;padding:3rem"><div style="font-size:3rem;margin-bottom:1rem">🎬</div><p>No video uploaded yet.</p><p style="font-size:.85rem;margin-top:.5rem">Upload a video via Admin → Homepage → Videos</p></div>`;
+      }
+    });
+    vg.appendChild(card);
+  });
+
+  // Gallery strip (first 4 from gallery.json)
+  document.getElementById('galleryEyebrow').textContent = site.galleryPreview?.eyebrow||'The Look';
+  document.getElementById('galleryHeading').textContent = site.galleryPreview?.heading||'Detailed parts, smooth finish.';
+  const gs = document.getElementById('galleryStrip');
+  (gallery.images||[]).slice(0,4).forEach(img => {
+    gs.innerHTML += `<div class="gallery-strip-item"><img src="${img.image}" alt="${img.alt}"/></div>`;
+  });
+
+  // Quote
+  document.getElementById('quoteText').textContent = `"${site.quote?.text||''}"`;
+  document.getElementById('quoteAuthor').textContent = `— ${site.quote?.author||''}`;
+
+  // Care tips
+  document.getElementById('careEyebrow').textContent = site.care?.eyebrow||'Before You Arrive';
+  document.getElementById('careHeading').textContent = site.care?.heading||'A little prep keeps the install smooth.';
+  const cg = document.getElementById('careGrid');
+  (site.care?.tips||[]).forEach((t,i) => {
+    cg.innerHTML += `<div class="care-item reveal reveal-delay-${i+1}">
+      <span class="care-num">0${i+1}</span>
+      <div><h4>${t.title}</h4><p>${t.tip}</p></div>
+    </div>`;
+  });
+
+  // Booking CTA
+  document.getElementById('bookingEyebrow').textContent = site.booking?.eyebrow||'Ready?';
+  document.getElementById('bookingHeading').textContent = site.booking?.heading||'Tell us what you want in the chair.';
+  document.getElementById('bookingCopy').textContent = site.booking?.copy||'';
+  document.getElementById('bookingBtn').textContent = site.booking?.button||'Request Appointment';
+  if (site.booking?.image) document.getElementById('bookingImg').style.backgroundImage = `url('${site.booking.image}')`;
+
+  // Footer
+  document.getElementById('footerCopy').textContent = `© ${new Date().getFullYear()} ${brand.siteName||'Mel Hair Braiding'}. All rights reserved.`;
+  document.getElementById('footerCredit').textContent = site.footer?.credit||'';
+  document.querySelector('.footer-tagline').textContent = brand.footerTagline||site.footer?.copy||'';
+  document.getElementById('footerContact').innerHTML = `
+    <li><a href="${brand.phoneHref||'tel:+2028928841'}">${brand.phone||'(202) 892-8841'}</a></li>
+    <li><a href="mailto:${brand.email||'melhairbraiding1@gmail.com'}">${brand.email||'melhairbraiding1@gmail.com'}</a></li>
+    <li style="color:var(--text-dim);font-size:.85rem;margin-top:.5rem">${brand.location||'Upper Marlboro, MD'}</li>`;
+
+  // Re-observe new reveal elements
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
+  // Welcome banner
+  const bannerTrack = document.getElementById('bannerTrack');
+  if (bannerTrack) {
+    const msg = 'Welcome to Mel Hair Braiding';
+    const dot = '<span class="dot">✦</span>';
+    const repeated = Array(12).fill(`<span>${msg}</span>${dot}`).join('');
+    bannerTrack.innerHTML = repeated + repeated; // duplicate for seamless loop
+  }
+
+  // Video hero — improved with instant poster display + proper dot cycling
+  const heroSlides = site.hero.slides || [];
+  const videoEls = [
+    document.getElementById('heroVideo0'),
+    document.getElementById('heroVideo1'),
+    document.getElementById('heroVideo2')
+  ];
+
+  // Set up each video slot
+  videoEls.forEach((v, i) => {
+    if (!v || !heroSlides[i]) return;
+    // Always set poster image first — shows instantly
+    if (heroSlides[i].image) v.poster = heroSlides[i].image;
+    // Set video src if available
+    if (heroSlides[i].videoFile) {
+      v.src = heroSlides[i].videoFile;
+      v.preload = 'auto';
+    }
+  });
+
+  // Build dots for each slide
+  const dotsContainer = document.getElementById('heroDots');
+  dotsContainer.innerHTML = '';
+  heroSlides.forEach((s, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
+    dot.dataset.slide = i;
+    dot.addEventListener('click', () => { clearHeroTimer(); switchHeroSlide(i); startHeroTimer(); });
+    dotsContainer.appendChild(dot);
+  });
+
+  let currentVid = 0;
+  let heroTimer = null;
+
+  function switchHeroSlide(n) {
+    // Hide current
+    if (videoEls[currentVid]) {
+      videoEls[currentVid].classList.remove('active');
+      videoEls[currentVid].pause && videoEls[currentVid].pause();
+    }
+    document.querySelectorAll('.hero-dot').forEach((d,i) => d.classList.toggle('active', i===n));
+    currentVid = n;
+    // Show next
+    if (videoEls[currentVid]) {
+      videoEls[currentVid].classList.add('active');
+      if (videoEls[currentVid].src) {
+        videoEls[currentVid].currentTime = 0;
+        videoEls[currentVid].play().catch(()=>{});
+      }
+    }
+  }
+
+  function clearHeroTimer() { if (heroTimer) clearInterval(heroTimer); }
+  function startHeroTimer() {
+    heroTimer = setInterval(() => {
+      switchHeroSlide((currentVid + 1) % heroSlides.length);
+    }, 7000);
+  }
+
+  // Start: show first slide immediately
+  if (videoEls[0]) {
+    videoEls[0].classList.add('active');
+    if (videoEls[0].src) videoEls[0].play().catch(()=>{});
+  }
+  if (heroSlides.length > 1) startHeroTimer();
+
+  // Re-observe new reveal elements
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
 })();
 </script>
-</body></html>
+</body>
+</html>
