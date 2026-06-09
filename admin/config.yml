@@ -150,6 +150,7 @@ collections:
         file: "content/gallery.json"
         format: "json"
         fields:
+          - { label: "Hero Image", name: "heroImage", widget: "image", required: false, hint: "Upload the background image for the Gallery page header." }
           - label: "Gallery Images"
             name: "images"
             widget: "list"
@@ -200,6 +201,7 @@ collections:
         file: "content/testimonials.json"
         format: "json"
         fields:
+          - { label: "Hero Image", name: "heroImage", widget: "image", required: false, hint: "Upload the background image for the Testimonials page header." }
           - label: "Testimonials"
             name: "items"
             widget: "list"
@@ -270,6 +272,16 @@ collections:
             fields:
               - { label: "Name", name: "name", widget: "string" }
               - { label: "Price", name: "price", widget: "string" }
+
+  - name: "book"
+    label: "Book Now Page"
+    files:
+      - name: "book"
+        label: "Book Now Page"
+        file: "content/book.json"
+        format: "json"
+        fields:
+          - { label: "Hero Image", name: "heroImage", widget: "image", required: false, hint: "Upload the background image for the Book Now page header." }
 
   - name: "contact"
     label: "Contact & Hours"
