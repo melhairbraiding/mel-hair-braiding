@@ -59,9 +59,9 @@
     .service-price{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--clay)}
 
     .video-section{background:var(--bg-2)}
-    .video-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1.2rem;margin-top:3rem;grid-template-rows:auto auto}
+    .video-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1.2rem;margin-top:3rem}
     .video-card{position:relative;border-radius:4px;overflow:hidden;background:var(--bg-3);cursor:pointer}
-    .video-card:first-child{grid-row:span 2;grid-column:1}
+    .video-card:first-child{grid-row:span 2}
     .video-thumb{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .5s}
     .video-card:first-child .video-thumb{height:100%;aspect-ratio:unset}
     .video-card:hover .video-thumb{transform:scale(1.04)}
@@ -98,8 +98,17 @@
     .booking-cta-img{background-size:cover;background-position:center;min-height:420px}
     .booking-cta-content{padding:clamp(3rem,6vw,6rem);display:flex;flex-direction:column;justify-content:center;background:var(--bg-2)}
 
-    @media(max-width:900px){.intro-grid{grid-template-columns:1fr}.intro-img-badge{right:0}.video-grid{grid-template-columns:1fr 1fr}.video-card:first-child{grid-row:unset;grid-column:span 2}.video-card:nth-child(5){grid-column:span 2}.care-grid{grid-template-columns:1fr}.booking-cta{grid-template-columns:1fr}.hero-badges{display:none}}
-    @media(max-width:600px){.gallery-strip{flex-direction:column}.gallery-strip-item img{height:220px}.gallery-strip-item:hover{flex:1}.video-grid{grid-template-columns:1fr}.video-card:first-child{grid-column:unset}.video-card:nth-child(5){grid-column:unset}}
+    @media(max-width:900px){.intro-grid{grid-template-columns:1fr}.intro-img-badge{right:0}.video-grid{grid-template-columns:1fr 1fr}.video-card:first-child{grid-row:unset;grid-column:span 2}.care-grid{grid-template-columns:1fr}.booking-cta{grid-template-columns:1fr}.hero-badges{display:none}}
+    @media(max-width:600px){.gallery-strip{flex-direction:column}.gallery-strip-item img{height:220px}.gallery-strip-item:hover{flex:1}.video-grid{grid-template-columns:1fr}.video-card:first-child{grid-column:unset}}
+
+    /* ── HERO VIDEO BG ── */
+    .hero-video-bg{position:absolute;inset:0;overflow:hidden}
+    .hero-video-bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s ease;z-index:0}
+    .hero-video-bg video.active{opacity:1}
+    .hero-video-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.75) 0%,rgba(201,122,58,.2) 60%,transparent 100%);z-index:1}
+    .hero-content{z-index:2!important}
+    .hero-badges{z-index:2!important}
+    .hero-dots{z-index:2!important}
   </style>
 </head>
 <body>
@@ -186,6 +195,7 @@
       <p class="section-sub" id="videoCopy"></p>
     </div>
     <div class="video-grid" id="videoGrid"></div>
+    <p class="video-upload-cta">📹 Upload your own videos via Admin panel → Homepage → Videos</p>
   </div>
 </section>
 
@@ -247,10 +257,10 @@
       <li><a href="contact/index.html">Contact</a></li>
       <li><a href="book/index.html">Book Now</a></li>
     </ul></div>
-    <div class="footer-contact-col">
+    <div>
       <h4>Contact</h4>
       <ul class="footer-links" id="footerContact"></ul>
-      <div class="social-cta-links" style="margin-top:1.2rem"></div>
+      <div class="social-links" style="margin-top:1.2rem"></div>
       <a href="https://www.styleseat.com/m/v/melhairbraiding" target="_blank" rel="noopener" class="styleseat-btn" style="margin-top:1.2rem">
         <svg viewBox="0 0 24 24"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"/></svg>
         Book on StyleSeat
@@ -413,44 +423,48 @@
   // Welcome banner
   const bannerTrack = document.getElementById('bannerTrack');
   if (bannerTrack) {
-    const msg = 'Welcome to Mel Hair Braiding';
+    const msg = 'Welcome to Mel Hair Braiding. Please call/text us 24/7 +1(202) 892-8841 or Email us at melhairbraiding1@gmail.com';
     const dot = '<span class="dot">✦</span>';
-    const repeated = Array(12).fill(`<span>${msg}</span>${dot}`).join('');
-    bannerTrack.innerHTML = repeated + repeated; // duplicate for seamless loop
+    const repeated = Array(8).fill(`<span>${msg}</span>${dot}`).join('');
+    bannerTrack.innerHTML = repeated + repeated;
   }
 
-  // Video hero — load from admin (videoFile) with image poster fallback
-  const slides = site.hero.slides || [];
-  const videoEls = [
+  // ── HERO VIDEOS ──
+  const heroSlideData = site.hero.slides || [];
+  const heroVidEls = [
     document.getElementById('heroVideo0'),
     document.getElementById('heroVideo1'),
     document.getElementById('heroVideo2')
   ];
-  let activeVids = [];
-  videoEls.forEach((v, i) => {
-    if (!v || !slides[i]) return;
-    if (slides[i].image) v.poster = slides[i].image;
-    if (slides[i].videoFile) {
-      v.src = slides[i].videoFile;
-      v.load();
-    }
-    activeVids.push(v);
+  heroVidEls.forEach((v, i) => {
+    if (!v || !heroSlideData[i]) return;
+    if (heroSlideData[i].image) v.poster = heroSlideData[i].image;
+    if (heroSlideData[i].videoFile) { v.src = heroSlideData[i].videoFile; v.preload = 'metadata'; }
   });
-
-  let currentVid = 0;
-  if (activeVids.length) {
-    activeVids[0].classList.add('active');
-    if (activeVids[0].src) activeVids[0].play().catch(()=>{});
-
-    setInterval(() => {
-      activeVids[currentVid].classList.remove('active');
-      if (activeVids[currentVid].src) activeVids[currentVid].pause();
-      currentVid = (currentVid + 1) % activeVids.length;
-      activeVids[currentVid].classList.add('active');
-      if (activeVids[currentVid].src) activeVids[currentVid].play().catch(()=>{});
-      document.querySelectorAll('.hero-dot').forEach((d,i) => d.classList.toggle('active', i===currentVid));
-    }, 5000);
+  const dotsContainer = document.getElementById('heroDots');
+  dotsContainer.innerHTML = '';
+  heroSlideData.forEach((s, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
+    dotsContainer.appendChild(dot);
+    dot.addEventListener('click', () => {
+      clearInterval(heroVidTimer);
+      switchHeroVid(i);
+      heroVidTimer = setInterval(() => switchHeroVid((heroVidCurrent + 1) % heroSlideData.length), 7000);
+    });
+  });
+  let heroVidCurrent = 0;
+  let heroVidTimer = null;
+  function switchHeroVid(n) {
+    const prev = heroVidEls[heroVidCurrent];
+    if (prev) { prev.classList.remove('active'); try { prev.pause(); } catch(e){} }
+    dotsContainer.querySelectorAll('.hero-dot').forEach((d,i) => d.classList.toggle('active', i === n));
+    heroVidCurrent = n;
+    const next = heroVidEls[heroVidCurrent];
+    if (next) { next.classList.add('active'); if (next.src) { next.currentTime = 0; next.play().catch(()=>{}); } }
   }
+  if (heroVidEls[0]) { heroVidEls[0].classList.add('active'); if (heroVidEls[0].src) heroVidEls[0].play().catch(()=>{}); }
+  heroVidTimer = setInterval(() => switchHeroVid((heroVidCurrent + 1) % heroSlideData.length), 7000);
 
   // Re-observe new reveal elements
   document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
