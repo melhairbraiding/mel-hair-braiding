@@ -1,16 +1,37 @@
 {
-  "heroImage": "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1600&q=80",
+  "heroImage": "/assets/uploads/img_3362.jpeg",
   "phone": "(202) 892-8841",
   "phoneHref": "tel:+12028928841",
   "email": "melhairbraiding1@gmail.com",
   "location": "Upper Marlboro, MD — Full address provided after booking confirmation",
-"hours": [
-  { "day": "Monday",    "hours": "6:00 am – 6:00 pm" },
-  { "day": "Tuesday",   "hours": "6:00 am – 6:00 pm" },
-  { "day": "Wednesday", "hours": "6:00 am – 6:00 pm" },
-  { "day": "Thursday",  "hours": "6:00 am – 6:00 pm" },
-  { "day": "Friday",    "hours": "6:00 am – 6:00 pm" },
-  { "day": "Saturday",  "hours": "7:00 am – 7:00 pm" },
-  { "day": "Sunday",    "hours": "By Appointment Only" }
-]
+  "hours": [
+    {
+      "day": "Monday",
+      "hours": "6:00 am – 6:00 pm"
+    },
+    {
+      "day": "Tuesday",
+      "hours": "6:00 am – 6:00 pm"
+    },
+    {
+      "day": "Wednesday",
+      "hours": "6:00 am – 6:00 pm"
+    },
+    {
+      "day": "Thursday",
+      "hours": "6:00 am – 6:00 pm"
+    },
+    {
+      "day": "Friday",
+      "hours": "6:00 am – 6:00 pm"
+    },
+    {
+      "day": "Saturday",
+      "hours": "7:00 am – 7:00 pm"
+    },
+    {
+      "day": "Sunday",
+      "hours": "By Appointment Only"
+    }
+  ]
 }
