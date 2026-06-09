@@ -59,9 +59,9 @@
     .service-price{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--clay)}
 
     .video-section{background:var(--bg-2)}
-    .video-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1.2rem;margin-top:3rem}
+    .video-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1.2rem;margin-top:3rem;grid-template-rows:auto auto}
     .video-card{position:relative;border-radius:4px;overflow:hidden;background:var(--bg-3);cursor:pointer}
-    .video-card:first-child{grid-row:span 2}
+    .video-card:first-child{grid-row:span 2;grid-column:1}
     .video-thumb{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .5s}
     .video-card:first-child .video-thumb{height:100%;aspect-ratio:unset}
     .video-card:hover .video-thumb{transform:scale(1.04)}
@@ -98,17 +98,8 @@
     .booking-cta-img{background-size:cover;background-position:center;min-height:420px}
     .booking-cta-content{padding:clamp(3rem,6vw,6rem);display:flex;flex-direction:column;justify-content:center;background:var(--bg-2)}
 
-    @media(max-width:900px){.intro-grid{grid-template-columns:1fr}.intro-img-badge{right:0}.video-grid{grid-template-columns:1fr 1fr}.video-card:first-child{grid-row:unset;grid-column:span 2}.care-grid{grid-template-columns:1fr}.booking-cta{grid-template-columns:1fr}.hero-badges{display:none}}
-    @media(max-width:600px){.gallery-strip{flex-direction:column}.gallery-strip-item img{height:220px}.gallery-strip-item:hover{flex:1}.video-grid{grid-template-columns:1fr}.video-card:first-child{grid-column:unset}}
-
-    /* ── HERO VIDEO BG ── */
-    .hero-video-bg{position:absolute;inset:0;overflow:hidden}
-    .hero-video-bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s ease;z-index:0}
-    .hero-video-bg video.active{opacity:1}
-    .hero-video-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.75) 0%,rgba(201,122,58,.2) 60%,transparent 100%);z-index:1}
-    .hero-content{z-index:2!important}
-    .hero-badges{z-index:2!important}
-    .hero-dots{z-index:2!important}
+    @media(max-width:900px){.intro-grid{grid-template-columns:1fr}.intro-img-badge{right:0}.video-grid{grid-template-columns:1fr 1fr}.video-card:first-child{grid-row:unset;grid-column:span 2}.video-card:nth-child(5){grid-column:span 2}.care-grid{grid-template-columns:1fr}.booking-cta{grid-template-columns:1fr}.hero-badges{display:none}}
+    @media(max-width:600px){.gallery-strip{flex-direction:column}.gallery-strip-item img{height:220px}.gallery-strip-item:hover{flex:1}.video-grid{grid-template-columns:1fr}.video-card:first-child{grid-column:unset}.video-card:nth-child(5){grid-column:unset}}
   </style>
 </head>
 <body>
@@ -195,7 +186,6 @@
       <p class="section-sub" id="videoCopy"></p>
     </div>
     <div class="video-grid" id="videoGrid"></div>
-    <p class="video-upload-cta">📹 Upload your own videos via Admin panel → Homepage → Videos</p>
   </div>
 </section>
 
@@ -257,10 +247,10 @@
       <li><a href="contact/index.html">Contact</a></li>
       <li><a href="book/index.html">Book Now</a></li>
     </ul></div>
-    <div class="footer-contact-col">
+    <div>
       <h4>Contact</h4>
       <ul class="footer-links" id="footerContact"></ul>
-      <div class="social-cta-links" style="margin-top:1.2rem"></div>
+      <div class="social-links" style="margin-top:1.2rem"></div>
       <a href="https://www.styleseat.com/m/v/melhairbraiding" target="_blank" rel="noopener" class="styleseat-btn" style="margin-top:1.2rem">
         <svg viewBox="0 0 24 24"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"/></svg>
         Book on StyleSeat
@@ -282,96 +272,52 @@
     fetch('content/gallery.json').then(r=>r.json()).catch(()=>({images:[]}))
   ]);
 
-  // ── HERO VIDEOS ──
-  const heroSlideData = site.hero.slides || [];
-  const heroVidEls = [
-    document.getElementById('heroVideo0'),
-    document.getElementById('heroVideo1'),
-    document.getElementById('heroVideo2')
-  ];
-
-  // Set poster image (shows instantly) and video src for each slot
-  heroVidEls.forEach((v, i) => {
-    if (!v || !heroSlideData[i]) return;
-    if (heroSlideData[i].image) v.poster = heroSlideData[i].image;
-    if (heroSlideData[i].videoFile) {
-      v.src = heroSlideData[i].videoFile;
-      v.preload = 'metadata';
-    }
-  });
-
-  // Build dots — one per slide
-  const dotsContainer = document.getElementById('heroDots');
-  dotsContainer.innerHTML = '';
-  heroSlideData.forEach((s, i) => {
+  // HERO slides
+  const slidesEl = document.getElementById('heroSlides');
+  const dotsEl = document.getElementById('heroDots');
+  let current = 0, timer;
+  (site.hero.slides||[]).forEach((s,i) => {
+    const div = document.createElement('div');
+    div.className = 'hero-slide' + (i===0?' active':'');
+    div.style.backgroundImage = `url('${s.image}')`;
+    slidesEl.appendChild(div);
     const dot = document.createElement('div');
-    dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
-    dotsContainer.appendChild(dot);
-    dot.addEventListener('click', () => {
-      clearInterval(heroVidTimer);
-      switchHeroVid(i);
-      heroVidTimer = setInterval(() => switchHeroVid((heroVidCurrent + 1) % heroSlideData.length), 7000);
-    });
+    dot.className = 'hero-dot' + (i===0?' active':'');
+    dot.dataset.slide = i;
+    dot.addEventListener('click', () => { clearInterval(timer); goTo(i); autoPlay(); });
+    dotsEl.appendChild(dot);
   });
-
-  let heroVidCurrent = 0;
-  let heroVidTimer = null;
-
-  function switchHeroVid(n) {
-    // Pause & hide current
-    const prev = heroVidEls[heroVidCurrent];
-    if (prev) { prev.classList.remove('active'); try { prev.pause(); } catch(e){} }
-    // Update dots
-    dotsContainer.querySelectorAll('.hero-dot').forEach((d,i) => d.classList.toggle('active', i === n));
-    heroVidCurrent = n;
-    // Show & play next
-    const next = heroVidEls[heroVidCurrent];
-    if (next) {
-      next.classList.add('active');
-      if (next.src) { next.currentTime = 0; next.play().catch(()=>{}); }
-    }
+  function goTo(n) {
+    const slides = slidesEl.querySelectorAll('.hero-slide');
+    const dots = dotsEl.querySelectorAll('.hero-dot');
+    slides[current].classList.remove('active'); dots[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active'); dots[current].classList.add('active');
   }
+  function autoPlay() { timer = setInterval(() => goTo(current+1), 5000); }
+  autoPlay();
 
-  // Start first video immediately
-  if (heroVidEls[0]) {
-    heroVidEls[0].classList.add('active');
-    if (heroVidEls[0].src) heroVidEls[0].play().catch(()=>{});
-  }
-
-  // Auto-rotate every 7 seconds
-  heroVidTimer = setInterval(() => {
-    switchHeroVid((heroVidCurrent + 1) % heroSlideData.length);
-  }, 7000);
-
-  // ── HERO TEXT ──
+  // Hero content
   document.getElementById('heroEyebrow').textContent = site.hero.eyebrow||'';
   document.getElementById('heroHeadline').innerHTML = `${site.hero.headline1||''}<br>${site.hero.headline2||''}`;
   document.getElementById('heroCopy').textContent = site.hero.copy||'';
   document.getElementById('heroPrimary').textContent = site.hero.primaryButton||'Book Now';
   document.getElementById('heroSecondary').textContent = site.hero.secondaryButton||'View Pricing';
 
-  // ── BADGES ──
+  // Badges
   const badgesEl = document.getElementById('heroBadges');
   (site.hero.highlights||[]).forEach(h => {
     badgesEl.innerHTML += `<div class="hero-badge"><strong>${h.title}</strong><span>${h.text}</span></div>`;
   });
 
-  // ── WELCOME BANNER ──
-  const bannerTrack = document.getElementById('bannerTrack');
-  if (bannerTrack) {
-    const msg = 'Welcome to Mel Hair Braiding — Call/Text us 24/7 at +1 (202) 892-8841 or Email melhairbraiding1@gmail.com';
-    const repeated = Array(10).fill(`<span>${msg}</span><span class="dot">✦</span>`).join('');
-    bannerTrack.innerHTML = repeated + repeated;
-  }
-
-  // ── INTRO ──
+  // Intro
   document.getElementById('introEyebrow').textContent = site.intro?.eyebrow||'';
   document.getElementById('introHeading').textContent = site.intro?.heading||'';
   document.getElementById('introCopy').textContent = site.intro?.copy||'';
   if (site.intro?.image) document.getElementById('introImg').src = site.intro.image;
   document.getElementById('introQuote').textContent = `"${site.intro?.imageQuote||''}"`;
 
-  // ── SERVICES ──
+  // Services
   const sg = document.getElementById('servicesGrid');
   document.getElementById('servicesEyebrow').textContent = site.servicesSection?.eyebrow||'What We Offer';
   document.getElementById('servicesHeading').textContent = site.servicesSection?.heading||'Choose your next crown';
@@ -383,11 +329,13 @@
     </div>`;
   });
 
-  // ── VIDEO SECTION ──
+  // Videos
   document.getElementById('videoEyebrow').textContent = site.videos?.eyebrow||'Watch the Work';
   document.getElementById('videoHeading').textContent = site.videos?.heading||'See the process in motion';
   document.getElementById('videoCopy').textContent = site.videos?.copy||'';
   const vg = document.getElementById('videoGrid');
+
+  // Video lightbox
   const lb = document.createElement('div');
   lb.className = 'video-lightbox';
   lb.id = 'videoLightbox';
@@ -395,6 +343,7 @@
   document.body.appendChild(lb);
   document.getElementById('videoLbClose').addEventListener('click', () => { lb.classList.remove('open'); document.getElementById('videoLbPlayer').pause(); });
   lb.addEventListener('click', e => { if(e.target===lb){lb.classList.remove('open'); document.getElementById('videoLbPlayer').pause();}});
+
   (site.videos?.items||[]).forEach((v,i) => {
     const card = document.createElement('div');
     card.className = `video-card reveal reveal-delay-${i%3}`;
@@ -406,13 +355,21 @@
     card.addEventListener('click', () => {
       const player = document.getElementById('videoLbPlayer');
       document.getElementById('videoLbLabel').textContent = v.label||'';
-      if (v.videoFile) { player.src = v.videoFile; lb.classList.add('open'); player.play(); }
-      else { lb.classList.add('open'); player.outerHTML = `<div style="color:var(--text-muted);text-align:center;padding:3rem"><div style="font-size:3rem;margin-bottom:1rem">🎬</div><p>No video uploaded yet.</p></div>`; }
+      if (v.videoFile) {
+        player.src = v.videoFile;
+        lb.classList.add('open');
+        player.play();
+      } else {
+        // No video uploaded yet — show placeholder message
+        player.removeAttribute('src');
+        lb.classList.add('open');
+        player.outerHTML = `<div style="color:var(--text-muted);text-align:center;padding:3rem"><div style="font-size:3rem;margin-bottom:1rem">🎬</div><p>No video uploaded yet.</p><p style="font-size:.85rem;margin-top:.5rem">Upload a video via Admin → Homepage → Videos</p></div>`;
+      }
     });
     vg.appendChild(card);
   });
 
-  // ── GALLERY STRIP ──
+  // Gallery strip (first 4 from gallery.json)
   document.getElementById('galleryEyebrow').textContent = site.galleryPreview?.eyebrow||'The Look';
   document.getElementById('galleryHeading').textContent = site.galleryPreview?.heading||'Detailed parts, smooth finish.';
   const gs = document.getElementById('galleryStrip');
@@ -420,13 +377,13 @@
     gs.innerHTML += `<div class="gallery-strip-item"><img src="${img.image}" alt="${img.alt}"/></div>`;
   });
 
-  // ── QUOTE ──
+  // Quote
   document.getElementById('quoteText').textContent = `"${site.quote?.text||''}"`;
   document.getElementById('quoteAuthor').textContent = `— ${site.quote?.author||''}`;
 
-  // ── CARE TIPS ──
+  // Care tips
   document.getElementById('careEyebrow').textContent = site.care?.eyebrow||'Before You Arrive';
-  document.getElementById('careHeading').textContent = site.care?.heading||'';
+  document.getElementById('careHeading').textContent = site.care?.heading||'A little prep keeps the install smooth.';
   const cg = document.getElementById('careGrid');
   (site.care?.tips||[]).forEach((t,i) => {
     cg.innerHTML += `<div class="care-item reveal reveal-delay-${i+1}">
@@ -435,23 +392,67 @@
     </div>`;
   });
 
-  // ── BOOKING CTA ──
+  // Booking CTA
   document.getElementById('bookingEyebrow').textContent = site.booking?.eyebrow||'Ready?';
   document.getElementById('bookingHeading').textContent = site.booking?.heading||'Tell us what you want in the chair.';
   document.getElementById('bookingCopy').textContent = site.booking?.copy||'';
   document.getElementById('bookingBtn').textContent = site.booking?.button||'Request Appointment';
   if (site.booking?.image) document.getElementById('bookingImg').style.backgroundImage = `url('${site.booking.image}')`;
 
-  // ── FOOTER ──
+  // Footer
   document.getElementById('footerCopy').textContent = `© ${new Date().getFullYear()} ${brand.siteName||'Mel Hair Braiding'}. All rights reserved.`;
   document.getElementById('footerCredit').textContent = site.footer?.credit||'';
   document.querySelector('.footer-tagline').textContent = brand.footerTagline||site.footer?.copy||'';
   document.getElementById('footerContact').innerHTML = `
-    <li><a href="${brand.phoneHref||'tel:+12028928841'}">${brand.phone||'(202) 892-8841'}</a></li>
+    <li><a href="${brand.phoneHref||'tel:+2028928841'}">${brand.phone||'(202) 892-8841'}</a></li>
     <li><a href="mailto:${brand.email||'melhairbraiding1@gmail.com'}">${brand.email||'melhairbraiding1@gmail.com'}</a></li>
     <li style="color:var(--text-dim);font-size:.85rem;margin-top:.5rem">${brand.location||'Upper Marlboro, MD'}</li>`;
 
-  // ── RE-OBSERVE REVEALS ──
+  // Re-observe new reveal elements
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
+  // Welcome banner
+  const bannerTrack = document.getElementById('bannerTrack');
+  if (bannerTrack) {
+    const msg = 'Welcome to Mel Hair Braiding';
+    const dot = '<span class="dot">✦</span>';
+    const repeated = Array(12).fill(`<span>${msg}</span>${dot}`).join('');
+    bannerTrack.innerHTML = repeated + repeated; // duplicate for seamless loop
+  }
+
+  // Video hero — load from admin (videoFile) with image poster fallback
+  const slides = site.hero.slides || [];
+  const videoEls = [
+    document.getElementById('heroVideo0'),
+    document.getElementById('heroVideo1'),
+    document.getElementById('heroVideo2')
+  ];
+  let activeVids = [];
+  videoEls.forEach((v, i) => {
+    if (!v || !slides[i]) return;
+    if (slides[i].image) v.poster = slides[i].image;
+    if (slides[i].videoFile) {
+      v.src = slides[i].videoFile;
+      v.load();
+    }
+    activeVids.push(v);
+  });
+
+  let currentVid = 0;
+  if (activeVids.length) {
+    activeVids[0].classList.add('active');
+    if (activeVids[0].src) activeVids[0].play().catch(()=>{});
+
+    setInterval(() => {
+      activeVids[currentVid].classList.remove('active');
+      if (activeVids[currentVid].src) activeVids[currentVid].pause();
+      currentVid = (currentVid + 1) % activeVids.length;
+      activeVids[currentVid].classList.add('active');
+      if (activeVids[currentVid].src) activeVids[currentVid].play().catch(()=>{});
+      document.querySelectorAll('.hero-dot').forEach((d,i) => d.classList.toggle('active', i===currentVid));
+    }, 5000);
+  }
+
+  // Re-observe new reveal elements
   document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
 })();
 </script>
