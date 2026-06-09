@@ -96,16 +96,19 @@
     "secondaryButton": "View Pricing",
     "slides": [
       {
-        "image": "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=1600&q=80",
-        "alt": "Braiding session in studio"
+        "image": "/assets/uploads/img_6926.jpeg",
+        "alt": "Braiding session in studio",
+        "videoFile": "/assets/uploads/vid-20260608-wa0039.mp4"
       },
       {
         "image": "https://images.unsplash.com/photo-1638899108736-8a1b29b1a8d8?auto=format&fit=crop&w=1600&q=80",
-        "alt": "Knotless braid install"
+        "alt": "Knotless braid install",
+        "videoFile": "/assets/uploads/vid-20260608-wa0052.mp4"
       },
       {
-        "image": "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1600&q=80",
-        "alt": "Finished braid style"
+        "image": "/assets/uploads/img_5318.jpeg",
+        "alt": "Finished braid style",
+        "videoFile": "/assets/uploads/vid-20260608-wa0048.mp4"
       }
     ],
     "highlights": [
