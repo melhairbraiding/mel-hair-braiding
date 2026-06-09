@@ -66,6 +66,13 @@
         "label": "Boho Twists",
         "alt": "Boho twists video",
         "duration": "0:20"
+      },
+      {
+        "duration": "0:20",
+        "videoFile": "/assets/uploads/vid-20260608-wa0050.mp4",
+        "thumbnail": "/assets/uploads/1000027904.jpeg",
+        "label": "Lovely Fresh Scent",
+        "alt": "Ready for the beach"
       }
     ]
   },
