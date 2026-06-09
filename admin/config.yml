@@ -24,7 +24,7 @@ collections:
           - { label: "Logo Text (if no image)", name: "logoText", widget: "string", default: "MHB" }
           - { label: "Footer Tagline", name: "footerTagline", widget: "string" }
           - { label: "Phone Number", name: "phone", widget: "string" }
-          - { label: "Phone Link", name: "phoneHref", widget: "string", hint: "Format: +15550181331" }
+          - { label: "Phone Link", name: "phoneHref", widget: "string", hint: "Format: +12028928841" }
           - { label: "Email", name: "email", widget: "string" }
           - { label: "City / Location", name: "location", widget: "string" }
 
@@ -66,36 +66,12 @@ collections:
               - { label: "Paragraph", name: "copy", widget: "text" }
               - { label: "Section Image", name: "image", widget: "image", required: false }
               - { label: "Image Quote", name: "imageQuote", widget: "string" }
-          - label: "Price List Images"
-            name: "priceListImages"
-            widget: "list"
-            hint: "Upload price list images (JPEGs). Add as many as you need — each displays on the pricing page."
-            summary: "Image {{index}}"
-            field: { label: "Price List Image", name: "image", widget: "image" }
-          - label: "Price Tables (Editable)"
-            name: "priceTables"
-            widget: "list"
-            hint: "Add, remove, or edit price tables. Each table appears on the pricing page and feeds into the booking calculator."
-            summary: "{{fields.title}}"
+          - label: "Services Section Heading"
+            name: "servicesSection"
+            widget: "object"
             fields:
-              - { label: "Table Title", name: "title", widget: "string", hint: "e.g. Knotless & Box Braids" }
-              - { label: "Subtitle / Note", name: "subtitle", widget: "string", hint: "e.g. *All Hairs Included*", required: false }
-              - label: "Column Headers (Sizes)"
-                name: "sizes"
-                widget: "list"
-                hint: "e.g. Small, S-Medium, Medium, Large, Jumbo"
-                field: { label: "Size", name: "size", widget: "string" }
-              - label: "Price Rows"
-                name: "rows"
-                widget: "list"
-                summary: "{{fields.length}}"
-                fields:
-                  - { label: "Length / Row Label", name: "length", widget: "string" }
-                  - label: "Prices (one per size column, left to right)"
-                    name: "prices"
-                    widget: "list"
-                    field: { label: "Price ($)", name: "price", widget: "number" }
-              - { label: "Footer Notes", name: "notes", widget: "text", required: false, hint: "e.g. Extra $30 for wash · No oils before coming in" }
+              - { label: "Small Heading", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
           - label: "Services"
             name: "services"
             widget: "list"
@@ -118,11 +94,11 @@ collections:
                 widget: "list"
                 summary: "{{fields.label}}"
                 fields:
-                  - { label: "Video File (MP4)", name: "videoFile", widget: "file", required: false, hint: "Upload an MP4 video. Keep under 50MB for fast loading. Recommended: 20-30 second clips.", media_library: { config: { multiple: false } } }
-                  - { label: "Thumbnail Image", name: "thumbnail", widget: "image", required: false, hint: "Cover image shown before the video plays. Upload your own photo here." }
-                  - { label: "Video Label", name: "label", widget: "string", hint: "e.g. Knotless Install, Box Braids" }
+                  - { label: "Video File (MP4)", name: "videoFile", widget: "file", required: false, hint: "Upload an MP4 video. Keep under 50MB. Recommended: 20-30 second clips." }
+                  - { label: "Thumbnail Image", name: "thumbnail", widget: "image", required: false }
+                  - { label: "Video Label", name: "label", widget: "string" }
                   - { label: "Alt Text", name: "alt", widget: "string" }
-                  - { label: "Duration (display only)", name: "duration", widget: "string", default: "0:20", hint: "e.g. 0:20, 0:45, 1:30" }
+                  - { label: "Duration (display only)", name: "duration", widget: "string", default: "0:20" }
           - label: "Gallery Strip Section"
             name: "galleryPreview"
             widget: "object"
@@ -147,6 +123,18 @@ collections:
                 fields:
                   - { label: "Title", name: "title", widget: "string" }
                   - { label: "Description", name: "tip", widget: "text" }
+          - label: "Booking Section"
+            name: "booking"
+            widget: "object"
+            fields:
+              - { label: "Small Heading", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Paragraph", name: "copy", widget: "text" }
+              - { label: "Background Image", name: "image", widget: "image", required: false, hint: "Upload your own photo for the booking section background." }
+              - { label: "Button Text", name: "button", widget: "string" }
+              - { label: "Phone Display", name: "phoneDisplay", widget: "string" }
+              - { label: "Phone Link", name: "phoneHref", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
           - label: "Footer"
             name: "footer"
             widget: "object"
@@ -232,26 +220,24 @@ collections:
         format: "json"
         fields:
           - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
-          - { label: "Deposit Amount", name: "depositAmount", widget: "string", default: "$50" }
+          - { label: "Deposit Amount", name: "depositAmount", widget: "string", default: "$20" }
           - { label: "Cancellation Policy", name: "cancellationPolicy", widget: "text" }
           - label: "Price List Images"
             name: "priceListImages"
             widget: "list"
-            hint: "Upload price list images (JPEGs). Add as many as you need — each displays on the pricing page."
+            hint: "Upload price list images. Add as many as needed."
             summary: "Image {{index}}"
             field: { label: "Price List Image", name: "image", widget: "image" }
           - label: "Price Tables (Editable)"
             name: "priceTables"
             widget: "list"
-            hint: "Add, remove, or edit price tables. Each table appears on the pricing page and feeds into the booking calculator."
             summary: "{{fields.title}}"
             fields:
-              - { label: "Table Title", name: "title", widget: "string", hint: "e.g. Knotless & Box Braids" }
-              - { label: "Subtitle / Note", name: "subtitle", widget: "string", hint: "e.g. *All Hairs Included*", required: false }
+              - { label: "Table Title", name: "title", widget: "string" }
+              - { label: "Subtitle / Note", name: "subtitle", widget: "string", required: false }
               - label: "Column Headers (Sizes)"
                 name: "sizes"
                 widget: "list"
-                hint: "e.g. Small, S-Medium, Medium, Large, Jumbo"
                 field: { label: "Size", name: "size", widget: "string" }
               - label: "Price Rows"
                 name: "rows"
@@ -259,11 +245,11 @@ collections:
                 summary: "{{fields.length}}"
                 fields:
                   - { label: "Length / Row Label", name: "length", widget: "string" }
-                  - label: "Prices (one per size column, left to right)"
+                  - label: "Prices (one per size column)"
                     name: "prices"
                     widget: "list"
                     field: { label: "Price ($)", name: "price", widget: "number" }
-              - { label: "Footer Notes", name: "notes", widget: "text", required: false, hint: "e.g. Extra $30 for wash · No oils before coming in" }
+              - { label: "Footer Notes", name: "notes", widget: "text", required: false }
           - label: "Services"
             name: "services"
             widget: "list"
