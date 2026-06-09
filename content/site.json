@@ -41,7 +41,7 @@
     "items": [
       {
         "videoFile": "",
-        "thumbnail": "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=800&q=80",
+        "thumbnail": "/assets/uploads/img_1144.jpeg",
         "label": "Knotless Install",
         "alt": "Knotless braid install video",
         "duration": "0:20"
