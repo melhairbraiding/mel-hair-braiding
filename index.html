@@ -273,29 +273,96 @@
     fetch('content/gallery.json').then(r=>r.json()).catch(()=>({images:[]}))
   ]);
 
-  // heroSlides section disabled — video hero handles dots instead
+  // ── HERO VIDEOS ──
+  const heroSlideData = site.hero.slides || [];
+  const heroVidEls = [
+    document.getElementById('heroVideo0'),
+    document.getElementById('heroVideo1'),
+    document.getElementById('heroVideo2')
+  ];
 
-  // Hero content
+  // Set poster image (shows instantly) and video src for each slot
+  heroVidEls.forEach((v, i) => {
+    if (!v || !heroSlideData[i]) return;
+    if (heroSlideData[i].image) v.poster = heroSlideData[i].image;
+    if (heroSlideData[i].videoFile) {
+      v.src = heroSlideData[i].videoFile;
+      v.preload = 'metadata';
+    }
+  });
+
+  // Build dots — one per slide
+  const dotsContainer = document.getElementById('heroDots');
+  dotsContainer.innerHTML = '';
+  heroSlideData.forEach((s, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
+    dotsContainer.appendChild(dot);
+    dot.addEventListener('click', () => {
+      clearInterval(heroVidTimer);
+      switchHeroVid(i);
+      heroVidTimer = setInterval(() => switchHeroVid((heroVidCurrent + 1) % heroSlideData.length), 7000);
+    });
+  });
+
+  let heroVidCurrent = 0;
+  let heroVidTimer = null;
+
+  function switchHeroVid(n) {
+    // Pause & hide current
+    const prev = heroVidEls[heroVidCurrent];
+    if (prev) { prev.classList.remove('active'); try { prev.pause(); } catch(e){} }
+    // Update dots
+    dotsContainer.querySelectorAll('.hero-dot').forEach((d,i) => d.classList.toggle('active', i === n));
+    heroVidCurrent = n;
+    // Show & play next
+    const next = heroVidEls[heroVidCurrent];
+    if (next) {
+      next.classList.add('active');
+      if (next.src) { next.currentTime = 0; next.play().catch(()=>{}); }
+    }
+  }
+
+  // Start first video immediately
+  if (heroVidEls[0]) {
+    heroVidEls[0].classList.add('active');
+    if (heroVidEls[0].src) heroVidEls[0].play().catch(()=>{});
+  }
+
+  // Auto-rotate every 7 seconds
+  heroVidTimer = setInterval(() => {
+    switchHeroVid((heroVidCurrent + 1) % heroSlideData.length);
+  }, 7000);
+
+  // ── HERO TEXT ──
   document.getElementById('heroEyebrow').textContent = site.hero.eyebrow||'';
   document.getElementById('heroHeadline').innerHTML = `${site.hero.headline1||''}<br>${site.hero.headline2||''}`;
   document.getElementById('heroCopy').textContent = site.hero.copy||'';
   document.getElementById('heroPrimary').textContent = site.hero.primaryButton||'Book Now';
   document.getElementById('heroSecondary').textContent = site.hero.secondaryButton||'View Pricing';
 
-  // Badges
+  // ── BADGES ──
   const badgesEl = document.getElementById('heroBadges');
   (site.hero.highlights||[]).forEach(h => {
     badgesEl.innerHTML += `<div class="hero-badge"><strong>${h.title}</strong><span>${h.text}</span></div>`;
   });
 
-  // Intro
+  // ── WELCOME BANNER ──
+  const bannerTrack = document.getElementById('bannerTrack');
+  if (bannerTrack) {
+    const msg = 'Welcome to Mel Hair Braiding — Call/Text us 24/7 at +1 (202) 892-8841 or Email melhairbraiding1@gmail.com';
+    const repeated = Array(10).fill(`<span>${msg}</span><span class="dot">✦</span>`).join('');
+    bannerTrack.innerHTML = repeated + repeated;
+  }
+
+  // ── INTRO ──
   document.getElementById('introEyebrow').textContent = site.intro?.eyebrow||'';
   document.getElementById('introHeading').textContent = site.intro?.heading||'';
   document.getElementById('introCopy').textContent = site.intro?.copy||'';
   if (site.intro?.image) document.getElementById('introImg').src = site.intro.image;
   document.getElementById('introQuote').textContent = `"${site.intro?.imageQuote||''}"`;
 
-  // Services
+  // ── SERVICES ──
   const sg = document.getElementById('servicesGrid');
   document.getElementById('servicesEyebrow').textContent = site.servicesSection?.eyebrow||'What We Offer';
   document.getElementById('servicesHeading').textContent = site.servicesSection?.heading||'Choose your next crown';
@@ -307,13 +374,11 @@
     </div>`;
   });
 
-  // Videos
+  // ── VIDEO SECTION ──
   document.getElementById('videoEyebrow').textContent = site.videos?.eyebrow||'Watch the Work';
   document.getElementById('videoHeading').textContent = site.videos?.heading||'See the process in motion';
   document.getElementById('videoCopy').textContent = site.videos?.copy||'';
   const vg = document.getElementById('videoGrid');
-
-  // Video lightbox
   const lb = document.createElement('div');
   lb.className = 'video-lightbox';
   lb.id = 'videoLightbox';
@@ -321,7 +386,6 @@
   document.body.appendChild(lb);
   document.getElementById('videoLbClose').addEventListener('click', () => { lb.classList.remove('open'); document.getElementById('videoLbPlayer').pause(); });
   lb.addEventListener('click', e => { if(e.target===lb){lb.classList.remove('open'); document.getElementById('videoLbPlayer').pause();}});
-
   (site.videos?.items||[]).forEach((v,i) => {
     const card = document.createElement('div');
     card.className = `video-card reveal reveal-delay-${i%3}`;
@@ -333,21 +397,13 @@
     card.addEventListener('click', () => {
       const player = document.getElementById('videoLbPlayer');
       document.getElementById('videoLbLabel').textContent = v.label||'';
-      if (v.videoFile) {
-        player.src = v.videoFile;
-        lb.classList.add('open');
-        player.play();
-      } else {
-        // No video uploaded yet — show placeholder message
-        player.removeAttribute('src');
-        lb.classList.add('open');
-        player.outerHTML = `<div style="color:var(--text-muted);text-align:center;padding:3rem"><div style="font-size:3rem;margin-bottom:1rem">🎬</div><p>No video uploaded yet.</p><p style="font-size:.85rem;margin-top:.5rem">Upload a video via Admin → Homepage → Videos</p></div>`;
-      }
+      if (v.videoFile) { player.src = v.videoFile; lb.classList.add('open'); player.play(); }
+      else { lb.classList.add('open'); player.outerHTML = `<div style="color:var(--text-muted);text-align:center;padding:3rem"><div style="font-size:3rem;margin-bottom:1rem">🎬</div><p>No video uploaded yet.</p></div>`; }
     });
     vg.appendChild(card);
   });
 
-  // Gallery strip (first 4 from gallery.json)
+  // ── GALLERY STRIP ──
   document.getElementById('galleryEyebrow').textContent = site.galleryPreview?.eyebrow||'The Look';
   document.getElementById('galleryHeading').textContent = site.galleryPreview?.heading||'Detailed parts, smooth finish.';
   const gs = document.getElementById('galleryStrip');
@@ -355,13 +411,13 @@
     gs.innerHTML += `<div class="gallery-strip-item"><img src="${img.image}" alt="${img.alt}"/></div>`;
   });
 
-  // Quote
+  // ── QUOTE ──
   document.getElementById('quoteText').textContent = `"${site.quote?.text||''}"`;
   document.getElementById('quoteAuthor').textContent = `— ${site.quote?.author||''}`;
 
-  // Care tips
+  // ── CARE TIPS ──
   document.getElementById('careEyebrow').textContent = site.care?.eyebrow||'Before You Arrive';
-  document.getElementById('careHeading').textContent = site.care?.heading||'A little prep keeps the install smooth.';
+  document.getElementById('careHeading').textContent = site.care?.heading||'';
   const cg = document.getElementById('careGrid');
   (site.care?.tips||[]).forEach((t,i) => {
     cg.innerHTML += `<div class="care-item reveal reveal-delay-${i+1}">
@@ -370,94 +426,23 @@
     </div>`;
   });
 
-  // Booking CTA
+  // ── BOOKING CTA ──
   document.getElementById('bookingEyebrow').textContent = site.booking?.eyebrow||'Ready?';
   document.getElementById('bookingHeading').textContent = site.booking?.heading||'Tell us what you want in the chair.';
   document.getElementById('bookingCopy').textContent = site.booking?.copy||'';
   document.getElementById('bookingBtn').textContent = site.booking?.button||'Request Appointment';
   if (site.booking?.image) document.getElementById('bookingImg').style.backgroundImage = `url('${site.booking.image}')`;
 
-  // Footer
+  // ── FOOTER ──
   document.getElementById('footerCopy').textContent = `© ${new Date().getFullYear()} ${brand.siteName||'Mel Hair Braiding'}. All rights reserved.`;
   document.getElementById('footerCredit').textContent = site.footer?.credit||'';
   document.querySelector('.footer-tagline').textContent = brand.footerTagline||site.footer?.copy||'';
   document.getElementById('footerContact').innerHTML = `
-    <li><a href="${brand.phoneHref||'tel:+2028928841'}">${brand.phone||'(202) 892-8841'}</a></li>
+    <li><a href="${brand.phoneHref||'tel:+12028928841'}">${brand.phone||'(202) 892-8841'}</a></li>
     <li><a href="mailto:${brand.email||'melhairbraiding1@gmail.com'}">${brand.email||'melhairbraiding1@gmail.com'}</a></li>
     <li style="color:var(--text-dim);font-size:.85rem;margin-top:.5rem">${brand.location||'Upper Marlboro, MD'}</li>`;
 
-  // Re-observe new reveal elements
-  document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
-  // Welcome banner
-  const bannerTrack = document.getElementById('bannerTrack');
-  if (bannerTrack) {
-    const msg = 'Welcome to Mel Hair Braiding';
-    const dot = '<span class="dot">✦</span>';
-    const repeated = Array(12).fill(`<span>${msg}</span>${dot}`).join('');
-    bannerTrack.innerHTML = repeated + repeated; // duplicate for seamless loop
-  }
-
-  // ── VIDEO HERO ──
-  const heroSlideData = site.hero.slides || [];
-  const heroVidEls = [
-    document.getElementById('heroVideo0'),
-    document.getElementById('heroVideo1'),
-    document.getElementById('heroVideo2')
-  ];
-
-  // 1. Set poster + src for each video slot
-  heroVidEls.forEach((v, i) => {
-    if (!v || !heroSlideData[i]) return;
-    if (heroSlideData[i].image) v.poster = heroSlideData[i].image; // shows instantly
-    if (heroSlideData[i].videoFile) {
-      v.src = heroSlideData[i].videoFile;
-      v.preload = 'auto';
-    }
-  });
-
-  // 2. Build dots — one per slide, replacing any existing dots
-  const dotsContainer = document.getElementById('heroDots');
-  dotsContainer.innerHTML = ''; // clear old dots from heroSlides section
-  heroSlideData.forEach((s, i) => {
-    const dot = document.createElement('div');
-    dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
-    dotsContainer.appendChild(dot);
-    dot.addEventListener('click', () => {
-      clearInterval(heroVidTimer);
-      switchHeroVid(i);
-      heroVidTimer = setInterval(() => switchHeroVid((heroVidCurrent + 1) % heroSlideData.length), 20000);
-    });
-  });
-
-  // 3. Switch function
-  let heroVidCurrent = 0;
-  function switchHeroVid(n) {
-    // Hide current
-    const prev = heroVidEls[heroVidCurrent];
-    if (prev) { prev.classList.remove('active'); try { prev.pause(); } catch(e){} }
-    // Update dots
-    dotsContainer.querySelectorAll('.hero-dot').forEach((d,i) => d.classList.toggle('active', i===n));
-    heroVidCurrent = n;
-    // Show next
-    const next = heroVidEls[heroVidCurrent];
-    if (next) {
-      next.classList.add('active');
-      if (next.src) { next.currentTime = 0; next.play().catch(()=>{}); }
-    }
-  }
-
-  // 4. Start first slide immediately
-  if (heroVidEls[0]) {
-    heroVidEls[0].classList.add('active');
-    if (heroVidEls[0].src) heroVidEls[0].play().catch(()=>{});
-  }
-
-  // 5. Auto-rotate every 20 seconds
-  let heroVidTimer = setInterval(() => {
-    switchHeroVid((heroVidCurrent + 1) % heroSlideData.length);
-  }, 20000);
-
-  // Re-observe reveal elements
+  // ── RE-OBSERVE REVEALS ──
   document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
 })();
 </script>
