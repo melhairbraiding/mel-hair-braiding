@@ -209,18 +209,6 @@
       ]
     },
     {
-      "name": "Loc Care",
-      "tagline": "Loc Journey",
-      "price": "$85",
-      "duration": "1.5–4 hours",
-      "featured": false,
-      "features": [
-        "Retwists — all stages",
-        "Starter loc consult + install",
-        "Detox care treatments"
-      ]
-    },
-    {
       "name": "Consultation",
       "tagline": "Start Here",
       "price": "$20",
