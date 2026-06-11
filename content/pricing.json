@@ -151,6 +151,80 @@
         }
       ],
       "notes": "Call/send pics for Gypsy, Bora Bora prices & all other styles not listed"
+    },
+    {
+      "title": "Island twist ",
+      "subtitle": "*All Hairs Included*",
+      "sizes": [
+        "Small",
+        "S-Medium",
+        "Medium",
+        "Large",
+        "Jumbo"
+      ],
+      "rows": [
+        {
+          "length": "Shoulder",
+          "prices": [
+            380,
+            350,
+            300,
+            280,
+            280
+          ]
+        },
+        {
+          "length": "Mid-Back",
+          "prices": [
+            410,
+            380,
+            310,
+            260,
+            260
+          ]
+        },
+        {
+          "length": "Waist-Length",
+          "prices": [
+            460,
+            410,
+            340,
+            280,
+            280
+          ]
+        },
+        {
+          "length": "Top-Butt",
+          "prices": [
+            530,
+            460,
+            380,
+            350,
+            350
+          ]
+        },
+        {
+          "length": "Mid-Butt",
+          "prices": [
+            560,
+            510,
+            410,
+            360,
+            360
+          ]
+        },
+        {
+          "length": "Under-Butt",
+          "prices": [
+            610,
+            560,
+            420,
+            380,
+            380
+          ]
+        }
+      ],
+      "notes": "*All hair included*\n**We don't twist from the roots**"
     }
   ],
   "services": [
