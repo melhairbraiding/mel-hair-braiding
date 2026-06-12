@@ -225,6 +225,73 @@
         }
       ],
       "notes": "*All hair included*\n**We don't twist from the roots**"
+    },
+    {
+      "title": "Senegalese twist",
+      "subtitle": "All hair include ",
+      "sizes": [
+        "Small",
+        "S-medium",
+        "Medium ",
+        "Large"
+      ],
+      "rows": [
+        {
+          "length": "Shoulder ",
+          "prices": [
+            280,
+            260,
+            220,
+            200
+          ]
+        },
+        {
+          "length": "Midback",
+          "prices": [
+            310,
+            290,
+            250,
+            220
+          ]
+        },
+        {
+          "length": "Waist ",
+          "prices": [
+            350,
+            330,
+            280,
+            250
+          ]
+        },
+        {
+          "length": "Top butt",
+          "prices": [
+            400,
+            370,
+            320,
+            280
+          ]
+        },
+        {
+          "length": "Mid butt",
+          "prices": [
+            450,
+            400,
+            340,
+            310
+          ]
+        },
+        {
+          "length": "Under butt",
+          "prices": [
+            490,
+            430,
+            360,
+            330
+          ]
+        }
+      ],
+      "notes": "We don't twist from\nThe root "
     }
   ],
   "services": [
