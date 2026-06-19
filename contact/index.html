@@ -59,7 +59,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="nav-hamburger"><span></span><span></span><span></span></div>
 </nav>
 <div class="page-hero" style="height:40vh">
-  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1600&q=80');"></div>
+  <div class="page-hero-bg" id="contactHeroBg" style="background-image:url('https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1600&q=80');"></div>
   <div class="page-hero-overlay"></div>
   <div class="page-hero-content"><span class="eyebrow">Reach Out</span><h1>Contact Us</h1></div>
 </div>
@@ -181,6 +181,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   const days = ['h-sun','h-mon','h-tue','h-wed','h-thu','h-fri','h-sat'];
   const todayRow = document.getElementById(days[new Date().getDay()]);
   if (todayRow) todayRow.classList.add('today');
+  fetch('../content/contact.json').then(r=>r.json()).then(d=>{
+    if (d.heroImage) document.getElementById('contactHeroBg').style.backgroundImage = "url('"+d.heroImage+"')";
+  }).catch(()=>{});
   const form = document.getElementById('contactForm');
   form.addEventListener('submit', async e => {
     e.preventDefault();
