@@ -297,6 +297,9 @@ function handleBooking() {
   setTimeout(() => { document.getElementById('bookForm').style.display = 'none'; document.getElementById('successCard').classList.add('show'); }, 1500);
 }
 document.getElementById('footerCopy').textContent = `© ${new Date().getFullYear()} Mel Hair Braiding. All rights reserved.`;
+  fetch('../content/book.json').then(r=>r.json()).then(d=>{
+    if (d.heroImage) document.getElementById('bookHeroBg').style.backgroundImage = "url('"+d.heroImage+"')";
+  }).catch(()=>{});
 </script>
 </body>
 </html>
