@@ -54,7 +54,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="nav-hamburger"><span></span><span></span><span></span></div>
 </nav>
 <div class="page-hero">
-  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1600&q=80');"></div>
+  <div class="page-hero-bg" id="testimonialsHeroBg" style="background-image:url('https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1600&q=80');"></div>
   <div class="page-hero-overlay"></div>
   <div class="page-hero-content"><span class="eyebrow">What Clients Say</span><h1>Testimonials</h1></div>
 </div>
@@ -102,6 +102,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   document.getElementById('footerCopy').textContent = `© ${new Date().getFullYear()} ${brand.siteName||'Mel Hair Braiding'}.`;
   document.querySelector('.footer-tagline').textContent = brand.footerTagline||'';
   document.getElementById('footerContact').innerHTML = `<li><a href="${brand.phoneHref||''}">${brand.phone||''}</a></li><li><a href="mailto:${brand.email||''}">${brand.email||''}</a></li>`;
+  if (data.heroImage) document.getElementById('testimonialsHeroBg').style.backgroundImage = "url('"+data.heroImage+"')";
   const items = data.items||[];
   if (!items.length) { document.getElementById('testimonialsGrid').innerHTML = '<div class="empty-state">No testimonials yet — add them in the admin panel.</div>'; return; }
   const avg = (items.reduce((s,i)=>s+(i.rating||5),0)/items.length).toFixed(1);
