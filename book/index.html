@@ -85,13 +85,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </ul>
   <div class="nav-hamburger"><span></span><span></span><span></span></div>
 </nav>
-
 <div class="page-hero" style="height:35vh">
   <div class="page-hero-bg" id="bookHeroBg" style="background-image:url('https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=1600&q=80');"></div>
   <div class="page-hero-overlay"></div>
   <div class="page-hero-content"><span class="eyebrow">Reserve Your Seat</span><h1>Book Now</h1></div>
 </div>
-
 <section class="section" style="background:var(--bg)">
   <div class="section-inner">
     <div class="styleseat-banner reveal">
@@ -194,7 +192,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </section>
-
 <footer class="footer">
   <div class="footer-inner">
     <div><div class="footer-logo">MHB <span>Mel Hair Braiding</span></div><p class="footer-tagline" style="font-size:.9rem;color:var(--text-dim);max-width:240px;line-height:1.7;margin-top:.5rem">Protective styling by appointment in Upper Marlboro, MD.</p></div>
@@ -203,7 +200,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <div class="footer-bottom"><span id="footerCopy"></span></div>
 </footer>
-
 <script src="../assets/js/global.js"></script>
 <script>
 const SIZES = ['Small','S.Medium','Medium','Large','Jumbo'];
@@ -283,17 +279,48 @@ function updateSummary() {
   if (state.addons.length) { document.getElementById('sumAddonsRow').classList.remove('hidden'); document.getElementById('sumAddons').textContent = state.addons.map(i=>ADDONS[i].name).join(', '); }
   else { document.getElementById('sumAddonsRow').classList.add('hidden'); }
 }
-function handleBooking() {
+async function handleBooking() {
   if (!state.service) { alert('Please select a service.'); return; }
   if (state.service.hasSizeLength && (state.size === null || state.length === null)) { alert('Please select both a size and length for your style.'); return; }
   const fname = document.getElementById('fname').value.trim();
+  const lname = document.getElementById('lname').value.trim();
   const email = document.getElementById('email').value.trim();
   const phone = document.getElementById('phone').value.trim();
   const date  = document.getElementById('prefDate').value;
+  const time  = document.getElementById('prefTime').value;
+  const notes = document.getElementById('notes').value.trim();
   if (!fname || !email || !phone || !date) { alert('Please fill in all required fields.'); return; }
   const addonNames = state.addons.map(i=>ADDONS[i].name).join(', ');
   const note = [state.service.name, state.size !== null ? `Size: ${SIZES[state.size]}` : '', state.length !== null ? `Length: ${LENGTHS[state.length]}` : '', addonNames ? `Add-ons: ${addonNames}` : '', `Date: ${date}`, `Client: ${fname}`].filter(Boolean).join(' | ');
-  window.open(`https://www.paypal.me/RosianeLontchi/20?note=${encodeURIComponent(note)}`, '_blank');
+
+  // Send booking details to melhairbraiding1@gmail.com
+  const btn = document.getElementById('payBtn');
+  btn.textContent = 'Sending booking details...';
+  btn.disabled = true;
+  try {
+    await fetch('https://formspree.io/f/xzdwkbeq', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        _subject: `New Booking Request — ${fname} ${lname}`,
+        Service: state.service.name,
+        Size: state.size !== null ? SIZES[state.size] : 'N/A',
+        Length: state.length !== null ? LENGTHS[state.length] : 'N/A',
+        'Add-ons': addonNames || 'None',
+        'Estimated Price': state.price ? `$${state.price}` : 'N/A',
+        'Preferred Date': date,
+        'Preferred Time': time,
+        'Client Name': `${fname} ${lname}`,
+        'Client Phone': phone,
+        'Client Email': email,
+        'Notes': notes || 'None',
+        'Deposit': '$20 via PayPal'
+      })
+    });
+  } catch(e) { /* silent — still proceed to PayPal */ }
+
+  // Open PayPal business payment link
+  window.open(`https://www.paypal.com/ncp/payment/E2GVZH7MBPQ5L`, '_blank');
   setTimeout(() => { document.getElementById('bookForm').style.display = 'none'; document.getElementById('successCard').classList.add('show'); }, 1500);
 }
 document.getElementById('footerCopy').textContent = `© ${new Date().getFullYear()} Mel Hair Braiding. All rights reserved.`;
