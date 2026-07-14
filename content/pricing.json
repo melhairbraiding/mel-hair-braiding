@@ -299,79 +299,8 @@
       "notes": "We don't twist from\nThe root "
     }
   ],
-  "services": [
-    {
-      "name": "Knotless Braids",
-      "tagline": "Most Popular",
-      "price": "$180",
-      "duration": "4–7 hours",
-      "featured": false,
-      "features": [
-        "Feed-in technique for natural root",
-        "Reduced scalp tension",
-        "All hair included",
-        "Small through Jumbo sizes",
-        "Optional beads & accessories"
-      ]
-    },
-    {
-      "name": "Box Braids",
-      "tagline": "Classic",
-      "price": "$180",
-      "duration": "4–8 hours",
-      "featured": true,
-      "features": [
-        "Clean, uniform sections",
-        "Secure ends — no slipping",
-        "All hair included",
-        "Optional beads & cuffs",
-        "Shoulder to Under Butt length"
-      ]
-    },
-    {
-      "name": "Boho Knotless/Box",
-      "tagline": "Premium",
-      "price": "$240",
-      "duration": "5–9 hours",
-      "featured": false,
-      "features": [
-        "Braiding hair + 100% human hair included",
-        "Soft curly finish",
-        "Small through Jumbo sizes",
-        "Shoulder to Under Butt length"
-      ]
-    },
-    {
-      "name": "Feed-In Cornrows",
-      "tagline": "Quick & Clean",
-      "price": "$95",
-      "duration": "2–5 hours",
-      "featured": false,
-      "features": [
-        "Straight-backs, stitch, or custom pattern",
-        "Ponytail or bun finish",
-        "Feed-in for length",
-        "Clean hairline work"
-      ]
-    },
-    {
-      "name": "Consultation",
-      "tagline": "Start Here",
-      "price": "$20",
-      "duration": "20 minutes",
-      "featured": false,
-      "features": [
-        "Scalp & hair health check",
-        "Style recommendations",
-        "Applied to first service"
-      ]
-    }
-  ],
+  "services": [],
   "addons": [
-    {
-      "name": "Hair Wash",
-      "price": "+$30"
-    },
     {
       "name": "Beads & Accessories",
       "price": "+$15"
@@ -382,7 +311,15 @@
     },
     {
       "name": "Braid Removal",
-      "price": "From $60"
+      "price": "From $70"
+    },
+    {
+      "name": "Two strands twists",
+      "price": "$100 & up"
+    },
+    {
+      "name": "Plate no hair add",
+      "price": "$120"
     }
   ]
 }
