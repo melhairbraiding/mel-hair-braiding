@@ -1,10 +1,13 @@
 {
   "heroImage": "/assets/uploads/img_7436.png",
-  "depositAmount": "$20",
-  "cancellationPolicy": "A $20 deposit is required to hold all appointments. Deposits are applied to your final total. Cancellations with less than 48 hours notice forfeit the deposit.",
+  "depositAmount": "$50",
+  "cancellationPolicy": "A $50 deposit is required to hold all appointments. Deposits are applied to your final total. Cancellations with less than 48 hours notice forfeit the deposit.",
   "priceListImages": [
     "/assets/uploads/img_7440.png",
-    "/assets/uploads/img_7439.png"
+    "/assets/uploads/img_7439.png",
+    "/assets/uploads/1c564649-85a6-4877-94c4-5e2acbb55095.png",
+    "/assets/uploads/3e13ae70-0d8b-41d2-9806-d7c58bcc3466.png",
+    "/assets/uploads/44a75576-fb8c-458b-879e-748072a74f42.png"
   ],
   "priceTables": [
     {
@@ -375,12 +378,12 @@
       "price": "+$15"
     },
     {
-      "name": "Braid Removal",
-      "price": "From $40"
-    },
-    {
       "name": "Extra thick/tangled hair",
       "price": "Extra charge"
+    },
+    {
+      "name": "Braid Removal",
+      "price": "From $60"
     }
   ]
 }
