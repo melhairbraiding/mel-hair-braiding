@@ -6,7 +6,8 @@
     "/assets/uploads/img_7440.png",
     "/assets/uploads/img_7799.png",
     "/assets/uploads/img_7800.png",
-    "/assets/uploads/img_7801.png"
+    "/assets/uploads/img_7801.png",
+    "/assets/uploads/img_7480.png"
   ],
   "priceTables": [
     {
@@ -319,7 +320,7 @@
     },
     {
       "name": "Plate no hair add",
-      "price": "$120"
+      "price": "$120 &up"
     }
   ]
 }
